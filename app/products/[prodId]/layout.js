@@ -3,7 +3,6 @@ import MobileHeader from "@/components/header/header-mobile";
 import CartModal from "@/components/cart/cart-modal";
 import "@/app/globals.css";
 import MainFooter from "@/components/footer/main-footer";
-import { Providers } from "@/context/provider";
 import { CartProvider } from "@/context/cart-context";
 
 export const metadata = {

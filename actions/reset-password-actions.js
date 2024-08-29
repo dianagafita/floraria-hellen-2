@@ -1,6 +1,6 @@
 "use server";
 
-import { ResetPasswordTemplate } from "@/components/change-password-email";
+import { ResetPasswordTemplate } from "@/components/emailTemplates/change-password-email";
 import prisma from "@/lib/prisma";
 import crypto from "crypto";
 import { Resend } from "resend";
