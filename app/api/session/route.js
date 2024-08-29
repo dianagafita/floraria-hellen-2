@@ -2,9 +2,10 @@
 "use server";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-import { createUser } from "@/lib/user";
+import { createUser, getUserByEmail } from "@/lib/user"; // Assuming findUserByEmail is implemented
 import { createAuthSession } from "@/lib/auth";
 import { hashUserPassword } from "@/lib/hash";
+import { redirect } from "next/navigation";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -12,6 +13,16 @@ export async function POST(req) {
   try {
     const { token } = await req.json();
     const decoded = jwt.verify(token, JWT_SECRET);
+    const emailExists = await getUserByEmail(decoded.email); // Check if email exists
+    console.log("AAAA", emailExists);
+
+    if (emailExists) {
+      return NextResponse.json(
+        { error: "Emailul exista deja" },
+        { status: 409 }
+      );
+    }
+
     const hashedPassword = hashUserPassword(decoded.password);
 
     const userId = await createUser(
@@ -27,9 +38,6 @@ export async function POST(req) {
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error(error);
-    return NextResponse.json(
-      { error: "Token is invalid or has expired" },
-      { status: 400 }
-    );
+    redirect("/");
   }
 }
