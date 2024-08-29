@@ -6,7 +6,7 @@ import { getUserByEmail } from "@/lib/user";
 import { redirect } from "next/navigation";
 import { Resend } from "resend";
 import jwt from "jsonwebtoken";
-import { VerifyEmailTemplate } from "@/components/emailTemplates/verEmail";
+import { VerifyEmailTemplate } from "@/components/emailTemplates/verify-email-template";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
