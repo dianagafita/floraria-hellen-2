@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "Bile";
+  src: url("../assets/bl/Bile.otf");
+}
+
+html {
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: "Alegreya Sans", sans-serif !important;
+  font-feature-settings: "blwf";
+  color: black;
+  background: white;
+  top: 0px !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="date"],
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid black;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 2px;
+  color: #555555;
+  background-color: transparent;
+}
+
+.skiptranslate,
+.goog-te-banner-frame,
+.goog-te-gadget-icon,
+.goog-te-menu-frame,
+.goog-te-menu-value,
+.goog-logo-link,
+.goog-te-spinner-pos {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  display: none !important;
+}
+
+select {
+  background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6bm9uZTt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+)
+    no-repeat 100% 50%;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  padding-right: 0.5rem;
+}
+
+.shadow-top {
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.xxsFont {
+  font-size: 8px;
+  font-weight: 200;
+  white-space: nowrap;
+}
+
+.embla {
+  max-width: 100vw;
+  margin: auto;
+  --slide-height: 60vh;
+  background-color: black;
+}
+
+@media screen and (max-width: 767px) {
+  .embla {
+    --slide-height: 40vh;
+  }
+}
+.embla__viewport {
+  overflow: hidden;
+  position: relative;
+}
+
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  position: relative;
+}
+
+.embla__slide__number {
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  border-radius: 1.8rem;
+  font-size: 4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--slide-height);
+}
+
+.embla-thumbs {
+  --thumbs-slide-spacing: 0.2rem;
+  --thumbs-slide-height: 0.2rem;
+
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.embla-thumbs__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla-thumbs__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: var(--thumbs-slide-spacing);
+}
+
+.embla-thumbs__slide {
+  flex: 0 0 8%;
+  min-width: 0;
+}
+@media screen and (min-width: 767px) {
+  .embla-thumbs__slide {
+    flex: 0 0 4%;
+  }
+}
+
+.embla-thumbs__slide__number {
+  border-radius: 3px;
+  -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--thumbs-slide-height);
+  background-color: #b6b5b577;
+  width: 100%;
+}
+
+.embla-thumbs__slide--selected .embla-thumbs__slide__number {
+  background-color: white;
+  color: var(--text-body);
+}
+
+.icon-size {
+  @apply h-6 w-6 md:h-10 md:w-10;
+}
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#fff, #fff);
+  background-size: 0 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 0.1em;
+  transition: background-size 0.3s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(rgb(116, 10, 10), rgb(154, 10, 10));
+}
+
+.link-underline:hover {
+  background-size: 100% 1.5px;
+  background-position: 0 100%;
+}
+
+.scrollbar {
+  scrollbar-width: 1px;
+  scrollbar-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0.5);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.scrollbar::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.toast-success-message,
+.toast-error-message {
+  background-color: #fff !important;
+  border: 1px solid #ccc;
+  font-weight: 300;
+  color: rgb(104, 103, 103) !important;
+}
+
+.toast-success-message .Toastify__progress-bar {
+  background: rgb(0, 102, 0) !important;
+}
+
+.toast-success-message .Toastify__progress-bar--controlled {
+  background: rgb(0, 102, 0) !important;
+}
+
+.toast-success-message .Toastify__progress-bar--default {
+  background: rgb(0, 102, 0) !important;
+}
+
+.toast-success-message .Toastify__toast-body,
+.toast-error-message .Toastify__toast-body {
+  background-color: #fff;
+}
+
+.toast-success-message .Toastify__close-button,
+.toast-error-message .Toastify__close-button {
+  color: rgb(104, 103, 103) !important;
+}
+
+.toast-success-message .Toastify__toast-icon {
+  color: rgb(0, 102, 0) !important;
+  background-color: whi !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast-error-message .Toastify__progress-bar {
+  background: rgb(112, 3, 3) !important;
+}
+
+.toast-error-message .Toastify__progress-bar--controlled {
+  background: rgb(112, 3, 3) !important;
+}
+
+.toast-error-message .Toastify__progress-bar--default {
+  background: rgb(112, 3, 3) !important;
+}
+
+.toast-error-message .Toastify__toast-icon {
+  color: rgb(112, 3, 3) !important;
+  background-color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

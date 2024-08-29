@@ -1,0 +1,113 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  first_name  String
+  second_name String
+  email       String   @unique
+  phone       String
+  password    String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  orders      Order[]
+  sessions    Session[]
+  cart        Cart[]
+  resetPasswordToken String? @unique
+  resetPasswordTokenExpiry DateTime?
+  emailVerified Boolean @default(false)
+  emailVerificationToken String? @unique
+}
+
+model Cart {
+  id         String   @id @default(cuid())
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id])
+  items      Json     // Assuming items is a JSON array containing cart items
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Order {
+  id          Int       @id @default(autoincrement())
+  shipping_fee Int
+  cart_total  Float
+  sender_info Json
+  recipient_info Json
+  total_price Float
+  order_state String
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  user        User      @relation(fields: [user_id], references: [id])
+  user_id     Int
+  order_items OrderItem[]
+}
+
+model Product {
+  id              Int       @id @default(autoincrement())
+  name            String
+  flowers         Flower[]
+  price           Float
+  product_type    String
+  product_subtype String
+  flowers_type    String
+  images_url      String[]
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+  order_items     OrderItem[]
+}
+
+model Eventproduct {
+  id              Int       @id @default(autoincrement())
+  name            String
+  flowers         Flower[]
+  product_type    String
+  event_type    String
+  images_url      String[]
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+}
+
+model Flower {
+  id        Int    @id @default(autoincrement())
+  quantity Int
+  flower    String
+  productId Int?
+  eventProductId Int?
+  product   Product? @relation(fields: [productId], references: [id])
+  eventProduct   Eventproduct? @relation(fields: [eventProductId], references: [id])
+}
+
+model OrderItem {
+  id                  Int         @id @default(autoincrement())
+  order               Order       @relation(fields: [order_id], references: [id])
+  order_id            Int
+  product             Product     @relation(fields: [product_id], references: [id])
+  product_id          Int
+  productDeliveryInfo String[]
+  quantity            Int
+  extras              Extra[]     @relation("OrderItemExtras")
+}
+
+model Extra {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String
+  quantity    Int
+  price       Float
+  image       String
+  order_items OrderItem[] @relation("OrderItemExtras")
+}
+
+model Session {
+  id        String   @id
+  userId    Int
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

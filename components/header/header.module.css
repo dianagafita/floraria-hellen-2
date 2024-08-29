@@ -1,0 +1,117 @@
+.main-header-section {
+  display: grid;
+  grid-template-areas: "search img sec";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2.5rem;
+  align-items: center;
+  align-content: center;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  position: sticky;
+  top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.mini_header {
+  border-bottom: solid 1px #f5f5f5;
+  font-size: 12px;
+  /* background: rgba(73, 6, 6, 0.); */
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0.1rem 1.2rem;
+}
+
+.firstsearchIcon {
+  grid-area: search;
+}
+
+.searchIcon {
+  display: none;
+}
+
+.personIcon,
+.firstsearchIcon {
+  display: block;
+  cursor: pointer;
+}
+
+.section {
+  display: flex;
+  grid-area: sec;
+  justify-self: end;
+}
+
+.main-header-section img {
+  height: 100%;
+  width: 100%;
+  grid-area: img;
+  color: rgb(47, 46, 46);
+  object-fit: contain;
+}
+
+.main-header-section a {
+  margin: 0 auto;
+  height: 5.5rem;
+  width: 15rem;
+}
+
+.section span {
+  cursor: pointer;
+}
+
+.section span,
+.main-header-section button,
+.firstsearchIcon,
+.searchIcon,
+.personIcon {
+  margin: 0.5rem;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.space {
+  display: none;
+  margin: 0.5rem;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 767px) {
+  .main-header-section {
+    grid-template-rows: 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .space {
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  .main-header-section a {
+    height: 4rem;
+  }
+  .main-header-section img {
+    height: 100%;
+    width: 15rem;
+  }
+
+  .section span,
+  .main-header-section span,
+  .searchIcons {
+    font-size: 1.5rem;
+  }
+
+  .searchIcons {
+    width: 23px;
+    height: 23px;
+  }
+
+  .searchIcon {
+    display: block;
+  }
+
+  .firstsearchIcon,
+  .personIcon {
+    display: none;
+  }
+}
