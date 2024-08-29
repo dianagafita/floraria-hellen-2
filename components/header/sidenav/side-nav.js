@@ -25,7 +25,7 @@ export default function SideNav({ isSearching, isVisible, openSearch }) {
   return (
     <>
       <div
-        style={{ fontFamily: "Bile", fontWeight: 600, letterSpacing: 2 }}
+        // style={{ fontFamily: "Bile", fontWeight: 600, letterSpacing: 2 }}
         className="w-full bg-transparent flex pb-3 borde-b md:flex hidden flex-col pt-5"
         onMouseEnter={() => setIsSideNavHovered(true)}
         onMouseLeave={() => setIsSideNavHovered(false)}
