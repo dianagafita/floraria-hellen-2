@@ -1,7 +1,12 @@
+import { redirect } from "next/navigation";
 import AuthForm from "./auth _form";
+import { verifyAuth } from "@/lib/auth";
 
-export default function AuthFormPage({ searchParams }) {
+export default async function AuthFormPage({ searchParams }) {
   const formMode = searchParams.mode || "login";
-  console.log(formMode);
+  const { user } = await verifyAuth();
+  if (user) {
+    redirect("/profile");
+  }
   return <AuthForm mode={formMode} />;
 }
