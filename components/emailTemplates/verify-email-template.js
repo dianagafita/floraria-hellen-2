@@ -24,7 +24,7 @@ export const VerifyEmailTemplate = ({ email, emailVerificationToken }) => (
         linistit email-ul.
       </p>
       <a
-        href={`http://localhost:3001/authentification/verify-email?token=${emailVerificationToken}`}
+        href={`https://www.hellenproparty.ro/authentification/verify-email?token=${emailVerificationToken}`}
         style={{
           display: "inline-block",
           padding: "10px 20px",
