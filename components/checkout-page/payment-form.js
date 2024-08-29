@@ -101,7 +101,7 @@ export default function PaymentForm({
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://localhost:3000/payment-success?orderId=${newOrderId}`,
+        return_url: `https://www.hellenproparty.ro/payment-success?orderId=${newOrderId}`,
       },
     });
 
