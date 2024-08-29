@@ -23,7 +23,7 @@ export const ResetPasswordTemplate = ({ email, resetPasswordToken }) => (
         care a solicitat acest lucru, poti sterge linistit email-ul.
       </p>
       <a
-        href={`http://localhost:3000/authentification/reset-password?token=${resetPasswordToken}`}
+        href={`https://www.hellenproparty.ro/authentification/reset-password?token=${resetPasswordToken}`}
         style={{
           display: "inline-block",
           padding: "10px 20px",
