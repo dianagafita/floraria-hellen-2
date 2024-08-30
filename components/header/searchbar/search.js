@@ -38,6 +38,7 @@ export default function Search({ inputChanges, pChanges, openSearch }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (query.length > 2) {
+      handleClearSearch();
       router.push(`/search-results?query=${query}`);
     }
   };
@@ -58,13 +59,13 @@ export default function Search({ inputChanges, pChanges, openSearch }) {
           onSubmit={handleSubmit}
           className="w-full text-black text-center h-[1rem] my-5 flex items-center"
         >
-          <p className={`text-black font-[300] text-[15px]  py-1 ${pChanges}`}>
+          <p className={`text-black font-[300] text-[16px]  py-1 ${pChanges}`}>
             <input
               type="text"
               id="title"
               name="title"
               placeholder="Cauta..."
-              className={`focus:outline-none ${inputChanges} placeholder-[#606060] w-full bordr-b border-black  py-1`}
+              className={`text-[16px] focus:outline-none ${inputChanges} placeholder-[#606060] w-full bordr-b border-black  py-1`}
               value={query}
               onChange={handleSearch}
             />
