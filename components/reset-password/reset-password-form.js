@@ -24,11 +24,8 @@ const ResetPasswordForm = () => {
         {!message ? (
           <>
             <Input
-<<<<<<< HEAD
               required
-=======
-          required
->>>>>>> 64ee89bebb5017aaae9ecdbcfa72dd6b3574408b
+
               type="email"
               name="email"
               label="Introduceti adresa de e-mail pentru care vreti sa resetati parola:"
