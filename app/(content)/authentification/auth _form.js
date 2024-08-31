@@ -54,17 +54,13 @@ export default function AuthForm({ mode }) {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full justify-center mb-10">
                 <Input name="email" label="E-mail" />
                 <Input name="password" label="Parola" type="password" />
-<<<<<<< HEAD
                 <Input
                   name="phone"
                   label="Telefon"
                   type="tel"
                   pattern="[0-9]{10}"
                 />
-=======
-                <Input name="phone" label="Telefon"  type="tel"
-          pattern="[0-9]{10}" />
->>>>>>> 64ee89bebb5017aaae9ecdbcfa72dd6b3574408b
+      
               </div>
             </div>
           )}

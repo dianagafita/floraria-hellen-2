@@ -1,9 +1,6 @@
 import OrderReceiptEmail from "@/components/emailTemplates/order-receipt";
 import NewOrderReceiptEmail from "@/components/emailTemplates/store-new-order";
-<<<<<<< HEAD
-=======
 
->>>>>>> 64ee89bebb5017aaae9ecdbcfa72dd6b3574408b
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
