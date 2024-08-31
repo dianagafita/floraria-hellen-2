@@ -5,6 +5,43 @@ export async function getAllProducts() {
   return products;
 }
 
+export async function updateProduct(
+  id,
+  name,
+  product_type,
+  product_subtype,
+  flowers_type,
+  price,
+  images_url,
+  created_at,
+  updated_at
+) {
+  const products = await prisma.product.update({
+    where: {
+      id: parseInt(id),
+    },
+    data: {
+      name,
+      product_type,
+      price,
+      product_subtype,
+      flowers_type,
+      images_url,
+      created_at: new Date(),
+      updated_at: new Date(),
+    },
+  });
+
+  return products;
+}
+export async function deleteProduct(id) {
+  await prisma.product.delete({
+    where: {
+      id: parseInt(id),
+    },
+  });
+}
+
 export async function getProductsByType({ type }) {
   console.log(type);
   const products = await prisma.product.findMany({

@@ -9,7 +9,7 @@ export default function MapCard() {
     <div className=" mt-10 text-center">
       <Title moreStyle="font-[300] mb-20">CONTACT</Title>
       <div className="flex  flex-col  items-center justify-between md:justify-center w-full  p-10   ">
-        <div className="flex w-full my-10 mb-20">
+        <div className="flex flex-col md:flex-row w-full my-10 mb-20">
           <div className=" flex flex-col justify-start  text-start text-sm w-[230px] !text-[17px] mr-60 ">
             <span className="font-[400] mb-2">
               Adresa:

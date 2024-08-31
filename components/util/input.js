@@ -73,6 +73,18 @@ export default function Input({
           onChange={onChange}
           className="focus:outline-none focus:border-[#490606] focus:ring-1 focus:ring-[rgb(164,21,21)] font-thin border border-black p-2 rounded-sm  text-[#555555] text-sm md:text-base"
         />
+      ) : type === "file" ? (
+        <input
+          {...props}
+          id={name}
+          name={name}
+          placeholder={placeholder}
+          rows={4}
+          type="file"
+          value={value}
+          onChange={onChange}
+          className=" font-thin  text-[#555555] text-sm md:text-base"
+        />
       ) : (
         <input
           {...props}

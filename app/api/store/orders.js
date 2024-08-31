@@ -14,6 +14,19 @@ export async function getAllOrders(userId) {
   });
   return orders;
 }
+export async function getAllOrdersComplete() {
+  const orders = await prisma.order.findMany({
+    include: {
+      order_items: {
+        include: {
+          product: true,
+          extras: true,
+        },
+      },
+    },
+  });
+  return orders;
+}
 
 export async function createOrder(
   userId,

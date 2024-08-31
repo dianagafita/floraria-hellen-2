@@ -1,5 +1,10 @@
 import prisma from "@/lib/prisma";
 
+export async function getAllEventProducts() {
+  const products = await prisma.eventproduct.findMany();
+  return products;
+}
+
 export async function getComponentByType({ type, event }) {
   console.log(type);
   const products = await prisma.eventproduct.findMany({

@@ -4,12 +4,16 @@ import ProfileMenuDrawer from "@/components/profile/profile-menu-drawer";
 import { verifyAuth } from "@/lib/auth";
 import Loading from "@/lib/loading";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function ProfilePage() {
   let userdata;
   const { user } = await verifyAuth();
   if (user) {
     userdata = await getUserById(user.id);
+  }
+  if (!user) {
+    redirect("/authentification");
   }
 
   return (

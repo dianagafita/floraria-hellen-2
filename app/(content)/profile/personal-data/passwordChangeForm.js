@@ -3,6 +3,7 @@ import { updatePassword } from "@/actions/user-actions";
 import Button from "@/components/util/button";
 import Input from "@/components/util/input";
 import Title from "@/components/util/title";
+import { redirect } from "next/dist/server/api-utils";
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
 
@@ -14,6 +15,9 @@ export default function PasswordChangeForm(email, showToast) {
 
   useEffect(() => {
     showToast(formState.success ? "success" : "error", formState.message);
+    setTimeout(() => {
+      redirect("/");
+    }, 1000);
   }, [formState]);
 
   return (
