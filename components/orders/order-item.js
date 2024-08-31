@@ -27,10 +27,6 @@ export default function OrderItem({ userId, mode }) {
     }
   }, [userId]);
 
-  if (!orders) {
-    return <Loading />;
-  }
-
   if (orders.length === 0) {
     return (
       <div className="mx-5 flex justify-start my-5">
@@ -39,10 +35,14 @@ export default function OrderItem({ userId, mode }) {
     );
   }
 
+  if (!orders) {
+    return <Loading />;
+  }
+
   const renderOrder = (order) => (
     <div
       key={order.id}
-      className="lg:mx-5 mt-5 border rounded-sm p-4 flex flex-col mb-5 w-full"
+      className="lg:px-5 mt-5 border rounded-sm p-4 flex flex-col mb-5 w-full"
     >
       <div className="flex flex-col items-start mb-5">
         <span className=" whitespace-nowrap">Comanda nr. {order.id}</span>
@@ -62,7 +62,7 @@ export default function OrderItem({ userId, mode }) {
   );
 
   return (
-    <div className="w-full flex flex-col lg:flex-row ">
+    <div className="w-full flex flex-col lg:p-5 lg:grid lg:grid-cols-2 lg:gap-5 ">
       {mode === "first" ? renderOrder(orders[0]) : orders.map(renderOrder)}
     </div>
   );

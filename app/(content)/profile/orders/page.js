@@ -10,7 +10,7 @@ export default async function OrdersPage() {
   return (
     <>
       {user && <ProfileMenuDrawer user={user} />}
-      <div className="flex items-center  w-full flex-col p-5 min-h-[80vh]">
+      <div className="flex items-center  w-full flex-col p-5 min-h-[100vh]">
         <Title moreStyle="my-5">COMENZILE MELE</Title>
         {!user ? <Loading /> : <OrderItem userId={user.id} mode="all" />}
       </div>

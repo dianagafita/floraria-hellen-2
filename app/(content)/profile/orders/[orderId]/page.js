@@ -37,7 +37,7 @@ export default function OrderDetailsPage({ params }) {
   }
 
   return (
-    <div>
+    <div className="min-h-[100vh]">
       <section className="bg-white py-8 px-5 antialiased md:py-16">
         <div className="mx-auto max-w-screen-xl 2xl:px-0">
           <h2 className="text-xl font-[600] sm:text-2xl ">
