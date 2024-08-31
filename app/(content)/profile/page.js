@@ -34,7 +34,7 @@ export default async function ProfilePage() {
                       |
                     </span>
                     <Link
-                      href="/orders"
+                      href="/profile/orders"
                       className="text-[12px] font-[100] text-[rgb(0,0,0,0.4)]"
                     >
                       VEZI TOATE COMENZILE
