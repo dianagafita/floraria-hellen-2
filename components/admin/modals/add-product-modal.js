@@ -210,6 +210,45 @@ export default function AddProductModal({ openModal, type }) {
     }
   };
 
+  const eventType = [
+    { value: "nunta", label: "Nunta" },
+    { value: "botez", label: "Botez" },
+  ];
+
+  const handleEventTypeChange = (value) => {
+    setSelectedType(value);
+    if (value === "nunta") {
+      setSubTypeOptions([
+        { value: "aranjamente-masa", label: "Aranjamente masa" },
+        { value: "buchete-mireasa", label: "Buchet mireasa" },
+        { value: "intrare-sala-covor-rosu", label: "Intrare, covor rosu" },
+        {
+          value: "corsaj-cocarede-bratari-coronite",
+          label: "Corsaj,cocarde,bratari,coronite",
+        },
+        { value: "biserica", label: "Biserica" },
+        { value: "lumanari-biserica", label: "Lumanari" },
+        { value: "cununie-civila", label: "Cununie" },
+        { value: "masa-oficiala", label: "Masa oficiala" },
+        { value: "decoratiuni-sali", label: "Sali" },
+        { value: "photo-corner", label: "Photo Corner" },
+        { value: "fantana-ciocolata", label: "Fantana ciocolata" },
+        { value: "masina-fum", label: "Fum" },
+        { value: "decoratiuni-masini", label: "Deco. masini" },
+      ]);
+    } else if (value === "botez") {
+      setSubTypeOptions([
+        { value: "aranjamente-florale", label: "Aranjamente" },
+        { value: "aranjamente-cristelnita", label: "Cristelnita" },
+        { value: "lumanari-botez", label: "Lumanari" },
+        { value: "photo-corner", label: "Photo Corner" },
+        { value: "fantana-ciocolata", label: "Fantana Ciocolata" },
+      ]);
+    } else {
+      setSubTypeOptions([]);
+    }
+  };
+
   return (
     <div className=" fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] w-full">
       <div
@@ -231,41 +270,47 @@ export default function AddProductModal({ openModal, type }) {
               name="productName"
               label="NUME PRODUS"
             />
+            {type === "event" ? (
+              <Input
+                required
+                type="select"
+                id="productEventType"
+                name="productEventType"
+                label="TIP EVENIMENT"
+                options={eventType}
+                onChange={(e) => handleEventTypeChange(e.target.value)}
+              />
+            ) : (
+              <div className="flex flex-col md:flex-row">
+                <Input
+                  required
+                  id="productSubtype"
+                  name="productSubtype"
+                  label="SUBTIP PRODUS"
+                  type="select"
+                  options={subTypeOptions}
+                />
+                <Input
+                  required
+                  id="productFlowerType"
+                  name="productFlowerType"
+                  label="TIP FLORI"
+                />
+              </div>
+            )}
             <Input
               type="select"
               required
               id="productType"
               name="productType"
               label="TIP PRODUS"
-              options={flowerType}
-              onChange={(e) => handleTypeChange(e.target.value)}
+              options={type === "event" ? subTypeOptions : flowerType}
+              onChange={(e) =>
+                type === "event" ? null : handleTypeChange(e.target.value)
+              }
             />
           </div>
-          {type === "event" ? (
-            <Input
-              required
-              id="productEventType"
-              name="productEventType"
-              label="TIP EVENIMENT"
-            />
-          ) : (
-            <div className="flex flex-col md:flex-row">
-              <Input
-                required
-                id="productSubtype"
-                name="productSubtype"
-                label="SUBTIP PRODUS"
-                type="select"
-                options={subTypeOptions}
-              />
-              <Input
-                required
-                id="productFlowerType"
-                name="productFlowerType"
-                label="TIP FLORI"
-              />
-            </div>
-          )}
+
           <div className="flex flex-col md:flex-row">
             <Input
               required
@@ -277,13 +322,20 @@ export default function AddProductModal({ openModal, type }) {
               accept="image/png, image/gif, image/jpeg"
               onChange={handleFileChange}
             />
-            {type !== "event" && (
+            {type !== "event" ? (
               <Input
                 required
                 type="number"
                 id="productPrice"
                 name="productPrice"
                 label="Pret"
+              />
+            ) : (
+              <Input
+                required
+                id="productId"
+                name="productId"
+                label="ID produs"
               />
             )}
           </div>

@@ -68,7 +68,8 @@ model Eventproduct {
   name            String
   flowers         Flower[]
   product_type    String
-  event_type    String
+  productId       String
+  event_type      String
   images_url      String[]
   created_at      DateTime  @default(now())
   updated_at      DateTime  @updatedAt

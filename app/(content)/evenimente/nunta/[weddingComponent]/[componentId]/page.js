@@ -22,7 +22,7 @@ export default async function ComponentPage({ params }) {
           <div className="flex flex-col">
             <span className=" text-md my-2 ">
               {" "}
-              <span className="mr-1">
+              {/* <span className="mr-1">
                 Aranjamentul contine flori proaspete:
               </span>
               <span className="text-sm font-[100]">
@@ -35,7 +35,7 @@ export default async function ComponentPage({ params }) {
                   </span>
                 ))}{" "}
                 si decoratiuni diverse de inalta calitate.
-              </span>
+              </span> */}
             </span>
             <span className="my-2 flex flex-col ">
               Detalii suplimentare:
@@ -50,7 +50,7 @@ export default async function ComponentPage({ params }) {
             </span>
           </div>
           <div className="flex flex-col">
-            <span>ID #35688</span>
+            <span>ID #{componentDetails.productId}</span>
             <span className="text-[13px] my-2 text-[#505050] font-[100]">
               Pentru a putea cere o oferta veti avea nevoie de ID ul produsului.
             </span>

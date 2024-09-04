@@ -74,9 +74,15 @@ export default function AllProducts({ products, type }) {
                       </th>
                     </>
                   ) : (
-                    <th scope="col" className="px-6 py-3 whitespace-nowrap">
-                      TIP EVEN.
-                    </th>
+                    <>
+                      {" "}
+                      <th scope="col" className="px-6 py-3 whitespace-nowrap">
+                        TIP EVEN.
+                      </th>
+                      <th scope="col" className="px-6 py-3 whitespace-nowrap">
+                        ID PROD.
+                      </th>
+                    </>
                   )}
                   <th scope="col" className="px-2 py-3">
                     ACTIUNE
@@ -111,7 +117,10 @@ export default function AllProducts({ products, type }) {
                         <td className="px-2 py-4">{product.price}</td>
                       </>
                     ) : (
-                      <td className="px-2 py-4">{product.event_type}</td>
+                      <>
+                        <td className="px-2 py-4">{product.event_type}</td>
+                        <td className="px-2 py-4">{product.productId}</td>
+                      </>
                     )}
                     <td className="px-2 py-4 ">
                       <button

@@ -6,6 +6,7 @@ import prisma from "@/lib/prisma";
 export async function addEventProduct(prevState, formData) {
   const productName = formData.get("productName");
   const productType = formData.get("productType");
+  const productId = formData.get("productId");
   const productEventType = formData.get("productEventType");
   const images = formData.getAll("productImages");
 
@@ -43,17 +44,7 @@ export async function addEventProduct(prevState, formData) {
       product_type: productType,
       event_type: productEventType,
       images_url: imageUrls,
-      created_at: new Date(),
-      updated_at: new Date(),
-    },
-  });
-
-  await prisma.flower.create({
-    data: {
-      name: productName,
-      quantity: flowerQuantity,
-      flower: flowerName,
-      productId: imageUrls,
+      productId: productId,
       created_at: new Date(),
       updated_at: new Date(),
     },
@@ -66,6 +57,7 @@ export async function updateEventProduct(prevState, formData) {
   const id = formData.get("id");
   const productName = formData.get("productName");
   const productType = formData.get("productType");
+  const productId = formData.get("productId");
   const productEventType = formData.get("productEventType");
   const images = formData.getAll("productImages");
 
@@ -103,6 +95,10 @@ export async function updateEventProduct(prevState, formData) {
 
   if (productEventType !== existingProduct.event_type) {
     updatedData.event_type = productEventType;
+  }
+
+  if (productId !== existingProduct.productId) {
+    updatedData.productId = productId;
   }
 
   let imageUrls = existingProduct.images_url;
