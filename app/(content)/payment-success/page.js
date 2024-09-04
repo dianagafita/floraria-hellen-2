@@ -14,7 +14,7 @@ export default function PaymentSuccessPage({ searchParams }) {
         setOrderUpdated(true);
         setTimeout(() => {
           router.push("/");
-        }, 3000);
+        }, 2000);
       });
     }
   }, [orderId, orderUpdated]);
@@ -26,6 +26,7 @@ export default function PaymentSuccessPage({ searchParams }) {
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({ order_state: "paid" }),
       });
 
       const data = await response.json();
@@ -46,8 +47,12 @@ export default function PaymentSuccessPage({ searchParams }) {
         <h1 className="text-4xl font-[100] mb-2 text-black">
           Comanda platita!
         </h1>
+        <h2>
+          Veti primi un email cu informatiile comenzii! Cand comanda a fost
+          livrata veti primi email de instiintare!
+        </h2>
         <div className="bg-black p-2 rounded-md mt-5 text-4xl font-bold">
-          Order ID: {orderId}
+          ID COMANDA: {orderId}
         </div>
       </div>
     </main>

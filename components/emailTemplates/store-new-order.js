@@ -3,7 +3,7 @@ export default function NewOrderReceiptEmail({ order }) {
   const deliveryCost = order.shipping_fee;
   const recipientInfo = order.recipient_info;
   const senderInfo = order.sender_info;
-
+  const orderId = order.id;
   const formatDate = (dateStr) => {
     const reversedDateStr = dateStr.split("-").reverse().join("-");
     return reversedDateStr;
@@ -342,6 +342,23 @@ export default function NewOrderReceiptEmail({ order }) {
               ))}
             </tbody>
           </table>
+          <div
+            style={{ marginTop: "2rem", textAlign: "center", color: "black" }}
+          >
+            <a
+              href={`https://www.hellenproparty.ro/deliveredOrder?orderId=${orderId}`}
+              style={{
+                display: "inline-block",
+                padding: "10px 20px",
+                backgroundColor: "rgb(116, 10, 10)",
+                color: "#fff",
+                textDecoration: "none",
+                borderRadius: "5px",
+              }}
+            >
+              COMANDA LIVRATA{" "}
+            </a>
+          </div>
         </div>
       </body>
     </html>

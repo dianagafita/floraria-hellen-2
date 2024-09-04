@@ -10,6 +10,7 @@ export async function addProduct(prevState, formData) {
   const productFlowerType = formData.get("productFlowerType");
   const productPrice = formData.get("productPrice");
   const images = formData.getAll("productImages");
+  const flowers = JSON.parse(formData.get("flowers"));
 
   let errors = [];
 
@@ -39,7 +40,7 @@ export async function addProduct(prevState, formData) {
     );
   }
 
-  await prisma.product.create({
+  const product = await prisma.product.create({
     data: {
       name: productName,
       product_type: productType,
@@ -52,6 +53,23 @@ export async function addProduct(prevState, formData) {
     },
   });
 
+  const validFlowers = flowers.filter(
+    (flower) => flower.flowerName.trim() !== "" && flower.quantity.trim() !== ""
+  );
+
+  console.log(validFlowers);
+
+  if (validFlowers.length > 0) {
+    for (const flower of flowers) {
+      await prisma.flower.create({
+        data: {
+          quantity: parseInt(flower.quantity),
+          flower: flower.flowerName,
+          productId: product.id,
+        },
+      });
+    }
+  }
   return { status: "success" };
 }
 
@@ -63,6 +81,8 @@ export async function updateProduct(prevState, formData) {
   const productFlowerType = formData.get("productFlowerType");
   const productPrice = formData.get("productPrice");
   const images = formData.getAll("productImages");
+
+  const flowers = JSON.parse(formData.get("flowers"));
 
   console.log(productPrice);
   const existingProduct = await prisma.product.findUnique({
@@ -130,8 +150,20 @@ export async function updateProduct(prevState, formData) {
       updated_at: new Date(),
     },
   });
+  console.log(flowers);
+  if (flowers && flowers.length > 0) {
+    await prisma.flower.deleteMany({ where: { productId: parseInt(id) } });
+
+    for (const flower of flowers) {
+      await prisma.flower.create({
+        data: {
+          quantity: parseInt(flower.quantity),
+          flower: flower.flowerName,
+          productId: parseInt(id),
+        },
+      });
+    }
+  }
 
   return { status: "success" };
 }
-
-// products.js

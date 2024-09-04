@@ -68,7 +68,7 @@ export default async function ChristeningPage({ params }) {
       {christeningComponents.lenght === 0 ? (
         <Loading />
       ) : (
-        <div className="flex  gap-4 m-5">
+        <div className="grid grid-cols-2 md:flex gap-4 m-5">
           {christeningComponents.map((image, index) => (
             <Link
               href={`/evenimente/botez/${christeningComponent}/${image.id}`}

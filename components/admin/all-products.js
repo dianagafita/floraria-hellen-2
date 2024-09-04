@@ -120,6 +120,7 @@ export default function AllProducts({ products, type }) {
                       >
                         Editare
                       </button>
+                      <p />
                       <button
                         onClick={() => handleDelete(product.id)}
                         className="py-1 font-medium text-[#5A0707] hover:underline"

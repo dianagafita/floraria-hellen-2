@@ -1,7 +1,9 @@
 import prisma from "@/lib/prisma";
 
 export async function getAllProducts() {
-  const products = await prisma.product.findMany();
+  const products = await prisma.product.findMany({
+    include: { flowers: true },
+  });
   return products;
 }
 
@@ -34,6 +36,7 @@ export async function updateProduct(
 
   return products;
 }
+
 export async function deleteProduct(id) {
   await prisma.product.delete({
     where: {

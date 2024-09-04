@@ -48,6 +48,17 @@ export async function addEventProduct(prevState, formData) {
     },
   });
 
+  await prisma.flower.create({
+    data: {
+      name: productName,
+      quantity: flowerQuantity,
+      flower: flowerName,
+      productId: imageUrls,
+      created_at: new Date(),
+      updated_at: new Date(),
+    },
+  });
+
   return { status: "success" };
 }
 
