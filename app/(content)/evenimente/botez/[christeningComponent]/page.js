@@ -68,7 +68,7 @@ export default async function ChristeningPage({ params }) {
       {christeningComponents.lenght === 0 ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 m-5">
+        <div className="flex  gap-4 m-5">
           {christeningComponents.map((image, index) => (
             <Link
               href={`/evenimente/botez/${christeningComponent}/${image.id}`}
@@ -76,10 +76,10 @@ export default async function ChristeningPage({ params }) {
               className="relative group overflow-hidden"
             >
               <Image
-                className="max-w-full rounded-sm"
+                className="max-w-[300px] h-[400px] rounded-sm"
                 src={image.images_url[0]}
-                width={600}
-                height={500}
+                width={400}
+                height={300}
                 alt=""
               />
               <span className=" tracking-widest  absolute inset-0 flex items-center justify-center md:bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-white-600  text-white text-center opacity-0 translate-x-[-100%] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out">
