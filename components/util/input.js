@@ -30,7 +30,7 @@ export default function Input({
 
   return (
     <p
-      className={`px-2 my-2 w-full ${
+      className={`px-2 my-2 w-full max-w-[600px] ${
         type === "checkbox"
           ? "flex flex-row-reverse items-center justify-center "
           : "flex flex-col"

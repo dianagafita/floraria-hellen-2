@@ -121,6 +121,10 @@ export const SIDENAV_ITEMS = [
         path: "/evenimente/nunta",
         subMenuItemsMenu: [
           {
+            title: "Nunti complete",
+            path: "/evenimente/nunta/nunta-completa",
+          },
+          {
             title: "Aranjamente florale",
             path: "/evenimente/nunta/aranjamente-masa",
           },

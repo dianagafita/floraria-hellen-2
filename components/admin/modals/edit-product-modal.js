@@ -247,7 +247,7 @@ export default function EditProductModal({ openModal, product, type }) {
             accept="image/png, image/gif, image/jpeg"
             onChange={handleFileChange}
           />
-          <div className="my-4 flex">
+          <div className="my-4 flex overflow-auto">
             {product.images_url.map((img, index) => (
               <img
                 key={index}

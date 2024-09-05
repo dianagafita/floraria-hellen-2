@@ -26,6 +26,7 @@ const imga = [
   { src: imgs, href: `/evenimente/wedding/flowers/1` },
 ];
 const validWeddingComponent = [
+  "nunta-completa",
   "buchete-mireasa",
   "aranjamente-masa",
   "intrare-sala-covor-rosu",

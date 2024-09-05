@@ -6,8 +6,8 @@ import Link from "next/link";
 import { SIDENAV_ITEMS } from "@/constants";
 
 const paths = [
-  { href: "/events", title: "EVENIMENTE", style: "text-black-300/75" },
-  { href: "/events/wedding", title: "NUNTA", style: "text-black" },
+  { href: "/evenimente", title: "EVENIMENTE", style: "text-black-300/75" },
+  { href: "/evenimente/nunta", title: "NUNTA", style: "text-black" },
 ];
 
 export default function Page() {

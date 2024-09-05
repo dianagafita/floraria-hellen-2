@@ -88,7 +88,7 @@ function MenuItem({ item, setActiveSubMenu, onClose, updateSubmenuPosition }) {
   return (
     <div
       ref={itemRef}
-      className="relative font-[200] md:text-[11.5px] lg:text-[14px] my-2"
+      className="relative font-[200] md:text-[11.5px] 2xl:text-[18px] my-2"
       onMouseEnter={handleMouseEnter}
     >
       {item.submenu ? (
@@ -144,7 +144,7 @@ export function FullWidthSubMenu({
   return (
     <motion.div
       initial={{ y: "0%" }}
-      animate={{ y: "5%" }}
+      animate={{ y: "3%" }}
       exit={{ y: "5%" }}
       transition={{ type: "spring", stiffness: 500, damping: 50 }}
       className={`absolute bg-white z-50 shadow-lg ${
@@ -159,13 +159,13 @@ export function FullWidthSubMenu({
       onMouseLeave={onMouseLeave}
     >
       {activeSubMenu.title === "EVENIMENTE" ? (
-        <div className="flex justify-between px-[2vw] w-[100vw]">
+        <div className="flex justify-between px-[2vw] w-[100vw] ">
           {subMenuItems?.map((subItem, idx) => (
             <SubMenu key={idx} subItem={subItem} onClose={onClose} />
           ))}
         </div>
       ) : (
-        <div className="flex-col justify-between px-2 py-3 max-w-[300px]">
+        <div className="flex-col justify-between px-2 py-3 max-w-[300px] lg:max-w-[350px]">
           {subMenuItems?.map((subItem, idx) => (
             <SubMenu key={idx} subItem={subItem} onClose={onClose} />
           ))}
@@ -184,10 +184,10 @@ function SubMenu({ subItem, onClose }) {
 
   return (
     <div className="hidden md:flex items-center whitespace-nowrap">
-      <div className="text-center mb-2 mx-2">
+      <div className="text-center my-2 mx-2">
         <Link
           href={subItem.path}
-          className={`text-[14px] font-[300] ${
+          className={`text-[14px] 2xl:text-[20px] font-[300] ${
             subItem.path === pathname
               ? "font-800 underline decoration-[rgb(160,21,21)] underline-offset-4 decoration-[1.5px]"
               : "link-underline link-underline-black"
@@ -203,7 +203,7 @@ function SubMenu({ subItem, onClose }) {
             <Link
               key={index}
               href={menuItem.path}
-              className={`text-sm font-[100] mx-2 my-1 text-[#404040] hover:text-[#202020] ${
+              className={`text-sm 2xl:text-[20px]  font-[100] mx-2 my-1 text-[#404040] hover:text-[#202020] ${
                 menuItem.path === pathname
                   ? "font-500 underline decoration-[rgb(160,21,21)] underline-offset-4 decoration-[1.5px]"
                   : ""

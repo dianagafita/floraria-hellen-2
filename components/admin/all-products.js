@@ -22,11 +22,19 @@ export default function AllProducts({ products, type }) {
   };
 
   const handleDelete = async (productId) => {
-    await fetch(`/api/store/products/${productId}`, {
-      method: "DELETE",
-    });
+    if (type === "event") {
+      await fetch(`/api/store/eventProducts/${productId}`, {
+        method: "DELETE",
+      });
 
-    window.location.href = "/admin/dashboard/products";
+      window.location.href = "/admin/dashboard/event-products";
+    } else {
+      await fetch(`/api/store/products/${productId}`, {
+        method: "DELETE",
+      });
+
+      window.location.href = "/admin/dashboard/products";
+    }
   };
   return (
     <>
