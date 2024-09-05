@@ -13,7 +13,7 @@ export default function ItemCard({
       className={`${
         moreStyle === "searchItem"
           ? " h-[200px] md:h-[250px] mx-10 md:mx-20 lg:mx-40 flex"
-          : "gap-2 grid grid-cols-2 md:grid-cols-4 "
+          : " grid grid-cols-2 md:grid-cols-4 justify-items-center gap-2"
       }   m-5  justify-center ${type === "search" ? "my-10" : ""}`}
     >
       {images.map((img) => (
@@ -22,7 +22,7 @@ export default function ItemCard({
           className={` flex flex-col  bg-white ${
             moreStyle === "searchItem"
               ? "w-[120px] h-[200px] md:p-1 md:w-[150px] md:h-full"
-              : "w-[44vw] h-[60vw] md:w-[23vw] md:h-[50vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
+              : "w-[44vw] h-[60vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
           }    mb-5`}
         >
           <div className="relative w-full h-full">
@@ -56,7 +56,7 @@ export default function ItemCard({
             </Link>
           </div>
           <div className=" p-2 2xl:p-10 w-full">
-            <p className="mb-3 text-xs md:text-[1.2vw] font-light mt-3 whitespace-nowrap text-center">
+            <p className="mb-1 text-xs md:text-[1.2vw] font-light mt-3 whitespace-nowrap text-center">
               {img.name}{" "}
             </p>
             <p className="text-center mb-2 text-sm md:text-base 2xl:text-xl font-[100]">
