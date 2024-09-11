@@ -29,7 +29,7 @@ export default async function Home() {
         </span>{" "}
       </div>{" "}
       <ShopByCategory />
-      <Recommended />
+      {/* <Recommended /> */}
     </div>
   );
 }
