@@ -12,6 +12,8 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: false, // Disable dark mode
+
   theme: {
     screens: {
       xs: "520px",
