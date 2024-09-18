@@ -1,10 +1,11 @@
+"use client";
+
+import { GoogleTranslate } from "@/app/(content)/GoogleTranslate";
 import classes from "./header.module.css";
 import { Facebook, Instagram, PhoneCall } from "lucide-react";
 import Link from "next/link";
-import GoogleTranslate from "@/app/(content)/GoogleTranslate";
-import { languagesLong } from "@/constants";
 
-export default function MiniHeaderSection() {
+export default function MiniHeaderSection({ prefLangCookie }) {
   return (
     <div className={`bg-white hidden md:block `}>
       <div className={classes["mini_header"]}>
@@ -31,7 +32,8 @@ export default function MiniHeaderSection() {
           />
         </Link>
         {/* <LanguageSwitcher /> */}
-        <GoogleTranslate langFormat={languagesLong} />
+        {/* <GoogleTranslate langFormat={languagesLong} /> */}
+        <GoogleTranslate prefLangCookie={prefLangCookie} />
       </div>
     </div>
   );

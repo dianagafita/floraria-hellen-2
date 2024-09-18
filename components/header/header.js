@@ -15,6 +15,7 @@ import classes2 from "./backdrop.module.css";
 import MobileHeader from "./header-mobile";
 import { useCart } from "@/context/cart-context";
 import { useValidUser } from "@/context/auth-context";
+import ServerMiniHeader from "./serv";
 
 export default function Header() {
   const [isSearching, setIsSearching] = useState(false);
@@ -31,6 +32,7 @@ export default function Header() {
     <>
       <div className="sticky top-0 bg-white z-[50] shadow-sm">
         <div className="flex flex-col">
+          {/* <MiniHeaderSection /> */}
           <MiniHeaderSection />
           <div className={classes["main-header-section"]}>
             {isOpen && (

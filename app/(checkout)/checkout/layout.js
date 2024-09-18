@@ -19,7 +19,7 @@ export default async function RootLayout({ children }) {
   }
 
   return (
-    <html lang="ro">
+    <html lang="auto">
       <head>
         <link rel="icon" href="/icon.png" sizes="any" />
       </head>

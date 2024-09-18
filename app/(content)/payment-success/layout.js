@@ -1,6 +1,6 @@
 export default function RootLayout({ children }) {
   return (
-    <html lang="ro">
+    <html lang="auto">
       <body>{children}</body>
     </html>
   );

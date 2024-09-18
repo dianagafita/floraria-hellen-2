@@ -88,7 +88,7 @@ function MenuItem({ item, setActiveSubMenu, onClose, updateSubmenuPosition }) {
   return (
     <div
       ref={itemRef}
-      className="relative font-[200] md:text-[11.5px] 2xl:text-[18px] my-2"
+      className="relative font-[200] md:text-[10.7px] 2xl:text-[18px] my-2"
       onMouseEnter={handleMouseEnter}
     >
       {item.submenu ? (

@@ -18,7 +18,60 @@ html {
   margin: 0;
   -webkit-tap-highlight-color: transparent;
 }
+.goog-te-banner-frame {
+  left: -180px !important;
+}
+/* Hide Google Translate elements */
+.goog-te-banner-frame.skiptranslate,
+.goog-tooltip,
+.goog-te-balloon-frame,
+.goog-te-combo,
+iframe[id^="goog-te"],
+.goog-te-gadget-icon,
+.goog-te-menu-frame,
+.goog-te-menu-value,
+.goog-logo-link,
+.goog-te-spinner-pos,
+.goog-te-gadget {
+  display: none !important;
+}
+.goog-tooltip {
+  display: none !important;
+}
+.goog-tooltip:hover {
+  display: none !important;
+}
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
 
+/* Hide Google Translate popup icon */
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+/* Hide Google Translate footer */
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-combo {
+  margin: 0;
+}
+
+/* Hide the iframe for Google Translate */
+iframe.skiptranslate {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon {
+  display: none !important;
+}
 body {
   font-family: "Alegreya Sans", sans-serif !important;
   font-feature-settings: "blwf";

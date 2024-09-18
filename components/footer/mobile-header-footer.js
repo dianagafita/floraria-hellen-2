@@ -1,11 +1,10 @@
 import { Facebook, Instagram, User } from "lucide-react";
 import Link from "next/link";
 import MenuItem from "../header/menu-item";
-import GoogleTranslate from "@/app/(content)/GoogleTranslate";
-import { languagesLong } from "@/constants";
 import { useEffect, useState } from "react";
+import { GoogleTranslate } from "@/app/(content)/GoogleTranslate";
 
-export default function MobileHeaderFooter({ toggleOpen }) {
+export default function MobileHeaderFooter({ toggleOpen, prefLangCookie }) {
   const [verify, setVerify] = useState("1");
 
   useEffect(() => {
@@ -47,7 +46,10 @@ export default function MobileHeaderFooter({ toggleOpen }) {
           >
             <Facebook size={20} strokeWidth={1.3} />
           </Link>
-          <GoogleTranslate langFormat={languagesLong} />
+          <GoogleTranslate
+            moreSyle="text-black px-5"
+            prefLangCookie={prefLangCookie}
+          />{" "}
         </div>
       </div>
     </MenuItem>
