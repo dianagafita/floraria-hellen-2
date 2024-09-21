@@ -21,15 +21,15 @@ export default async function ProfilePage() {
       {user ? (
         <>
           <ProfileMenuDrawer user={userdata} />
-          <div className="flex flex-col md:flex-row p-5 my-5 w-full min-h-[400px]">
-            <div className="mb-9 md:mb-0 flex flex-col w-full  text-center">
-              <span className="font-[400] text-4xl mb-10 text-transform: uppercase">
+          <div className="flex flex-col items-center mt-20 p-5 my-5 w-full min-h-[700px]">
+            <div className="flex flex-col items-center w-full text-center">
+              <span className="font-[400] text-4xl mb-10 uppercase">
                 BUNA, {userdata.second_name}
               </span>
-              <div className="lg:mx-5 lg:flex lg:flex-row">
-                <div className="flex flex-col  sm:mb-10 md:mb-0  w-full lg:w-1/2">
-                  <div className="flex items-center  w-full">
-                    <span className="mr-2 ml-4">COMENZI RECENTE</span>
+              <div className="flex flex-col md:flex-row items-center justify-center w-full ">
+                <div className="flex flex-col  w-full mb-10 max-w-[700px]">
+                  <div className="flex mb-4">
+                    <span className="mr-2 md:ml-7">COMENZI RECENTE</span>
                     <span className="mx-2 text-lg text-[rgb(0,0,0,0.4)] font-[100]">
                       |
                     </span>
@@ -42,8 +42,7 @@ export default async function ProfilePage() {
                   </div>
                   <OrderItem userId={user.id} mode="first" />
                 </div>
-
-                <div className="flex flex-col mt-[3rem]  border rounded-sm h-fit  py-5 px-4 lg:mx-5 lg:w-1/2">
+                <div className="flex flex-col border rounded-sm h-fit w-full max-w-[700px] pr-5 pb-6 pt-7 pl-5">
                   <span className="text-start mb-[1.4rem]">
                     INFORMATIILE MELE
                   </span>
@@ -51,10 +50,7 @@ export default async function ProfilePage() {
                     <span>
                       NUME:{" "}
                       <span className="text-[rgb(0,0,0,0.4)] mx-1">
-                        {userdata.second_name}
-                        <span className="text-[rgb(0,0,0,0.4)] ml-1">
-                          {userdata.first_name}
-                        </span>
+                        {userdata.second_name} {userdata.first_name}
                       </span>
                     </span>
                   </div>
@@ -62,13 +58,12 @@ export default async function ProfilePage() {
                     <span>
                       EMAIL:{" "}
                       <span className="ml-1 text-[rgb(0,0,0,0.4)]">
-                        {" "}
                         {userdata.email}
                       </span>
                     </span>
                   </div>
                 </div>
-              </div>{" "}
+              </div>
             </div>
           </div>
         </>
