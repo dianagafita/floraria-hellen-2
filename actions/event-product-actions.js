@@ -103,9 +103,9 @@ export async function updateEventProduct(prevState, formData) {
 
   let imageUrls = existingProduct.images_url;
 
-  if (images.length > 0 && images[0].size > 0) {
+  if (images.length > 0 && images[0]?.size > 0) {
     try {
-      const newImageUrls = await uploadImages(images, productFlowerType);
+      const newImageUrls = await uploadImages(images, productEventType);
       imageUrls = [...imageUrls, ...newImageUrls];
       updatedData.images_url = imageUrls;
     } catch (error) {
