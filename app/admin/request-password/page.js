@@ -35,9 +35,12 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="h-full mt-[30vw] md:mt-[10vw]">
-      <div className="p-10 w-[90vw] h-[300px] mx-auto shadow-lg border">
-        <form className="text-center" onSubmit={handleAdminSubmit}>
+    <div className="h-full mt-[30vw] md:mt-[10vw] flex flex-col items-center justify-center">
+      <div className="p-10 w-[90vw] h-[300px] mx-auto shadow-lg border mx-auto">
+        <form
+          className="text-center mx-auto flex flex-col items-center justify-center"
+          onSubmit={handleAdminSubmit}
+        >
           <Input
             type="password"
             id="adminPassword"
