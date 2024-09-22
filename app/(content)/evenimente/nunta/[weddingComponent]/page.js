@@ -96,7 +96,7 @@ export default async function WeddingPage({ params }) {
       {!flowerBouquets ? (
         <Loading />
       ) : (
-        <div className="flex gap-4 m-5  flex-wrap justify-center md:justify-start">
+        <div className="flex gap-4 m-5  flex-wrap justify-center ">
           {flowerBouquets.map((image, index) => (
             <Link
               href={`/evenimente/nunta/${weddingComponent}/${image.id}`}
@@ -104,7 +104,7 @@ export default async function WeddingPage({ params }) {
               className="relative group overflow-hidden"
             >
               <Image
-                className=" w-[400px] h-[500px] md:w-[300px] md:h-[400px] rounded-sm"
+                className=" w-[400px] h-[500px] md:w-[400px] md:h-[500px] rounded-sm"
                 src={image.images_url[0]}
                 width={400}
                 height={300}
