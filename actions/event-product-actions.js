@@ -177,8 +177,8 @@ export async function updateEventProduct(prevState, formData) {
   if (images.length > 0 && images[0]?.size > 0) {
     try {
       const newImageUrls = await uploadImages(images, productEventType);
-      // Ensure no duplicate images
-      imageUrls = [...new Set([...imageUrls, ...newImageUrls])];
+      // Ensure no duplicate images by using Set
+      imageUrls = [...new Set([...imageUrls, ...newImageUrls])]; // Remove duplicates
       updatedData.images_url = imageUrls;
     } catch (error) {
       return { errors: ["Image upload failed. Please try again later."] };

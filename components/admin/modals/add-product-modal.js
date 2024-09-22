@@ -16,6 +16,7 @@ export default function AddProductModal({ openModal, type }) {
   const [selectedType, setSelectedType] = useState("");
   const [subTypeOptions, setSubTypeOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleFileChange = (event) => {
     setFiles(event.target.files);
   };
