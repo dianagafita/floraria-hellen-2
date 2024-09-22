@@ -3,6 +3,14 @@
 import { uploadImages } from "@/lib/claudinary";
 import prisma from "@/lib/prisma";
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "20mb",
+    },
+  },
+};
+
 export async function addEventProduct(prevState, formData) {
   const productName = formData.get("productName");
   const productType = formData.get("productType");

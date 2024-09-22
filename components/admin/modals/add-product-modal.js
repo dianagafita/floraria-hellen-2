@@ -15,7 +15,7 @@ export default function AddProductModal({ openModal, type }) {
   const [flowers, setFlowers] = useState([{ flowerName: "", quantity: "" }]);
   const [selectedType, setSelectedType] = useState("");
   const [subTypeOptions, setSubTypeOptions] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleFileChange = (event) => {
     setFiles(event.target.files);
   };
@@ -36,15 +36,41 @@ export default function AddProductModal({ openModal, type }) {
     setFlowers(newFlowers);
   };
 
-  useEffect(() => {
-    if (formState.status === "success") {
-      window.location.href =
-        type !== "event"
-          ? "/admin/dashboard/products"
-          : "/admin/dashboard/event-products";
-    }
-  }, [formState]);
+  // useEffect(() => {
+  //   if (formState.status === "success") {
+  //     window.location.href =
+  //       type !== "event"
+  //         ? "/admin/dashboard/products"
+  //         : "/admin/dashboard/event-products";
+  //   }
+  // }, [formState]);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    formData.append("flowers", JSON.stringify(flowers));
+
+    try {
+      setIsLoading(true);
+      const response = await fetch("/api/prod", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setIsLoading(false);
+        window.location.href =
+          type !== "event"
+            ? "/admin/dashboard/products"
+            : "/admin/dashboard/event-products";
+      }
+    } catch (error) {
+      setIsLoading(false);
+
+      console.error("Error during submission:", error);
+    }
+  };
   const flowerType = [
     { value: "buchete", label: "Buchet" },
     { value: "aranjamente", label: "Aranjament" },
@@ -140,18 +166,7 @@ export default function AddProductModal({ openModal, type }) {
           type === "event" ? "h-full" : "h-[700px]"
         } `}
       >
-        <form
-          action={async (formData) => {
-            try {
-              formData.append("flowers", JSON.stringify(flowers));
-              await formAction(formData);
-            } catch (error) {
-              console.error("Error during submission:", error);
-              // Handle specific error cases if needed
-            }
-          }}
-          className="flex flex-col "
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col ">
           <div className="flex flex-col md:flex-row">
             <Input
               required
@@ -283,7 +298,7 @@ export default function AddProductModal({ openModal, type }) {
           )}
           <div className="flex mx-3 mt-10 justify-between">
             <Button type="submit" moreStyle="px-5 ">
-              Adauga
+              {isLoading ? "Se adauga..." : "Adauga"}
             </Button>
             <Button type="button" moreStyle="px-5" onClick={openModal}>
               Inchide
