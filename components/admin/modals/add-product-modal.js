@@ -20,7 +20,7 @@ export default function AddProductModal({ openModal, type }) {
   const handleFileChange = async (event) => {
     const selectedFiles = Array.from(event.target.files);
     const uploadPromises = selectedFiles.map(async (file) => {
-      // Compress the image
+      console.log(`Original file size: ${file.size / 1024} KB`);
       const compressedFile = await imageCompression(file, {
         maxSizeMB: 1, // Adjust max size
         maxWidthOrHeight: 1024, // Adjust dimensions
@@ -32,6 +32,7 @@ export default function AddProductModal({ openModal, type }) {
         body: JSON.stringify({ productId: "your-product-id" }),
         headers: { "Content-Type": "application/json" },
       });
+      console.log(`Compressed file size: ${compressedFile.size / 1024} KB`);
 
       const { url } = await response.json();
 
