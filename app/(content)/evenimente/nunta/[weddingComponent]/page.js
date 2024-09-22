@@ -87,14 +87,16 @@ export default async function WeddingPage({ params }) {
         </div>
       </div>
       <TitleByPath paths={paths} />
-      <h1 className="text-[2rem] m-[1.5rem] ">GALERIE FOTO</h1>
+      <h1 className="text-[2rem] mt-[1.5rem] mx-[1.5rem] mb-3 ">
+        GALERIE FOTO
+      </h1>
       <h2 className="text-[1rem] mx-[1.5rem] font-[100] ">
         ALEGETI DIN MODELE DE MAI JOS
       </h2>
       {!flowerBouquets ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-2 md:flex gap-4 m-5">
+        <div className="flex gap-4 m-5  flex-wrap justify-center md:justify-start">
           {flowerBouquets.map((image, index) => (
             <Link
               href={`/evenimente/nunta/${weddingComponent}/${image.id}`}
@@ -102,7 +104,7 @@ export default async function WeddingPage({ params }) {
               className="relative group overflow-hidden"
             >
               <Image
-                className="max-w-[300px] h-[400px] rounded-sm"
+                className=" w-[400px] h-[500px] md:w-[300px] md:h-[400px] rounded-sm"
                 src={image.images_url[0]}
                 width={400}
                 height={300}
