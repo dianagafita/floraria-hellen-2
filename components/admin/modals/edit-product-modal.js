@@ -180,7 +180,9 @@ export default function EditProductModal({ openModal, product, type }) {
         <form
           action={async (formData) => {
             formData.append("flowers", JSON.stringify(flowers));
-            formData.append("productImages", files);
+            Array.from(files).forEach((file) => {
+              formData.append("productImages", file);
+            });
             formAction(formData);
           }}
           className="flex flex-col"
