@@ -2,11 +2,7 @@ import { uploadImages } from "@/lib/claudinary";
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-export const config = {
-  api: {
-    bodyParser: false, // Disable body parsing to handle streaming
-  },
-};
+
 
 export async function POST(req) {
   const formData = await req.formData(); // Use req.formData() to get the FormData
