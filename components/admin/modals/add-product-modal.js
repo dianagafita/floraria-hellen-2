@@ -5,7 +5,6 @@ import Button from "@/components/util/button";
 import Input from "@/components/util/input";
 import { addProduct } from "@/actions/product-actions";
 import { addEventProduct } from "@/actions/event-product-actions";
-import imageCompression from "browser-image-compression";
 
 export default function AddProductModal({ openModal, type }) {
   const [formState, formAction] = useFormState(
@@ -17,38 +16,8 @@ export default function AddProductModal({ openModal, type }) {
   const [selectedType, setSelectedType] = useState("");
   const [subTypeOptions, setSubTypeOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const handleFileChange = async (event) => {
-    const selectedFiles = Array.from(event.target.files);
-    const uploadPromises = selectedFiles.map(async (file) => {
-      console.log(`Original file size: ${file.size / 1024} KB`);
-      const compressedFile = await imageCompression(file, {
-        maxSizeMB: 1, // Adjust max size
-        maxWidthOrHeight: 1024, // Adjust dimensions
-        useWebWorker: true,
-      });
-
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: JSON.stringify({ productId: "your-product-id" }),
-        headers: { "Content-Type": "application/json" },
-      });
-      console.log(`Compressed file size: ${compressedFile.size / 1024} KB`);
-
-      const { url } = await response.json();
-
-      const uploadResponse = await fetch(url, {
-        method: "PUT",
-        body: compressedFile,
-        headers: {
-          "Content-Type": compressedFile.type,
-        },
-      });
-
-      return uploadResponse.ok ? url : null;
-    });
-
-    const imageUrls = await Promise.all(uploadPromises);
-    setFiles(imageUrls.filter(Boolean));
+  const handleFileChange = (event) => {
+    setFiles(event.target.files);
   };
 
   const handleFlowerChange = (index, field, value) => {
@@ -75,30 +44,33 @@ export default function AddProductModal({ openModal, type }) {
   //         : "/admin/dashboard/event-products";
   //   }
   // }, [formState]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
 
     const formData = new FormData(event.target);
-    files.forEach((url) => formData.append("imageUrls", url));
+    formData.append("flowers", JSON.stringify(flowers));
 
     try {
+      setIsLoading(true);
       const response = await fetch("/api/prod", {
         method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        // Handle success
-        window.location.href = "/admin/dashboard/products"; // Adjust as needed
+        setIsLoading(false);
+        window.location.href =
+          type !== "event"
+            ? "/admin/dashboard/products"
+            : "/admin/dashboard/event-products";
       }
     } catch (error) {
-      console.error("Error during submission:", error);
-    } finally {
       setIsLoading(false);
+
+      console.error("Error during submission:", error);
     }
   };
-
   const flowerType = [
     { value: "buchete", label: "Buchet" },
     { value: "aranjamente", label: "Aranjament" },
@@ -326,7 +298,7 @@ export default function AddProductModal({ openModal, type }) {
           )}
           <div className="flex mx-3 mt-10 justify-between">
             <Button type="submit" moreStyle="px-5 ">
-              {isLoading ? "Se adauga..." : "Adauga"}
+              {isLoading ? "Se adauga..." : " Adauga"}
             </Button>
             <Button type="button" moreStyle="px-5" onClick={openModal}>
               Inchide
