@@ -5,6 +5,7 @@ import Button from "@/components/util/button";
 import Input from "@/components/util/input";
 import { addProduct } from "@/actions/product-actions";
 import { addEventProduct } from "@/actions/event-product-actions";
+import imageCompression from "browser-image-compression";
 
 export default function AddProductModal({ openModal, type }) {
   const [formState, formAction] = useFormState(
@@ -16,33 +17,37 @@ export default function AddProductModal({ openModal, type }) {
   const [selectedType, setSelectedType] = useState("");
   const [subTypeOptions, setSubTypeOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const handleFileChange = async (event) => {
     const selectedFiles = Array.from(event.target.files);
     const uploadPromises = selectedFiles.map(async (file) => {
-      // Step 1: Get the upload URL from your server
+      // Compress the image
+      const compressedFile = await imageCompression(file, {
+        maxSizeMB: 1, // Adjust max size
+        maxWidthOrHeight: 1024, // Adjust dimensions
+        useWebWorker: true,
+      });
+
       const response = await fetch("/api/upload", {
         method: "POST",
         body: JSON.stringify({ productId: "your-product-id" }),
         headers: { "Content-Type": "application/json" },
       });
 
-      const { url } = await response.json(); // This should be your upload URL from the server
+      const { url } = await response.json();
 
-      // Step 2: Upload the file directly to the media host
       const uploadResponse = await fetch(url, {
         method: "PUT",
-        body: file,
+        body: compressedFile,
         headers: {
-          "Content-Type": file.type,
+          "Content-Type": compressedFile.type,
         },
       });
 
-      return uploadResponse.ok ? url : null; // Return the URL if upload was successful
+      return uploadResponse.ok ? url : null;
     });
 
     const imageUrls = await Promise.all(uploadPromises);
-    setFiles(imageUrls.filter(Boolean)); // Filter out any null values
+    setFiles(imageUrls.filter(Boolean));
   };
 
   const handleFlowerChange = (index, field, value) => {

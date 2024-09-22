@@ -25,6 +25,7 @@
     "@stripe/stripe-js": "^4.1.0",
     "anchor-pki": "^0.3.2",
     "axios": "^1.7.2",
+    "browser-image-compression": "^2.0.2",
     "cloudinary": "^2.4.0",
     "cookies-next": "^4.2.1",
     "embla-carousel-autoplay": "^8.1.5",
