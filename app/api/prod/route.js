@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export const config = {
   api: {
-    bodyParser: false, // Disable body parsing to handle streaming
+    bodyParser: false,
   },
 };
 

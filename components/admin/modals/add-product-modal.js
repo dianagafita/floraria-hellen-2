@@ -16,8 +16,30 @@ export default function AddProductModal({ openModal, type }) {
   const [selectedType, setSelectedType] = useState("");
   const [subTypeOptions, setSubTypeOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const handleFileChange = (event) => {
-    setFiles(event.target.files);
+  const handleFileChange = async (event) => {
+    const selectedFiles = Array.from(event.target.files);
+
+    const uploadPromises = selectedFiles.map(async (file) => {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: JSON.stringify({ productId: "your-product-id" }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const { url } = await response.json();
+      const uploadResponse = await fetch(url, {
+        method: "PUT",
+        body: file,
+        headers: {
+          "Content-Type": file.type,
+        },
+      });
+
+      return uploadResponse.url; // Adjust based on your Cloudinary response
+    });
+
+    const imageUrls = await Promise.all(uploadPromises);
+    setFiles(imageUrls);
   };
 
   const handleFlowerChange = (index, field, value) => {
@@ -47,30 +69,29 @@ export default function AddProductModal({ openModal, type }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     const formData = new FormData(event.target);
-    formData.append("flowers", JSON.stringify(flowers));
+    // Append the image URLs to the form data
+    files.forEach((url) => formData.append("imageUrls", url));
 
     try {
-      setIsLoading(true);
       const response = await fetch("/api/prod", {
         method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        setIsLoading(false);
-        window.location.href =
-          type !== "event"
-            ? "/admin/dashboard/products"
-            : "/admin/dashboard/event-products";
+        // Handle success
+        window.location.href = "/admin/dashboard/products"; // Adjust as needed
       }
     } catch (error) {
-      setIsLoading(false);
-
       console.error("Error during submission:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
+
   const flowerType = [
     { value: "buchete", label: "Buchet" },
     { value: "aranjamente", label: "Aranjament" },
