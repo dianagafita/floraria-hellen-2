@@ -16,10 +16,12 @@ export default function AddProductModal({ openModal, type }) {
   const [selectedType, setSelectedType] = useState("");
   const [subTypeOptions, setSubTypeOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleFileChange = async (event) => {
     const selectedFiles = Array.from(event.target.files);
 
-    const uploadPromises = selectedFiles.map(async (file) => {
+    for (const file of selectedFiles) {
+      // Fetch the pre-signed URL
       const response = await fetch("/api/upload", {
         method: "POST",
         body: JSON.stringify({ productId: "your-product-id" }),
@@ -27,6 +29,8 @@ export default function AddProductModal({ openModal, type }) {
       });
 
       const { url } = await response.json();
+
+      // Upload the file to Cloudinary using the pre-signed URL
       const uploadResponse = await fetch(url, {
         method: "PUT",
         body: file,
@@ -35,11 +39,10 @@ export default function AddProductModal({ openModal, type }) {
         },
       });
 
-      return uploadResponse.url; // Adjust based on your Cloudinary response
-    });
-
-    const imageUrls = await Promise.all(uploadPromises);
-    setFiles(imageUrls);
+      // Handle the response as needed
+      const uploadedImageUrl = await uploadResponse.json();
+      console.log("Uploaded Image URL:", uploadedImageUrl);
+    }
   };
 
   const handleFlowerChange = (index, field, value) => {
