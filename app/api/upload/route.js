@@ -11,28 +11,22 @@ cloudinary.config({
 export async function POST(req) {
   const { productId } = await req.json();
 
-  // Ensure you authenticate the request here
-  // Implement your authentication logic
-
   try {
-    const url = await generatePresignedUrl(productId);
-    return NextResponse.json({ url });
+    const publicId = `products/${productId}/${Date.now()}`;
+    const uploadURL = cloudinary.utils.sign_request(
+      {
+        resource_type: "auto",
+        public_id: publicId,
+        type: "upload",
+      },
+      process.env.CLOUDINARY_API_SECRET
+    );
+
+    return NextResponse.json({ url: uploadURL });
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to generate upload URL." },
       { status: 500 }
     );
   }
-}
-
-async function generatePresignedUrl(productId) {
-  // You might need to create a unique public ID for the file
-  const publicId = `products/${productId}/${Date.now()}`;
-
-  // Generate a signed URL for uploading
-  return cloudinary.uploader.upload_stream({
-    resource_type: "auto",
-    public_id: publicId,
-    eager: [{ width: 300, height: 300, crop: "fill" }],
-  });
 }

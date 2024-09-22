@@ -19,15 +19,17 @@ export default function AddProductModal({ openModal, type }) {
 
   const handleFileChange = async (event) => {
     const selectedFiles = Array.from(event.target.files);
-
     const uploadPromises = selectedFiles.map(async (file) => {
+      // Step 1: Get the upload URL from your server
       const response = await fetch("/api/upload", {
         method: "POST",
         body: JSON.stringify({ productId: "your-product-id" }),
         headers: { "Content-Type": "application/json" },
       });
 
-      const { url } = await response.json();
+      const { url } = await response.json(); // This should be your upload URL from the server
+
+      // Step 2: Upload the file directly to the media host
       const uploadResponse = await fetch(url, {
         method: "PUT",
         body: file,
@@ -36,11 +38,11 @@ export default function AddProductModal({ openModal, type }) {
         },
       });
 
-      return uploadResponse.url; // Adjust based on your Cloudinary response
+      return uploadResponse.ok ? url : null; // Return the URL if upload was successful
     });
 
     const imageUrls = await Promise.all(uploadPromises);
-    setFiles(imageUrls);
+    setFiles(imageUrls.filter(Boolean)); // Filter out any null values
   };
 
   const handleFlowerChange = (index, field, value) => {
@@ -67,13 +69,11 @@ export default function AddProductModal({ openModal, type }) {
   //         : "/admin/dashboard/event-products";
   //   }
   // }, [formState]);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
 
     const formData = new FormData(event.target);
-    // Append the image URLs to the form data
     files.forEach((url) => formData.append("imageUrls", url));
 
     try {
