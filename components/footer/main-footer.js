@@ -31,7 +31,7 @@ export default function MainFooter() {
           </div>
         </Link>
         <p className="xxsFont text-[#606060]">
-          &copy; 2024 Your Company. All rights reserved.
+          &copy; 2024 Floraria Hellen. All rights reserved.
         </p>
       </div>
     </div>
