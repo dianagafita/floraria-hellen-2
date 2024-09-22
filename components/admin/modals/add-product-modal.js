@@ -142,8 +142,13 @@ export default function AddProductModal({ openModal, type }) {
       >
         <form
           action={async (formData) => {
-            formData.append("flowers", JSON.stringify(flowers));
-            formAction(formData);
+            try {
+              formData.append("flowers", JSON.stringify(flowers));
+              await formAction(formData);
+            } catch (error) {
+              console.error("Error during submission:", error);
+              // Handle specific error cases if needed
+            }
           }}
           className="flex flex-col "
         >
