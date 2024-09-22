@@ -151,7 +151,9 @@ export default function EditProductModal({ openModal, product, type }) {
   }, [formState.status]);
 
   const handleFileChange = (event) => {
-    setFiles(event.target.files);
+    const selectedFiles = Array.from(event.target.files); // Convert to array
+    console.log("Selected Files Array:", selectedFiles);
+    setFiles(selectedFiles); // Set state as an array of files
   };
 
   const handleFlowerChange = (index, field, value) => {
@@ -174,18 +176,21 @@ export default function EditProductModal({ openModal, product, type }) {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div
         className={`m-10 bg-white rounded-sm md:w-1/2 w-full p-10 overflow-auto ${
-          type === "event" ? "h-full" : "h-[700px]"
+          type === "event" ? "h-[700px]" : "h-[700px]"
         } `}
       >
         <form
           action={async (formData) => {
             formData.append("flowers", JSON.stringify(flowers));
-            Array.from(files).forEach((file) => {
-              formData.append("productImages", file);
+
+            // Append each file individually to formData
+            files.forEach((file) => {
+              formData.append("productImages", file); // Ensure each file is appended
             });
-            formAction(formData);
+            console.log([...formData.entries()]); // Verify the formData before submission
+
+            formAction(formData); // Submit the form data
           }}
-          className="flex flex-col"
         >
           <Input defaultValue={product.id} more="hidden" id="id" name="id" />
           <div className="flex">
