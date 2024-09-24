@@ -104,12 +104,14 @@ export default async function WeddingPage({ params }) {
               className="relative group overflow-hidden"
             >
               <Image
-                className="max-w-[400px] max-h-[500px] h-[500px]  rounded-sm objec"
+                className="w-[400px] h-[500px] rounded-sm object-cover overflow-hidden"
                 src={image.images_url[0]}
                 width={400}
-                height={500} // Make sure this matches your desired height
+                height={500}
                 alt=""
+                layout="fixed" // Use "fixed" or remove `layout="responsive"`
               />
+
               <span className=" tracking-widest  absolute inset-0 flex items-center justify-center md:bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-white-600  text-white text-center opacity-0 translate-x-[-100%] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out">
                 DETALII
               </span>
