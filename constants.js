@@ -171,10 +171,10 @@ export const SIDENAV_ITEMS = [
             title: "Masina de fum valsul mirilor",
             path: "/evenimente/nunta/masina-fum",
           },
-          {
-            title: "Decoratiuni masini",
-            path: "/evenimente/nunta/decoratiuni-masini",
-          },
+          // {
+          //   title: "Decoratiuni masini",
+          //   path: "/evenimente/nunta/decoratiuni-masini",
+          // },
         ],
       },
       {

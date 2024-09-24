@@ -28,7 +28,7 @@ const imga = [
 const validWeddingComponent = [
   "nunta-completa",
   "buchete-mireasa",
-  "aranjamente-masa",
+  "decoratiuni-sal",
   "intrare-sala-covor-rosu",
   "biserica",
   "cununie-civila",
@@ -38,7 +38,7 @@ const validWeddingComponent = [
   "masina-fum",
   "fantana-ciocolata",
   "lumanari-biserica",
-  "corsaje-cocarde-coronite-bratari",
+  "corsaj-cocarede-bratari-coronite",
 ];
 
 export default async function WeddingPage({ params }) {
