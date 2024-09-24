@@ -72,8 +72,8 @@ export default async function WeddingPage({ params }) {
       <div className="relative h-[335px] w-full">
         <Image src={img} alt="" fill className="object-cover" />
         <div className="absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50 px-5">
-          <span className="tracking-widest  bg-white  py-10 px-5 md:px-20 md:mr-20 flex flex-col  text-sm md:text-2xl">
-            ARANJAMENTE FLORALE{" "}
+          <span className="tracking-widest  bg-white  py-10 px-10 md:px-20 md:mr-20 flex flex-col  text-sm md:text-2xl">
+            NUNTA{" "}
             <span className="text-[10px] text-end font-[100] text-[#A8A8A8]">
               Flori naturale si proapete
             </span>
@@ -96,7 +96,7 @@ export default async function WeddingPage({ params }) {
       {!flowerBouquets ? (
         <Loading />
       ) : (
-        <div className="flex gap-4 m-5  flex-wrap justify-center ">
+        <div className="flex gap-4 mx-5 mt-10 mb-20  flex-wrap justify-center ">
           {flowerBouquets.map((image, index) => (
             <Link
               href={`/evenimente/nunta/${weddingComponent}/${image.id}`}
@@ -104,10 +104,10 @@ export default async function WeddingPage({ params }) {
               className="relative group overflow-hidden"
             >
               <Image
-                className=" w-[400px] h-[500px] md:w-[400px] md:h-[500px] rounded-sm"
+                className="max-w-[400px] max-h-[500px] h-[500px]  rounded-sm objec"
                 src={image.images_url[0]}
                 width={400}
-                height={300}
+                height={500} // Make sure this matches your desired height
                 alt=""
               />
               <span className=" tracking-widest  absolute inset-0 flex items-center justify-center md:bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-white-600  text-white text-center opacity-0 translate-x-[-100%] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out">

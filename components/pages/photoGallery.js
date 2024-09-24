@@ -192,6 +192,7 @@ export function FeaturedImageGallery({ images, type }) {
       >
         <div className="col-span-2 md:col-span-1">
           <Image
+            priority
             src={active}
             layout="responsive"
             width={800}
@@ -219,6 +220,7 @@ export function FeaturedImageGallery({ images, type }) {
               } md:h-24`}
             >
               <Image
+                priority
                 onClick={() => handleImageClick(index)}
                 src={imgelink}
                 layout={type === "event" ? "intrinsic" : "responsive"}
