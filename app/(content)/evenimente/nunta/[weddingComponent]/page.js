@@ -96,7 +96,7 @@ export default async function WeddingPage({ params }) {
       {!flowerBouquets ? (
         <Loading />
       ) : (
-        <div className="flex gap-4 mx-5 mt-10 mb-20  flex-wrap justify-center ">
+        <div className="flex gap-4 mx-5 mt-[4rem] mb-[5rem]  flex-wrap justify-center ">
           {flowerBouquets.map((image, index) => (
             <Link
               href={`/evenimente/nunta/${weddingComponent}/${image.id}`}
