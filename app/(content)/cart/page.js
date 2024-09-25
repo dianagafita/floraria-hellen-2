@@ -29,7 +29,7 @@ export default function CartPage() {
             <div className="flex flex-col font-[300] w-full self-end lg:self-start  md:w-1/2 mt-10 md:mt-0">
               <div className="flex justify-between text-lg mb-1">
                 <span className="font-[500]">Subtotal</span>
-                <span>{cartTotal} Lei</span>
+                <span translate="no">{cartTotal} Lei</span>
               </div>
               <span className="text-xs mb-2">
                 Taxele de transport sunt calculate la pasul urmator

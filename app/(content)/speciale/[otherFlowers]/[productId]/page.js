@@ -84,7 +84,7 @@ export default function ProductPage({ params }) {
   const images = flowers.images_url;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mb-10">
       <div className="md:flex md:px-5 w-full md:mt-5">
         <div className="md:w-1/2 md:max-w-[700px]  md:min-w-[450px] w-full mb-10">
           <FeaturedImageGallery images={images} />
@@ -93,10 +93,10 @@ export default function ProductPage({ params }) {
           <span className="text-2xl lg:text-3xl mb-5 text-center font-[400] ">
             {flowers.name}
           </span>
-          <span className="text-end text-xl mr-10 mb-5">
-            100<sup>.00 lei</sup>
+          <span translate="no" className="text-end text-xl mr-10 mb-5">
+            100<sup translate="no">.00 lei</sup>
           </span>
-          <form className="flex flex-col w-full h-full md:max-h-[365px] justify-between md:mb-20">
+          <form className="flex flex-col w-full h-full md:max-h-[365px] justify-between md:mb-20 text-[16px]">
             <div className="w-full">
               <div className="grid-cols-2 md:grid-cols-1 grid lg:grid-cols-2 w-full items-end">
                 <Input
@@ -162,8 +162,8 @@ export default function ProductPage({ params }) {
                 onChange={handleChange}
               />
             </div>
-            <div className="my-10">
-              <h3 className="text-center font-[400] mb-3 text-[15px]">
+            <div className="my-5">
+              <h3 className="text-center font-[400] text-[15px]">
                 ADAUGA CEVA EXTRA
               </h3>
               <div className="ml-5 flex space-x-5 overflow-auto scrollbar">
@@ -179,7 +179,7 @@ export default function ProductPage({ params }) {
                         alt={item.name}
                         className="w-[90px] h-[90px] object-cover mb-2"
                       />
-                      <span>{item.name}</span>
+                      <span translate="no">{item.name}</span>
                     </button>
                   </div>
                 ))}

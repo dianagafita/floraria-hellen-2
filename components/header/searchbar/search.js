@@ -87,6 +87,7 @@ export default function Search({ inputChanges, pChanges, openSearch }) {
               type="search"
             />
             <Link
+              onClick={handleClearSearch}
               href={`/search-results?query=${query}`}
               className=" font-[100] text-[14px] underline underline-offset-4 decoration-[#505050] text-[#505050] hover:text-black hover:decoration-black"
             >

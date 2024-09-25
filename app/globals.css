@@ -18,6 +18,7 @@ html {
   margin: 0;
   -webkit-tap-highlight-color: transparent;
 }
+
 .goog-te-banner-frame {
   left: -180px !important;
 }
@@ -35,12 +36,45 @@ iframe[id^="goog-te"],
 .goog-te-gadget {
   display: none !important;
 }
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
 .goog-tooltip {
   display: none !important;
 }
 .goog-tooltip:hover {
   display: none !important;
 }
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+/* Prevent text selection to avoid triggering Google Translate suggestions */
+body,
+* {
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none; /* Disable text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Customize the appearance */
+font {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+body {
+  position: static;
+  top: 0 !important;
+  font-family: "two", sans-serif;
+}
+/* Hide Google Translate toolbar */
 .goog-te-banner-frame.skiptranslate {
   display: none !important;
 }
@@ -63,15 +97,36 @@ iframe[id^="goog-te"],
 iframe.skiptranslate {
   display: none !important;
 }
-.goog-text-highlight {
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+
+/* Adjust body position to prevent layout shift */
+
+/* body {
+  color: var(--foreground);
+  background: var(--background); 
+} */
+
+.fontBold {
+  font-family: "one", sans-serif;
 }
-.goog-te-banner-frame.skiptranslate,
-.goog-te-gadget-icon {
+/* @layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+.skiptranslate,
+.goog-te-banner-frame,
+.goog-te-gadget-icon,
+.goog-te-menu-frame,
+.goog-te-menu-value,
+.goog-logo-link,
+.goog-te-spinner-pos {
   display: none !important;
 }
+
+.goog-te-gadget {
+  display: none !important;
+}
+
 body {
   font-family: "Alegreya Sans", sans-serif !important;
   font-feature-settings: "blwf";

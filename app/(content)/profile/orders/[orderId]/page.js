@@ -73,7 +73,10 @@ export default function OrderDetailsPage({ params }) {
                         <span className="text-[14px] mb-[2px]">x</span>
                         <span>{item.quantity}</span>
                       </p>
-                      <p className="text-xl font-[400] leading-tight text-gray-900">
+                      <p
+                        translate="no"
+                        className="text-xl font-[400] leading-tight text-gray-900"
+                      >
                         {item.product.price} lei
                       </p>
                     </div>
@@ -84,14 +87,17 @@ export default function OrderDetailsPage({ params }) {
                 <div className="space-y-2">
                   <dl className="flex items-center justify-between gap-4">
                     <dt className="font-normal text-gray-500">Produse</dt>
-                    <dd className="font-medium text-gray-900">
+                    <dd translate="no" className="font-medium text-gray-900">
                       {order.cart_total} lei
                     </dd>
                   </dl>
 
                   <dl className="flex items-center justify-between gap-4">
                     <dt className="font-normal text-gray-500">Livrare</dt>
-                    <dd className="text-base font-medium text-gray-900">
+                    <dd
+                      translate="no"
+                      className="text-base font-medium text-gray-900"
+                    >
                       {order.shipping_fee} lei
                     </dd>
                   </dl>
@@ -99,7 +105,10 @@ export default function OrderDetailsPage({ params }) {
 
                 <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2">
                   <dt className="text-lg font-bold text-gray-900">Total</dt>
-                  <dd className="text-lg font-[600] text-gray-900">
+                  <dd
+                    translate="no"
+                    className="text-lg font-[600] text-gray-900"
+                  >
                     {order.total_price} lei
                   </dd>
                 </dl>
@@ -110,7 +119,7 @@ export default function OrderDetailsPage({ params }) {
               <div className="space-y-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="grid grid-cols-1 md:grid-cols-2">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-xl font-semibold text-gray-900 whitespace-nowrap">
                       Istoricul comenzii
                     </h3>
                     <ol className="relative ms-3 border-s border-gray-200">
@@ -118,7 +127,7 @@ export default function OrderDetailsPage({ params }) {
                         <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
                           <PiBagThin />
                         </span>
-                        <h4 className="mb-0.5 text-base font-semibold text-gray-900">
+                        <h4 className=" whitespace-nowrap mb-0.5 text-base font-semibold text-gray-900">
                           Comanda plasata
                         </h4>
                         <p className="text-sm font-normal text-gray-500">
@@ -130,7 +139,7 @@ export default function OrderDetailsPage({ params }) {
                         <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
                           <CiCreditCard1 />
                         </span>
-                        <h4 className="mb-0.5 text-base font-semibold text-gray-900">
+                        <h4 className="whitespace-nowrap mb-0.5 text-base font-semibold text-gray-900">
                           Plata acceptata
                         </h4>
                         <p className="text-sm font-normal text-gray-500">
@@ -165,17 +174,6 @@ export default function OrderDetailsPage({ params }) {
                         Cancel the order
                       </button>
                     )}
-                  </div>
-                  <div className="mt-5 ">
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Factura
-                    </h3>
-                    <button
-                      type="button"
-                      className=" my-5 w-1/2 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100"
-                    >
-                      Descarca factura
-                    </button>
                   </div>
                 </div>
               </div>
