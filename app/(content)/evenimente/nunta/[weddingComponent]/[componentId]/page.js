@@ -12,7 +12,7 @@ export default async function ComponentPage({ params }) {
   }
 
   return (
-    <div className="flex flex-col min-h-[100vh]">
+    <div className="flex flex-col h-[100vh]">
       <div className="md:flex  w-full ">
         <div className="md:w-1/2 md:p-5 mb-10">
           <FeaturedImageGallery
@@ -23,7 +23,7 @@ export default async function ComponentPage({ params }) {
         <div className="mx-5 my-20 md:my-5 flex flex-col md:ml-10 md:w-1/2 h-[460px]">
           <div className="flex flex-col ">
             <Title>{componentDetails.name}</Title>
-            <div className="flex flex-col my-">
+            <div className="flex flex-col">
               <span className="my-2 flex flex-col ">
                 Detalii suplimentare:
                 <span className="my-1 text-sm font-[100]">

@@ -68,7 +68,7 @@ export default async function WeddingPage({ params }) {
     },
   ];
   return (
-    <div className="min-h-screen h-full">
+    <div className=" min-h-[100vh]">
       {" "}
       <div className="relative h-[335px] w-full">
         <Image src={img} alt="" fill className="object-cover" />

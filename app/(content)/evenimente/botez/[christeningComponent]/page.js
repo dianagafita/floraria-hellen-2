@@ -41,7 +41,7 @@ export default async function ChristeningPage({ params }) {
     },
   ];
   return (
-    <div className="min-h-screen h-full">
+    <div className="min-h-[100vh]">
       {" "}
       <div className="relative h-[335px] w-full">
         <div className="absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50 px-5">
