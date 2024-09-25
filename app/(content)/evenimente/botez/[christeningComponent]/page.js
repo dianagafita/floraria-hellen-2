@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { getComponentByType } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 import { getTitleOfPath } from "@/components/path";
+import FlowerImage from "../../nunta/[weddingComponent]/ims";
 
 const validChristeningComponent = [
   "aranjamente-cristelnita",
@@ -65,27 +66,17 @@ export default async function ChristeningPage({ params }) {
       <h2 className="text-[1rem] mx-[1.5rem] font-[100] ">
         ALEGETI DIN MODELE DE MAI JOS
       </h2>
-      {christeningComponents.lenght === 0 ? (
+      {!christeningComponents ? (
         <Loading />
       ) : (
         <div className="grid grid-cols-2 md:flex gap-4 m-5">
           {christeningComponents.map((image, index) => (
-            <Link
-              href={`/evenimente/botez/${christeningComponent}/${image.id}`}
+            <FlowerImage
               key={index}
-              className="relative group overflow-hidden"
-            >
-              <Image
-                className="max-w-[300px] h-[400px] rounded-sm"
-                src={image.images_url[0]}
-                width={400}
-                height={300}
-                alt=""
-              />
-              <span className=" tracking-widest  absolute inset-0 flex items-center justify-center md:bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-white-600  text-white text-center opacity-0 translate-x-[-100%] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out">
-                DETALII
-              </span>
-            </Link>
+              src={image.images_url[0]}
+              alt={`Flower image ${index + 1}`}
+              href={`/evenimente/nunta/${christeningComponent}/${image.id}`}
+            />
           ))}
         </div>
       )}

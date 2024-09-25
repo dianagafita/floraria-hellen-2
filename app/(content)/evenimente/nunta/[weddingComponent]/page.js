@@ -13,6 +13,7 @@ import { redirect } from "next/navigation";
 import { getComponentByType } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 import { getTitleOfPath } from "@/components/path";
+import FlowerImage from "./ims";
 
 const imga = [
   {
@@ -46,7 +47,7 @@ export default async function WeddingPage({ params }) {
   if (!validWeddingComponent.includes(weddingComponent)) {
     redirect("/");
   }
-  const flowerBouquets = await getComponentByType({
+  const weddingComponentItem = await getComponentByType({
     type: `${weddingComponent}`,
     event: "nunta",
   });
@@ -93,29 +94,17 @@ export default async function WeddingPage({ params }) {
       <h2 className="text-[1rem] mx-[1.5rem] font-[100] ">
         ALEGETI DIN MODELE DE MAI JOS
       </h2>
-      {!flowerBouquets ? (
+      {!weddingComponentItem ? (
         <Loading />
       ) : (
-        <div className="flex gap-4 mx-5 mt-[4rem] mb-[5rem]  flex-wrap justify-center ">
-          {flowerBouquets.map((image, index) => (
-            <Link
-              href={`/evenimente/nunta/${weddingComponent}/${image.id}`}
+        <div className="flex gap-4 mx-5 mt-[4rem] mb-[5rem] flex-wrap justify-center ">
+          {weddingComponentItem.map((image, index) => (
+            <FlowerImage
               key={index}
-              className="relative group overflow-hidden"
-            >
-              <Image
-                className="w-[400px] h-[500px] rounded-sm object-cover overflow-hidden"
-                src={image.images_url[0]}
-                width={400}
-                height={500}
-                alt=""
-                layout="fixed" // Use "fixed" or remove `layout="responsive"`
-              />
-
-              <span className=" tracking-widest  absolute inset-0 flex items-center justify-center md:bg-gradient-to-r from-[rgba(0,0,0,0.3)] to-white-600  text-white text-center opacity-0 translate-x-[-100%] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out">
-                DETALII
-              </span>
-            </Link>
+              src={image.images_url[0]}
+              alt={`Flower image ${index + 1}`}
+              href={`/evenimente/nunta/${weddingComponent}/${image.id}`}
+            />
           ))}
         </div>
       )}
