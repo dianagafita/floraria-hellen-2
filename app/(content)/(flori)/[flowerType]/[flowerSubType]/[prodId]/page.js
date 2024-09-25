@@ -6,6 +6,7 @@ import { useCart } from "@/context/cart-context";
 import Button from "@/components/util/button";
 import Loading from "@/lib/loading";
 import { EXTRA_ITEMS } from "@/constants";
+import ExtraItemModal from "./extra-item-modal";
 
 export default function ProductPage({ params }) {
   const { addToCart } = useCart();
