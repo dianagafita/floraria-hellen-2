@@ -138,30 +138,21 @@ export default function OrderDetailsPage({ params }) {
                           {new Date(order.updated_at).toLocaleTimeString()}
                         </p>
                       </li>
-                      <li className="mb-10 ms-6 text-primary-700">
-                        <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
-                          <FaCheck strokeWidth={0.1} size={13} />
-                        </span>
-                        <h4 className="mb-0.5 text-base font-semibold text-gray-900">
-                          Comanda acceptata
-                        </h4>
-                        <p className="text-sm font-normal text-gray-500">
-                          {new Date(order.accepted_at).toLocaleDateString()},{" "}
-                          {new Date(order.accepted_at).toLocaleTimeString()}
-                        </p>
-                      </li>
-                      <li className="mb-10 ms-6">
-                        <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
-                          <BsHouse strokeWidth={0.05} size={13} />
-                        </span>
-                        <h4 className="mb-0.5 text-base font-semibold text-gray-900">
-                          Trimis spre livrare
-                        </h4>
-                        <p className="text-sm font-normal text-gray-500">
-                          {new Date(order.shipped_at).toLocaleDateString()},{" "}
-                          {new Date(order.shipped_at).toLocaleTimeString()}
-                        </p>
-                      </li>
+
+                      {order.order_state === "delivered" && (
+                        <li className="mb-10 ms-6">
+                          <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
+                            <BsHouse strokeWidth={0.05} size={13} />
+                          </span>
+                          <h4 className="mb-0.5 text-base font-semibold text-gray-900">
+                            Trimis spre livrare
+                          </h4>
+                          <p className="text-sm font-normal text-gray-500">
+                            {new Date(order.updated_at).toLocaleDateString()},{" "}
+                            {new Date(order.updated_at).toLocaleTimeString()}
+                          </p>
+                        </li>
+                      )}
                     </ol>
                   </div>
 
