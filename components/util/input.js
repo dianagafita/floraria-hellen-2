@@ -71,7 +71,7 @@ export default function Input({
           rows={4}
           value={value}
           onChange={onChange}
-          className="focus:outline-none focus:border-[#490606] focus:ring-1 focus:ring-[rgb(164,21,21)] font-thin border border-black p-2 rounded-sm  text-[#555555] text-sm md:text-base"
+          className="focus:outline-none text-[16px] focus:border-[#490606] focus:ring-1 focus:ring-[rgb(164,21,21)] font-thin border border-black p-2 rounded-sm  text-[#555555]  md:text-base"
         />
       ) : type === "file" ? (
         <input
@@ -83,7 +83,7 @@ export default function Input({
           type="file"
           value={value}
           onChange={onChange}
-          className=" font-thin  text-[#555555] text-[16px] md:text-base"
+          className=" font-thin  text-[#555555]  md:text-base"
         />
       ) : (
         <input
