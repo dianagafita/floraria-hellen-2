@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { TitleByPath } from "@/components/util/getPathTitle";
-
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getComponentByType } from "@/app/api/events/products";

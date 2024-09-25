@@ -5,7 +5,6 @@ import { FeaturedImageGallery } from "@/components/pages/photoGallery";
 import { useCart } from "@/context/cart-context";
 import Button from "@/components/util/button";
 import Loading from "@/lib/loading";
-import ExtraItemModal from "./extra-item-modal";
 import { EXTRA_ITEMS } from "@/constants";
 
 export default function ProductPage({ params }) {
