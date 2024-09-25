@@ -83,7 +83,7 @@ export default function Input({
           type="file"
           value={value}
           onChange={onChange}
-          className=" font-thin  text-[#555555] text-sm md:text-base"
+          className=" font-thin  text-[#555555] text-[16px] md:text-base"
         />
       ) : (
         <input
