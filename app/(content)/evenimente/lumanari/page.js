@@ -3,7 +3,7 @@ import React from "react";
 import img from "./t.jpeg";
 import { TitleByPath } from "@/components/util/getPathTitle";
 import Link from "next/link";
-import { getCandles, getComponentByType } from "@/app/api/events/products";
+import { getCandles } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 import FlowerImage from "./ims";
 
