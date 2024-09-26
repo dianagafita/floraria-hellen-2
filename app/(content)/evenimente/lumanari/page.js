@@ -3,17 +3,12 @@ import React from "react";
 import img from "./t.jpeg";
 import { TitleByPath } from "@/components/util/getPathTitle";
 import Link from "next/link";
-import { getComponentByType } from "@/app/api/events/products";
+import { getCandles, getComponentByType } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
-import { getTitleOfPath } from "@/components/path";
 import FlowerImage from "./ims";
 
-export default async function WeddingPage() {
-  const weddingComponentItem = await getComponentByType({
-    type: `lumanari-biserica`,
-    event: "nunta",
-  });
-  console.log(weddingComponentItem);
+export default async function CandlesPage() {
+  const weddingComponentItem = await getCandles();
 
   const paths = [
     { href: "/evenimente", title: "EVENIMENTE", style: "text-black-300/75" },

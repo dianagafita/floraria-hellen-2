@@ -17,6 +17,17 @@ export async function getComponentByType({ type, event }) {
   return products;
 }
 
+export async function getCandles() {
+  const products = await prisma.eventproduct.findMany({
+    where: {
+      product_type: "lumanari-biserica",
+      event_type: "nunta",
+    },
+    include: { flowers: true },
+  });
+  return products;
+}
+
 export async function getComponentById(id) {
   const products = await prisma.eventproduct.findUnique({
     where: {
