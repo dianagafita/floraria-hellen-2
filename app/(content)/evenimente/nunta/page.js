@@ -1,5 +1,5 @@
 import classes from "./wedding-menu-styles.module.css";
-import imgs from "./smoke.jpeg";
+import imgs from "./iii.png";
 import Image from "next/image";
 import { TitleByPath } from "@/components/util/getPathTitle";
 import Link from "next/link";
@@ -19,9 +19,16 @@ export default function Page() {
 
   return (
     <div>
-      <div className="relative h-[335px] w-full">
-        <Image src={imgs} alt="" fill className="object-cover" />
-        <div className="absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50">
+      <div className="relative h-[500px] max-h-[300px] w-full">
+        <Image
+          src={imgs}
+          alt=""
+          fill
+          style={{
+            objectFit: "cover",
+          }}
+        />
+        <div className="absolute inset-0 flex items-center justify-end text-black text-center ">
           <span className="bg-white py-10 px-20 mr-20 flex flex-col text-2xl">
             NUNTA{" "}
             <span className="text-[10px] font-[100] text-[#A8A8A8]">

@@ -67,6 +67,8 @@ export default async function WeddingPage({ params }) {
       style: "text-black",
     },
   ];
+  const sortedItems = weddingComponentItem.sort((a, b) => a.id - b.id);
+
   return (
     <div className=" min-h-[100vh]">
       {" "}
@@ -98,7 +100,7 @@ export default async function WeddingPage({ params }) {
         <Loading />
       ) : (
         <div className="flex gap-4 mx-5 mt-[4rem] mb-[5rem] flex-wrap justify-center ">
-          {weddingComponentItem.map((image, index) => (
+          {sortedItems.map((image, index) => (
             <FlowerImage
               key={index}
               src={image.images_url[0]}
