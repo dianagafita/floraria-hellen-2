@@ -14,6 +14,8 @@ export default async function CandlesPage() {
     { href: "/evenimente", title: "EVENIMENTE", style: "text-black-300/75" },
     { href: "/evenimente/lumanari", title: "LUMANARI", style: "text-black" },
   ];
+  const sortedItems = weddingComponentItem.sort((a, b) => a.id - b.id);
+
   return (
     <div className=" min-h-[100vh]">
       {" "}
@@ -45,7 +47,7 @@ export default async function CandlesPage() {
         <Loading />
       ) : (
         <div className="flex gap-4 mx-5 mt-[4rem] mb-[5rem] flex-wrap justify-center ">
-          {weddingComponentItem.map((image, index) => (
+          {sortedItems.map((image, index) => (
             <FlowerImage
               key={index}
               src={image.images_url[0]}

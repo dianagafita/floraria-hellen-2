@@ -40,6 +40,8 @@ export default async function ChristeningPage({ params }) {
       style: "text-black",
     },
   ];
+  const sortedItems = christeningComponents.sort((a, b) => a.id - b.id);
+
   return (
     <div className="min-h-[100vh]">
       {" "}
@@ -67,8 +69,8 @@ export default async function ChristeningPage({ params }) {
       {!christeningComponents ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-2 md:flex gap-4 m-5">
-          {christeningComponents.map((image, index) => (
+        <div className="flex gap-4 mx-5 mt-[4rem] mb-[5rem] flex-wrap justify-center ">
+          {sortedItems.map((image, index) => (
             <FlowerImage
               key={index}
               src={image.images_url[0]}
