@@ -10,7 +10,7 @@ import FlowerImage from "./ims";
 
 export default async function WeddingPage() {
   const weddingComponentItem = await getComponentByType({
-    type: `lumanari-biserica`,
+    type: "lumanari-biserica",
     event: "nunta",
   });
   console.log(weddingComponentItem);
