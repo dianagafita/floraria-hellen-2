@@ -105,10 +105,6 @@ export const SIDENAV_ITEMS = [
           },
 
           {
-            title: "Lumanari de botez cu flori naturale ",
-            path: "/evenimente/botez/lumanari-botez",
-          },
-          {
             title: "Photo corner",
             path: "/evenimente/botez/photo-corner",
           },
@@ -149,10 +145,7 @@ export const SIDENAV_ITEMS = [
             title: "Biserica",
             path: "/evenimente/nunta/biserica",
           },
-          {
-            title: "Lumanari de biserica cu flori naturale",
-            path: "/evenimente/nunta/lumanari-biserica",
-          },
+
           {
             title: "Cununie civila",
             path: "/evenimente/nunta/cununie-civila",
