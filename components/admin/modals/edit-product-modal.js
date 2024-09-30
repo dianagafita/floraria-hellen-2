@@ -60,12 +60,12 @@ export default function EditProductModal({ openModal, product, type }) {
       let response;
       if (type === "event") {
         response = await fetch("/api/eventprod", {
-          method: "POST",
+          method: "PUT",
           body: formData,
         });
       } else {
         response = await fetch("/api/prod", {
-          method: "POST",
+          method: "PUT",
           body: formData,
         });
       }
