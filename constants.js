@@ -181,14 +181,17 @@ export const SIDENAV_ITEMS = [
     ],
   },
   {
-    title: "COROANE FUNERARE",
-    path: "/speciale/coroane-funerare",
+    title: "Funerare & Bisericești",
+    path: "/speciale/funerare-bisericesti",
     submenu: true,
     subMenuItems: [
-      { title: "Coroane funerare", path: "/speciale/coroane-funerare/coroane" },
+      {
+        title: "Coroane funerare",
+        path: "/speciale/funerare-bisericesti/coroane",
+      },
       {
         title: "Aranjamente icoane",
-        path: "/speciale/coroane-funerare/aranjamente-coroane",
+        path: "/speciale/funerare-bisericesti/aranjamente-coroane",
       },
     ],
   },

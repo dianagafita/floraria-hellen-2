@@ -80,6 +80,8 @@ export default function AddProductModal({ openModal, type }) {
       value: "flori-criogenate",
       label: "Floare Criogenata",
     },
+    { value: "funerare-bisericesti", label: "Funerare & Bisericesti" },
+
     { value: "ocazii-speciale", label: "Ocazie Speciala" },
   ];
 
@@ -110,10 +112,18 @@ export default function AddProductModal({ openModal, type }) {
         { value: "aranjamente-flori-toamna", label: "Toamna" },
       ]);
     } else if (value === "plante") {
-      setSubTypeOptions([{ value: "plante", label: "Plante" }]);
+      setSubTypeOptions([{ value: "plante", label: "plante" }]);
+    } else if (value === "funerare-bisericesti") {
+      setSubTypeOptions([
+        { value: "funerare-bisericesti", label: "funerare-bisericesti" },
+      ]);
+    } else if (value === "flori-criogenate") {
+      setSubTypeOptions([
+        { value: "flori-criogenate", label: "flori-criogenate" },
+      ]);
     } else if (value === "ocazii-speciale") {
       setSubTypeOptions([
-        { value: "ocazii-speciale", label: "Ocazii Speciale" },
+        { value: "ocazii-speciale", label: "ocazii-peciale" },
       ]);
     } else {
       setSubTypeOptions([]);
@@ -186,7 +196,18 @@ export default function AddProductModal({ openModal, type }) {
                 onChange={(e) => handleEventTypeChange(e.target.value)}
               />
             ) : (
-              <div className="flex flex-col md:flex-row">
+              <div className="flex flex-col md:flex-row w-full ">
+                <Input
+                  type="select"
+                  required
+                  id="productType"
+                  name="productType"
+                  label="TIP PRODUS"
+                  options={type === "event" ? subTypeOptions : flowerType}
+                  onChange={(e) =>
+                    type === "event" ? null : handleTypeChange(e.target.value)
+                  }
+                />
                 <Input
                   required
                   id="productSubtype"
@@ -195,28 +216,17 @@ export default function AddProductModal({ openModal, type }) {
                   type="select"
                   options={subTypeOptions}
                 />
-                <Input
-                  required
-                  id="productFlowerType"
-                  name="productFlowerType"
-                  label="TIP FLORI"
-                />
               </div>
             )}
-            <Input
-              type="select"
-              required
-              id="productType"
-              name="productType"
-              label="TIP PRODUS"
-              options={type === "event" ? subTypeOptions : flowerType}
-              onChange={(e) =>
-                type === "event" ? null : handleTypeChange(e.target.value)
-              }
-            />
           </div>
 
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row items-center">
+            <Input
+              required
+              id="productFlowerType"
+              name="productFlowerType"
+              label="TIP FLORI"
+            />
             <Input
               required
               name="productImages"

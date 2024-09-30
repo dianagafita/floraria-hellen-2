@@ -8,8 +8,12 @@ import SortableFlowerList from "../../../../components/sort";
 import { getTitleOfPath } from "@/components/path";
 import Loading from "@/lib/loading";
 
-const validFlowerTypes = ["plante", "flori-criogenate", "coroane-funerare"];
-const titles = ["PLANTE IN GHIVECI", "FLORI CRIOGENATE", "COROANE FUNERARE"];
+const validFlowerTypes = ["plante", "flori-criogenate", "funerare-bisericesti"];
+const titles = [
+  "PLANTE IN GHIVECI",
+  "FLORI CRIOGENATE",
+  "FUNERARE & BISERICESTI",
+];
 
 export default async function OtherFlowersPage({ params }) {
   const flowerType = params.otherFlowers || "";
@@ -26,7 +30,7 @@ export default async function OtherFlowersPage({ params }) {
   const paths = [{ href: `/${flowerType}`, title, style: "text-black-300/75" }];
 
   return (
-    <div className="h-[100%]">
+    <div className="min-h-[100vh]">
       <div className="relative w-full h-[335px]">
         <Image
           src={i}

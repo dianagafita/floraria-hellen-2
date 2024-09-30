@@ -3,9 +3,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Thumb } from "./butt";
 import Image from "next/image";
-import img from "./po.jpeg";
-import img2 from "./r.jpeg";
-import img3 from "./p.jpeg";
+import img from "./10.jpeg";
+import img2 from "./11.jpeg";
+import img3 from "./12.jpeg";
 
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
