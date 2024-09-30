@@ -173,8 +173,8 @@ export default function AddProductModal({ openModal, type }) {
   return (
     <div className=" fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] w-full">
       <div
-        className={`m-10 bg-white rounded-sm  w-full p-5  overflow-auto${
-          type === "event" ? "h-full" : "h-[700px]"
+        className={`m-10 bg-white rounded-sm  w-full p-5 ${
+          type === "event" ? "md:h-[400px] " : "overflow-auto h-[600px]"
         } `}
       >
         <form onSubmit={handleSubmit} className="flex flex-col ">
@@ -196,18 +196,7 @@ export default function AddProductModal({ openModal, type }) {
                 onChange={(e) => handleEventTypeChange(e.target.value)}
               />
             ) : (
-              <div className="flex flex-col md:flex-row w-full ">
-                <Input
-                  type="select"
-                  required
-                  id="productType"
-                  name="productType"
-                  label="TIP PRODUS"
-                  options={type === "event" ? subTypeOptions : flowerType}
-                  onChange={(e) =>
-                    type === "event" ? null : handleTypeChange(e.target.value)
-                  }
-                />
+              <div className="flex flex-col md:flex-row">
                 <Input
                   required
                   id="productSubtype"
@@ -216,17 +205,28 @@ export default function AddProductModal({ openModal, type }) {
                   type="select"
                   options={subTypeOptions}
                 />
+                <Input
+                  required
+                  id="productFlowerType"
+                  name="productFlowerType"
+                  label="TIP FLORI"
+                />
               </div>
             )}
+            <Input
+              type="select"
+              required
+              id="productType"
+              name="productType"
+              label="TIP PRODUS"
+              options={type === "event" ? subTypeOptions : flowerType}
+              onChange={(e) =>
+                type === "event" ? null : handleTypeChange(e.target.value)
+              }
+            />
           </div>
 
-          <div className="flex flex-col md:flex-row items-center">
-            <Input
-              required
-              id="productFlowerType"
-              name="productFlowerType"
-              label="TIP FLORI"
-            />
+          <div className="flex flex-col md:flex-row">
             <Input
               required
               name="productImages"
