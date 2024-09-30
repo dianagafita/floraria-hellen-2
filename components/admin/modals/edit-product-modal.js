@@ -57,10 +57,18 @@ export default function EditProductModal({ openModal, product, type }) {
     console.log("FormData before submission:", Array.from(formData.entries()));
 
     try {
-      const response = await fetch("/api/prod", {
-        method: "PUT",
-        body: formData,
-      });
+      let response;
+      if (type === "event") {
+        response = await fetch("/api/eventprod", {
+          method: "POST",
+          body: formData,
+        });
+      } else {
+        response = await fetch("/api/prod", {
+          method: "POST",
+          body: formData,
+        });
+      }
 
       if (response.ok) {
         setFiles([]);
