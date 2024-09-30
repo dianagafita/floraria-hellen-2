@@ -54,11 +54,18 @@ export default function AddProductModal({ openModal, type }) {
 
     try {
       setIsLoading(true);
-      const response = await fetch("/api/prod", {
-        method: "POST",
-        body: formData,
-      });
-
+      let response;
+      if (type === "event") {
+        response = await fetch("/api/eventprod", {
+          method: "POST",
+          body: formData,
+        });
+      } else {
+        response = await fetch("/api/prod", {
+          method: "POST",
+          body: formData,
+        });
+      }
       if (response.ok) {
         setIsLoading(false);
         window.location.href =
@@ -237,20 +244,14 @@ export default function AddProductModal({ openModal, type }) {
               accept="image/png, image/gif, image/jpeg"
               onChange={handleFileChange}
             />
-            {type !== "event" ? (
+            <Input required id="productId" name="productId" label="ID produs" />
+            {type !== "event" && (
               <Input
                 required
                 type="number"
                 id="productPrice"
                 name="productPrice"
                 label="Pret"
-              />
-            ) : (
-              <Input
-                required
-                id="productId"
-                name="productId"
-                label="ID produs"
               />
             )}
           </div>

@@ -4,15 +4,11 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   const formData = await req.formData(); // Use req.formData() to get the FormData
-
   const productName = formData.get("productName");
   const productType = formData.get("productType");
-  const productSubtype = formData.get("productSubtype");
-  const productFlowerType = formData.get("productFlowerType");
-  const productPrice = formData.get("productPrice");
-  const images = formData.getAll("productImages");
-  const flowers = JSON.parse(formData.get("flowers"));
   const productId = formData.get("productId");
+  const productEventType = formData.get("productEventType");
+  const images = formData.getAll("productImages");
 
   let errors = [];
 
@@ -25,17 +21,17 @@ export async function POST(req) {
   }
 
   if (images.length === 0) {
-    return NextResponse.json({ errors }, { status: 400 });
+    errors.push("At least one image is required.");
   }
 
   if (errors.length > 0) {
-    return { errors };
+    return NextResponse.json({ errors }, { status: 400 });
   }
 
   let imageUrls = [];
 
   try {
-    imageUrls = await uploadImages(images, productFlowerType);
+    imageUrls = await uploadImages(images, productEventType, "event");
   } catch (error) {
     return NextResponse.json(
       {
@@ -46,61 +42,40 @@ export async function POST(req) {
     );
   }
 
-  const product = await prisma.product.create({
+  await prisma.eventproduct.create({
     data: {
       name: productName,
-      productId,
       product_type: productType,
-      product_subtype: productSubtype,
-      flowers_type: productFlowerType,
+      event_type: productEventType,
       images_url: imageUrls,
-      price: parseFloat(productPrice),
+      productId: productId,
       created_at: new Date(),
       updated_at: new Date(),
     },
   });
-  const validFlowers = flowers.filter(
-    (flower) => flower.flowerName.trim() !== "" && flower.quantity.trim() !== ""
-  );
 
-  console.log(validFlowers);
-
-  if (validFlowers.length > 0) {
-    for (const flower of flowers) {
-      await prisma.flower.create({
-        data: {
-          quantity: parseInt(flower.quantity),
-          flower: flower.flowerName,
-          productId: product.id,
-        },
-      });
-    }
-  }
   return NextResponse.json({ status: 200 });
 }
 
 export async function PUT(req) {
-  const formData = await req.formData(); // Use req.formData() to get the FormData
+  const formData = await req.formData(); // Get the form data from the request
 
   const id = formData.get("id");
-  const productId = formData.get("productId");
   const productName = formData.get("productName");
+  const productId = formData.get("productId");
   const productType = formData.get("productType");
-  const productSubtype = formData.get("productSubtype");
-  const productFlowerType = formData.get("productFlowerType");
-  const productPrice = formData.get("productPrice");
+  const productEventType = formData.get("productEventType");
   const images = formData.getAll("productImages");
+  console.log(images);
 
-  const flowers = JSON.parse(formData.get("flowers"));
-
-  console.log(productPrice);
-  const existingProduct = await prisma.product.findUnique({
+  const existingProduct = await prisma.eventproduct.findUnique({
     where: { id: parseInt(id) },
   });
-  console.log(existingProduct);
+
   if (!existingProduct) {
     return { errors: ["Product not found."] };
   }
+
   const errors = [];
 
   if (!productName || productName.trim().length === 0) {
@@ -117,36 +92,30 @@ export async function PUT(req) {
 
   let updatedData = {};
 
+  // Check for changes in each field
   if (productName !== existingProduct.name) {
     updatedData.name = productName;
-  }
-
-  if (productId !== existingProduct.productId) {
-    updatedData.productId = productId;
   }
 
   if (productType !== existingProduct.product_type) {
     updatedData.product_type = productType;
   }
-
-  if (productSubtype !== existingProduct.product_subtype) {
-    updatedData.product_subtype = productSubtype;
+  if (productId !== existingProduct.productId) {
+    updatedData.productId = productId;
   }
-
-  if (productFlowerType !== existingProduct.flowers_type) {
-    updatedData.flowers_type = productFlowerType;
-  }
-
-  if (parseFloat(productPrice) !== existingProduct.price) {
-    updatedData.price = parseFloat(productPrice);
+  if (productEventType !== existingProduct.event_type) {
+    updatedData.event_type = productEventType;
   }
 
   let imageUrls = existingProduct.images_url;
 
+  // Handle image uploads if new images are provided
   if (images.length > 0 && images[0].size > 0) {
     try {
-      const newImageUrls = await uploadImages(images, productFlowerType);
-      imageUrls = [...imageUrls, ...newImageUrls];
+      const newImageUrls = await uploadImages(images, productEventType);
+      console.log(newImageUrls);
+      // Ensure no duplicate images by using Set
+      imageUrls = [...new Set([...imageUrls, ...newImageUrls])]; // Remove duplicates
       updatedData.images_url = imageUrls;
     } catch (error) {
       return NextResponse.json(
@@ -159,27 +128,13 @@ export async function PUT(req) {
     }
   }
 
-  await prisma.product.update({
+  await prisma.eventproduct.update({
     where: { id: parseInt(id) },
     data: {
       ...updatedData,
       updated_at: new Date(),
     },
   });
-  console.log(flowers);
-  if (flowers && flowers.length > 0) {
-    await prisma.flower.deleteMany({ where: { productId: parseInt(id) } });
-
-    for (const flower of flowers) {
-      await prisma.flower.create({
-        data: {
-          quantity: parseInt(flower.quantity),
-          flower: flower.flowerName,
-          productId: parseInt(id),
-        },
-      });
-    }
-  }
 
   return NextResponse.json({ status: 200 });
 }

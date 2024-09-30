@@ -138,6 +138,13 @@ export default function EditProductModal({ openModal, product, type }) {
             />
           )}
           <Input
+            required
+            id="productId"
+            name="productId"
+            label="ID produs"
+            defaultValue={product.productId}
+          />
+          <Input
             name="productImages"
             label="IMAGINI"
             type="file"

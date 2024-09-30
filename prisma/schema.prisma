@@ -54,6 +54,7 @@ model Product {
   name            String
   flowers         Flower[]
   price           Float
+  productId       String
   product_type    String
   product_subtype String
   flowers_type    String

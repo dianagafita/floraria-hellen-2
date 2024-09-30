@@ -10,7 +10,28 @@ export async function GET(req, { params }) {
         },
       },
     });
-    return new Response(JSON.stringify(products), {
+
+    const eventproducts = await prisma.eventproduct.findMany({
+      where: {
+        OR: [
+          {
+            name: {
+              contains: params.query,
+              mode: "insensitive",
+            },
+          },
+          {
+            productId: {
+              contains: params.query,
+              mode: "insensitive",
+            },
+          },
+        ],
+      },
+    });
+
+    const combinedResults = [...products, ...eventproducts];
+    return new Response(JSON.stringify(combinedResults), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
