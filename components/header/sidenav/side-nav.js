@@ -26,7 +26,7 @@ export default function SideNav({ isSearching, isVisible, openSearch }) {
     <>
       <div
         // style={{ fontFamily: "Bile", fontWeight: 600, letterSpacing: 2 }}
-        className="w-full bg-transparent flex pb-3 borde-b md:flex hidden flex-col pt-5"
+        className="w-full bg-transparent flex pb-3 borde-b md:flex hidden flex-col "
         onMouseEnter={() => setIsSideNavHovered(true)}
         onMouseLeave={() => setIsSideNavHovered(false)}
       >
@@ -88,14 +88,14 @@ function MenuItem({ item, setActiveSubMenu, onClose, updateSubmenuPosition }) {
   return (
     <div
       ref={itemRef}
-      className="relative font-[200] md:text-[10.7px] 2xl:text-[18px] my-2"
+      className="relative font-[200] md:text-[11.2px] lg:text-[12px] 2xl:text-[18px] my-2"
       onMouseEnter={handleMouseEnter}
     >
       {item.submenu ? (
         <div
           className={`relative link-underline flex flex-row items-center w-full justify-between whitespace-nowrap ${
             pathname === item.path
-              ? "underline decoration-[rgb(160,21,21)] underline-offset-4 decoration-[1.5px]"
+              ? "underline decoration-[rgb(130,6,6)] underline-offset-4 decoration-[1.5px]"
               : " link-underline-black"
           }`}
           style={{ overflow: "hidden" }}
@@ -121,7 +121,7 @@ function MenuItem({ item, setActiveSubMenu, onClose, updateSubmenuPosition }) {
           href={item.path}
           className={`whitespace-nowrap flex flex-row space-x-1 items-center text-transform: uppercase ${
             item.path === pathname
-              ? "font-800 underline decoration-[rgb(160,21,21)] underline-offset-4 decoration-[1.5px]"
+              ? "font-800 underline decoration-[rgb(130,6,6)] underline-offset-4 decoration-[1.5px]"
               : "link-underline link-underline-black"
           }`}
         >
@@ -165,7 +165,7 @@ export function FullWidthSubMenu({
           ))}
         </div>
       ) : (
-        <div className="flex-col justify-between px-2 py-3 max-w-[300px] lg:max-w-[350px]">
+        <div className="flex-col justify-between px-2 py-3 min-w-[150px] lg:max-w-[350px]">
           {subMenuItems?.map((subItem, idx) => (
             <SubMenu key={idx} subItem={subItem} onClose={onClose} />
           ))}
@@ -189,7 +189,7 @@ function SubMenu({ subItem, onClose }) {
           href={subItem.path}
           className={`text-[14px] 2xl:text-[20px] font-[300] ${
             subItem.path === pathname
-              ? "font-800 underline decoration-[rgb(160,21,21)] underline-offset-4 decoration-[1.5px]"
+              ? "font-800 underline decoration-[rgb(130,6,6)] underline-offset-4 decoration-[1.5px]"
               : "link-underline link-underline-black"
           }`}
           onClick={handleClick}
@@ -205,7 +205,7 @@ function SubMenu({ subItem, onClose }) {
               href={menuItem.path}
               className={`text-sm 2xl:text-[20px]  font-[100] mx-2 my-1 text-[#404040] hover:text-[#202020] ${
                 menuItem.path === pathname
-                  ? "font-500 underline decoration-[rgb(160,21,21)] underline-offset-4 decoration-[1.5px]"
+                  ? "font-500 underline decoration-[rgb(130,6,6)] underline-offset-4 decoration-[1.5px]"
                   : ""
               }`}
               onClick={handleClick}

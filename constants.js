@@ -1,10 +1,3 @@
-import img from "@/components/items/BUJORI.jpeg";
-import img1 from "@/components/items/CRIZANTEME.jpg";
-import img5 from "@/components/items/5.jpeg";
-import img7 from "@/components/items/HORTENSII.jpg";
-import img8 from "@/components/items/8.jpeg";
-import img9 from "@/components/items/TRANDAFIRI.jpg";
-
 export const SIDENAV_ITEMS = [
   {
     title: "PLANTE",
@@ -17,17 +10,17 @@ export const SIDENAV_ITEMS = [
     submenu: true,
     subMenuItems: [
       {
-        title: "Buchet de flori uscate",
+        title: "Flori uscate",
         path: "/buchete/buchete-flori-uscate",
       },
-      { title: "Buchet de trandafiri", path: "/buchete/buchete-trandafiri" },
+      { title: "Trandafiri", path: "/buchete/buchete-trandafiri" },
       {
-        title: "Buchet flori de primavara",
+        title: "Flori de primavara",
         path: "/buchete/buchete-flori-primavara",
       },
-      { title: "Buchet flori de vara", path: "/buchete/buchete-flori-vara" },
+      { title: "Flori de vara", path: "/buchete/buchete-flori-vara" },
       {
-        title: "Buchet flori de toamna",
+        title: "Flori de toamna",
         path: "/buchete/buchete-flori-toamna",
       },
     ],
@@ -37,50 +30,55 @@ export const SIDENAV_ITEMS = [
     path: "/aranjamente",
     submenu: true,
     subMenuItems: [
+      // {
+      //   title: "Nou-nascut",
+      //   path: "/aranjamente/aranjamente-nou-nascut",
+      // },
       {
-        title: "Aranjament nou-nascut",
-        path: "/aranjamente/aranjamente-nou-nascut",
+        title: "Diverse",
+        path: "/aranjamente/aranjamente-diverse",
       },
+      // {
+      //   title: "Flori uscate",
+      //   path: "/aranjamente/aranjamente-flori-uscate",
+      // },
+
       {
-        title: "Aranjament cu flori uscate",
-        path: "/aranjamente/aranjamente-flori-uscate",
-      },
-      {
-        title: "Aranjament cu trandafiri",
+        title: "Trandafiri",
         path: "/aranjamente/aranjamente-trandafiri",
       },
-      {
-        title: "Aranjament cu flori de primavara",
-        path: "/aranjamente/aranjamente-flori-primavara",
-      },
-      {
-        title: "Aranjament cu flori de vara",
-        path: "/aranjamente/aranjamente-flori-vara",
-      },
-      {
-        title: "Aranjament cu flori de toamna",
-        path: "/aranjamente/aranjamente-flori-toamna",
-      },
+      // {
+      //   title: "Flori de primavara",
+      //   path: "/aranjamente/aranjamente-flori-primavara",
+      // },
+      // {
+      //   title: "Flori de vara",
+      //   path: "/aranjamente/aranjamente-flori-vara",
+      // },
+      // {
+      //   title: "Flori de toamna",
+      //   path: "/aranjamente/aranjamente-flori-toamna",
+      // },
     ],
   },
-  {
-    title: "FLORI CRIOGENATE",
-    path: "/speciale/flori-criogenate",
-  },
-  {
-    title: "OCAZII SPECIALE",
-    path: "/ocazii-speciale",
-    submenu: true,
-    subMenuItems: [
-      { title: "Flori de Craciun", path: "/ocazii-speciale/craciun" },
-      {
-        title: "Flori de Sf. Valentin",
-        path: "/ocazii-speciale/sf-valentin",
-      },
-      { title: "Flori de 1 si 8 Martie", path: "/ocazii-speciale/martie" },
-      { title: "Flori de Paste", path: "/ocazii-speciale/paste" },
-    ],
-  },
+  // {
+  //   title: "FLORI CRIOGENATE",
+  //   path: "/speciale/flori-criogenate",
+  // },
+  // {
+  //   title: "OCAZII SPECIALE",
+  //   path: "/ocazii-speciale",
+  //   submenu: true,
+  //   subMenuItems: [
+  //     { title: "Flori de Craciun", path: "/ocazii-speciale/craciun" },
+  //     {
+  //       title: "Flori de Sf. Valentin",
+  //       path: "/ocazii-speciale/sf-valentin",
+  //     },
+  //     { title: "Flori de 1 si 8 Martie", path: "/ocazii-speciale/martie" },
+  //     { title: "Flori de Paste", path: "/ocazii-speciale/paste" },
+  //   ],
+  // },
 
   {
     title: "EVENIMENTE",
@@ -129,7 +127,7 @@ export const SIDENAV_ITEMS = [
             path: "/evenimente/nunta/aranjamente-masa",
           },
           {
-            title: "Buchet de mireasa",
+            title: " mireasa",
             path: "/evenimente/nunta/buchete-mireasa",
           },
 
@@ -181,7 +179,7 @@ export const SIDENAV_ITEMS = [
     ],
   },
   {
-    title: "Funerare & Bisericești",
+    title: "FUNERARE & BISERICESTI",
     path: "/speciale/funerare-bisericesti",
     submenu: true,
     subMenuItems: [
@@ -218,19 +216,6 @@ export const PROFILE_MENU = [
   },
 ];
 
-import immg from "./components/main-page/1.jpeg";
-export const CAROUSEL_IMAGES = [
-  {
-    src: { immg },
-  },
-  {
-    src: { immg },
-  },
-  {
-    src: { immg },
-  },
-];
-
 export const FOOTER_MENU = [
   { title: "Contact", href: "/contact" },
   { title: "Livrare", href: "/delivery" },
@@ -238,33 +223,6 @@ export const FOOTER_MENU = [
   { title: "Termeni si conditii", href: "/terms-and-conditions" },
   { title: "Politica de confidentialitate", href: "/politics" },
   { title: "Politica Cookies", href: "/cookies" },
-];
-
-export const BUCHET_MENU = [
-  {
-    image: img,
-    title: "BUCHET BUJORI",
-  },
-  {
-    image: img1,
-    title: "BUCHET CRIZANTEME",
-  },
-  {
-    image: img8,
-    title: "BUCHET LISIANTHUS",
-  },
-  {
-    image: img5,
-    title: "BUCHET LALELE",
-  },
-  {
-    image: img9,
-    title: "BUCHET TRANDAFIRI",
-  },
-  {
-    image: img7,
-    title: "BUCHET HORTENSII",
-  },
 ];
 
 export const SORT_ITEMS = [

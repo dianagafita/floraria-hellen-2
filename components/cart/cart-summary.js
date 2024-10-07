@@ -12,7 +12,9 @@ export default function CartSummary({ toogleOpenCart, cartTotal, cartItems }) {
       </div>
       <div className="flex justify-between text-sm">
         <span>SUBTOTAL:</span>
-        <span className="mb-4">{cartTotal} lei</span>
+        <span translate="no" className="mb-4">
+          {cartTotal} lei
+        </span>
       </div>
       <Link
         href="/checkout"

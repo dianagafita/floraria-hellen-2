@@ -1,4 +1,5 @@
 "use client";
+import img from "./logo2.png";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,6 +12,7 @@ import {
   sidebarVariants,
   variants_nested_sub_menu_item,
 } from "@/styles/motion-variants";
+import Image from "next/image";
 
 export default function MobileHeader({ isOpen, toggleOpen }) {
   const pathname = usePathname();
@@ -21,15 +23,25 @@ export default function MobileHeader({ isOpen, toggleOpen }) {
         initial={false}
         animate={isOpen ? "open" : "closed"}
         variants={sidebarVariants}
-        className={`fixed z-[60] inset-0 w-[70%] md:hidden bg-white`}
+        className={`fixed z-[60]  inset-0 w-[70%] flex flex-col  md:hidden bg-white`}
       >
         <X
-          className="mt-9  absolute right-4"
+          className="mt-9  self-end mr-4"
           size={30}
           strokeWidth={0.3}
           onClick={toggleOpen}
         />
-        <motion.ul className="grid mt-10 w-full px-3 py-16 max-h-screen overflow-y-auto ">
+        {/* <Link href="/" className="mt-5 min-w-[105px] max-w-[150px] mx-auto ">
+          <Image
+            src={img}
+            alt=""
+            width={100}
+            height={200}
+            layout="responsive"
+            className="object-contain overflow-hidden"
+          />
+        </Link>{" "} */}
+        <motion.ul className="mt-10 grid  w-full px-3 max-h-screen overflow-y-auto ">
           {SIDENAV_ITEMS.map((item, idx) => (
             <MenuItemWithSubMenu
               key={idx}

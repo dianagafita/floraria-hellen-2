@@ -2,7 +2,8 @@ import { getProductsByType } from "@/app/api/store/products";
 import Categories from "@/components/util/categories";
 import FlowerPageLayout from "@/components/util/customFlowersLayout";
 import { TitleByPath } from "@/components/util/getPathTitle";
-import img from "./flowers.jpeg";
+import img from "./zz.jpeg";
+import img2 from "./sec.jpeg";
 import Loading from "@/lib/loading";
 import { redirect } from "next/navigation";
 import SortableFlowerList from "@/components/sort";
@@ -36,8 +37,8 @@ export default async function FlowerBouquetsPage({ params }) {
 
   return (
     <div className="flex flex-col h-[100%]">
-      <FlowerPageLayout mainImage={img} />
-      <TitleByPath paths={paths} />
+      <FlowerPageLayout mainImage={flowerType === "buchete" ? img : img2} />
+      {/* <TitleByPath paths={paths} /> */}
       <Categories type={flowerType} />
       {!flowerBouquets ? (
         <Loading />

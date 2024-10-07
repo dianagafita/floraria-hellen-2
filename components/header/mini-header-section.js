@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function MiniHeaderSection({ prefLangCookie }) {
   return (
-    <div className={`bg-white hidden md:block `}>
+    <div className={`bg-transparent hidden md:block `}>
       <div className={classes["mini_header"]}>
         <PhoneCall
           strokeWidth={1.5}

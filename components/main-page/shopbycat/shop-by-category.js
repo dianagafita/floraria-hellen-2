@@ -5,8 +5,7 @@ import Image from "next/image";
 import img from "./1.jpeg";
 import img4 from "./2.jpeg";
 import img1 from "./3.jpeg";
-import img2 from "@/components/items/TRANDAFIRI.jpg";
-import img3 from "@/components/items/HORTENSII.jpg";
+
 import { ChevronRight } from "lucide-react";
 import EmblaCarousel from "../sec-car";
 import Title from "@/components/util/title";
@@ -22,12 +21,12 @@ const categories = {
     { src: img1, alt: "Flori Image 4", text: "Aranjamente", id: 4 },
   ],
   NUNTI: [
-    { src: img2, alt: "Nunti Image 1", text: "Buchet Mireasa", id: 5 },
-    { src: img3, alt: "Nunti Image 2", text: "Decoratiuni", id: 6 },
+    { src: img4, alt: "Nunti Image 1", text: "Buchet Mireasa", id: 5 },
+    { src: img4, alt: "Nunti Image 2", text: "Decoratiuni", id: 6 },
   ],
   BOTEZ: [
     { src: img1, alt: "Botez Image 1", text: "Lumanari", id: 7 },
-    { src: img2, alt: "Botez Image 2", text: "Decoratiuni", id: 8 },
+    { src: img4, alt: "Botez Image 2", text: "Decoratiuni", id: 8 },
   ],
 };
 const OPTIONS = { dragFree: true, loop: true };
