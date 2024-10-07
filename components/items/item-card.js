@@ -56,10 +56,13 @@ export default function ItemCard({
             </Link>
           </div>
           <div className=" p-2 2xl:p-10 w-full">
-            <p className="mb-1 text-xs md:text-[1.2vw] font-light mt-3 whitespace-nowrap text-center">
+            <p className="font-[300] fontSimple uppercase mb-1 text-xs md:text-[16px] mt-3 whitespace-nowrap text-center">
               {img.name}{" "}
             </p>
-            <p className="text-center mb-2 text-sm md:text-base 2xl:text-xl font-[100]">
+            <p
+              translate="no"
+              className="text-center mb-2 text-sm md:text-base 2xl:text-xl font-[100]"
+            >
               {img.price} lei
             </p>
           </div>

@@ -2,14 +2,12 @@
   display: grid;
   grid-template-areas: "search img sec";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2.5rem;
+  grid-template-rows: 5rem;
   align-items: center;
-  align-content: center;
+  justify-content: end;
   padding: 1rem;
-  margin-top: 1.5rem;
   position: sticky;
   top: 2rem;
-  padding-bottom: 1.5rem;
 }
 
 .mini_header {
@@ -19,7 +17,7 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: 0.1rem 1.2rem;
+  padding: 0.1rem;
 }
 
 .firstsearchIcon {
@@ -51,8 +49,8 @@
 }
 
 .main-header-section a {
-  margin: 0 auto;
-  height: 5.5rem;
+  margin: 2rem auto;
+  height: 5rem;
   width: 15rem;
 }
 
@@ -64,12 +62,16 @@
 .main-header-section button,
 .firstsearchIcon,
 .searchIcon,
-.personIcon {
+.personIcon,
+.cartIcon {
   margin: 0.5rem;
   font-size: 2rem;
   font-weight: 100;
 }
 
+.cartIcon {
+  padding-top: 3px;
+}
 .space {
   display: none;
   margin: 0.5rem;
@@ -78,8 +80,7 @@
 
 @media screen and (max-width: 767px) {
   .main-header-section {
-    grid-template-rows: 2rem;
-    padding-bottom: 2.5rem;
+    height: 8rem;
   }
 
   .space {
@@ -88,11 +89,15 @@
   }
 
   .main-header-section a {
-    height: 4rem;
+    height: 5rem;
   }
   .main-header-section img {
     height: 100%;
     width: 15rem;
+  }
+
+  .cartIcon {
+    padding-top: 0;
   }
 
   .section span,

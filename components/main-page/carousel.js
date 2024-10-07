@@ -1,18 +1,25 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Thumb } from "./butt";
 import Image from "next/image";
 import img from "./10.jpeg";
-import img2 from "./11.jpeg";
-import img3 from "./12.jpeg";
-
+import img2 from "./aranjamente.jpeg";
+import img3 from "./11.jpeg";
+import imgSmall1 from "./10.jpeg"; // Add smaller images for mobile view
+import imgSmall2 from "./10.jpeg";
+import imgSmall3 from "./10.jpeg";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
-const images = [img, img2, img3];
+
+// Define two sets of images: one for larger screens, one for smaller screens
+const largeImages = [img, img2, img3];
+const smallImages = [imgSmall1, imgSmall2, imgSmall3];
+
 const EmblaCarousel = (props) => {
   const { slides, options } = props;
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false); // Track screen size
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 5000, stopOnInteraction: false }),
   ]);
@@ -20,6 +27,19 @@ const EmblaCarousel = (props) => {
     containScroll: "keepSnaps",
     dragFree: true,
   });
+
+  // Detect screen size changes
+  useEffect(() => {
+    const checkMobileScreen = () => {
+      setIsMobile(window.innerWidth < 768); // Adjust for mobile screen sizes
+    };
+
+    // Set initial value and add event listener for window resize
+    checkMobileScreen();
+    window.addEventListener("resize", checkMobileScreen);
+
+    return () => window.removeEventListener("resize", checkMobileScreen);
+  }, []);
 
   const onThumbClick = useCallback(
     (index) => {
@@ -42,33 +62,24 @@ const EmblaCarousel = (props) => {
     emblaMainApi.on("select", onSelect).on("reInit", onSelect);
   }, [emblaMainApi, onSelect]);
 
+  // Choose the appropriate image set based on screen size
+  const imagesToUse = isMobile ? smallImages : largeImages;
+
   return (
     <div className="embla">
       <div className="embla__viewport" ref={emblaMainRef}>
         <div className="embla__container">
-          {images.map((img, index) => (
+          {imagesToUse.map((img, index) => (
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number ">
-                <Image src={img} alt="" layout="fill"></Image>
-                <div className="absolute inset-0 flex  justify-center text-white text-center bg-black bg-opacity-50 text-5xl font-[100]"></div>
-                {/* <span className="absolute inset-0 border-4 border-white"></span>
-                <span className="absolute inset-1 border-2 border-white m-2"></span> */}
+                <Image src={img} alt="" layout="fill" objectFit="cover" />
+                <div className="absolute inset-0 flex justify-center text-white text-center bg-black bg-opacity-50 text-5xl font-[100]"></div>
 
-                <div className="flex flex-col absolute md:top-30 right-10  items-end font-[100]   ">
-                  {/*  <span className="text-3xl md:text-4xl text-end">
-                    ARANJAMENTE
-                  </span>
-                  <span className="text-base mb-10 font-[100]">
-                    {" "}
-                    pentru orice ocazie
-                  </span>
-                  <button className="rounded-sm w-fit font-[100] bg-[rgba(255,255,255,0.6)] text-sm md:text-base text-white py-2 px-4">
-                    COMANDA ACUM
-                  </button>*/}
-                  <span className="tracking-widest  bg-white  py-10 px-5 md:px-20 md:mr-20 flex flex-col  text-sm md:text-2xl">
+                <div className="flex flex-col absolute md:top-30 right-10 items-end font-[100]">
+                  <span className="tracking-widest bg-white py-10 px-5 md:px-20 md:mr-20 flex flex-col text-sm md:text-2xl">
                     ARANJAMENTE FLORALE{" "}
                     <span className="text-[10px] text-end font-[100] text-[#A8A8A8]">
-                      Flori naturale si proapete
+                      Flori naturale si proaspete
                     </span>
                     <Link
                       href="/aranjamente"
@@ -82,6 +93,8 @@ const EmblaCarousel = (props) => {
             </div>
           ))}
         </div>
+
+        {/* Thumbnails */}
         <div className="embla-thumbs">
           <div className="embla-thumbs__viewport" ref={emblaThumbsRef}>
             <div className="embla-thumbs__container">

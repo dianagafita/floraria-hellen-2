@@ -9,7 +9,7 @@ export const VerifyEmailTemplate = ({ email, emailVerificationToken }) => (
     }}
   >
     <img
-      src="https://res.cloudinary.com/defo6qykq/image/upload/v1724240773/floraria_hellen/icon_oswlrr_c_crop_ar_16_9_eiqkia.png" // Replace with your actual logo URL
+      src="https://res.cloudinary.com/defo6qykq/image/upload/v1728074202/floraria_hellen/Untitled_Project_2_yghiro.png"
       alt="Floraria Hellen Logo"
       style={{ maxWidth: "150px" }}
     />

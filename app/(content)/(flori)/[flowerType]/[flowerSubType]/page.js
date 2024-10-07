@@ -9,23 +9,35 @@ import FlowerPageLayout from "@/components/util/customFlowersLayout";
 import { TitleByPath } from "@/components/util/getPathTitle";
 import Loading from "@/lib/loading";
 import { redirect } from "next/navigation";
+import img from "./2.jpeg";
+import img1 from "./3.jpeg";
+import img2 from "./5.jpeg";
+import img3 from "./5.jpeg";
+import primavara from "./primavara.jpeg";
 
 const validFlowerTypes = [
-  "buchete-flori-uscate",
-  "buchete-trandafiri",
-  "buchete-flori-primavara",
-  "buchete-flori-vara",
-  "buchete-flori-toamna",
-  "aranjamente-nou-nascut",
-  "aranjamente-flori-uscate",
-  "aranjamente-trandafiri",
-  "aranjamente-flori-primavara",
-  "aranjamente-flori-vara",
-  "aranjamente-flori-toamna",
-  "craciun",
-  "paste",
-  "martie",
-  "sf-valentin",
+  { title: "buchete-flori-uscate", img: img },
+  {
+    title: "buchete-trandafiri",
+    img: img,
+  },
+  {
+    title: "buchete-flori-primavara",
+    img: primavara,
+  },
+  { title: "buchete-flori-vara", img: img1 },
+  { title: "buchete-flori-toamna", img: img2 },
+  { title: "aranjamente-diverse", img: img1 },
+  { title: "aranjamente-nou-nascut", img: img3 },
+  { title: "aranjamente-flori-uscate", img: img2 },
+  { title: "aranjamente-trandafiri", img: img },
+  { title: "aranjamente-flori-primavara", img: primavara },
+  { title: "aranjamente-flori-vara", img: img2 },
+  { title: "aranjamente-flori-toamna", img: img2 },
+  { title: "craciun", img: img },
+  { title: "paste", img: img },
+  { title: "martie", img: img },
+  { title: "sf-valentin", img: img },
 ];
 
 export default async function RosesBouquetsPage({ params }) {
@@ -49,7 +61,11 @@ export default async function RosesBouquetsPage({ params }) {
     },
   ];
 
-  if (flowerSubType && !validFlowerTypes.includes(flowerSubType)) {
+  const isValidFlowerType = validFlowerTypes.some(
+    (type) => type.title === flowerSubType
+  );
+
+  if (flowerSubType && !isValidFlowerType) {
     redirect("/");
   }
 
@@ -65,10 +81,17 @@ export default async function RosesBouquetsPage({ params }) {
       type: `${flowerType}`,
     });
   }
+  const selectedFlowerType = validFlowerTypes.find(
+    (type) => type.title === flowerSubType
+  );
 
   return (
     <div className="flex flex-col h-[100%]">
-      <FlowerPageLayout />
+      <FlowerPageLayout
+        type="subtype"
+        title={subTitle}
+        mainImage={selectedFlowerType?.img || img}
+      />
       <TitleByPath paths={paths} />
 
       <Categories />

@@ -21,15 +21,17 @@ export default async function ProfilePage() {
       {user ? (
         <>
           <ProfileMenuDrawer user={userdata} />
-          <div className="flex flex-col items-center mt-20 p-5 my-5 w-full min-h-[700px]">
+          <div className="flex flex-col items-center mt-10 p-5 my-5 w-full min-h-[700px]">
             <div className="flex flex-col items-center w-full text-center">
               <span className="font-[400] text-4xl mb-10 uppercase">
-                BUNA, {userdata.second_name}
+                BUNA, <span className="">{userdata.second_name}</span>
               </span>
               <div className="flex flex-col md:flex-row items-center justify-center w-full ">
                 <div className="flex flex-col  w-full mb-10 max-w-[700px]">
-                  <div className="flex mb-4">
-                    <span className="mr-2 md:ml-7">COMENZI RECENTE</span>
+                  <div className="flex mb-4 items-center">
+                    <span className="mr-2 md:ml-2 lg:ml-7">
+                      COMENZI RECENTE
+                    </span>
                     <span className="mx-2 text-lg text-[rgb(0,0,0,0.4)] font-[100]">
                       |
                     </span>

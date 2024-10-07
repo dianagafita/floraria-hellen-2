@@ -1,17 +1,30 @@
 import Image from "next/image";
 
-export default async function FlowerPageLayout({ mainImage }) {
+export default async function FlowerPageLayout({ mainImage, title, type }) {
   return (
-    <div className="relative w-full">
-      <div className="relative h-[335px] w-full">
-        <Image src={mainImage} alt="" fill className="object-cover" />
-        <div className="absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50 px-5">
-          <span className="tracking-widest  bg-white  py-10 px-10 md:px-20 md:mr-20 flex flex-col  text-sm md:text-2xl">
-            BUCHETE DE FLORI{" "}
-            <span className="text-[10px] text-end font-[100] text-[#A8A8A8]">
-              Flori naturale si proapete
-            </span>
-          </span>{" "}
+    <div className="relative w-full h-full">
+      <div className="relative  w-full min-h-[220px] h-[10vh] md:h-[30vh]">
+        <Image
+          src={mainImage}
+          required
+          alt=""
+          className="object-cover"
+          layout="fill"
+        />
+
+        <div className="p-20 absolute inset-0 flex items-center justify-center text-black text-center bg-black bg-opacity-40 px-5 ">
+          {type && (
+            <div className=" flex items-center justify-center text-black text-center px-5 ">
+              <span className="relative text-black  pt-10 pb-5 px-5 md:px-6  flex flex-col">
+                <span className="absolute text-white   fontWedding font-[200] top-[-0.3rem] right-0 text-[3rem]">
+                  catalog
+                </span>
+                <span className="uppercase fontElegant text-[25px]  md:text-[30px] text-end">
+                  {title}{" "}
+                </span>
+              </span>
+            </div>
+          )}{" "}
         </div>
       </div>
     </div>

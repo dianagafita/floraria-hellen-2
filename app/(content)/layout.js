@@ -31,7 +31,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className="relative">
         <CartModal />
-        <Header /> <ToastContainer />
+        <Header />
+        <ToastContainer />
         <main className="relative z-1 "> {children}</main>
         <MainFooter />
         <MobileHeader />

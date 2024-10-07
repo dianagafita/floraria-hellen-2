@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/assets/images/header-logo2.jpg";
+import logo from "./logo2.png";
 import classes from "./header.module.css";
 import { PiBagThin } from "react-icons/pi";
 import { User, Search } from "lucide-react";
@@ -15,7 +15,6 @@ import classes2 from "./backdrop.module.css";
 import MobileHeader from "./header-mobile";
 import { useCart } from "@/context/cart-context";
 import { useValidUser } from "@/context/auth-context";
-import ServerMiniHeader from "./serv";
 
 export default function Header() {
   const [isSearching, setIsSearching] = useState(false);
@@ -30,9 +29,8 @@ export default function Header() {
 
   return (
     <>
-      <div className="sticky top-0 bg-white z-[50] shadow-sm">
+      <div className="bg-white sticky top-0 z-[50] text-black shadow-sm">
         <div className="flex flex-col">
-          {/* <MiniHeaderSection /> */}
           <MiniHeaderSection />
           <div className={classes["main-header-section"]}>
             {isOpen && (
@@ -48,13 +46,13 @@ export default function Header() {
             </span>
             <span
               onClick={openSearchMobile}
-              className="hidden md:flex  items-center cursor-pointer"
+              className="hidden md:flex cursor-pointer"
             >
               <Search strokeWidth={0.7} size={27} />
             </span>{" "}
             <Link href="/">
               <Image src={logo} alt="icon" priority />
-            </Link>
+            </Link>{" "}
             <div className={classes.section}>
               <span className={classes.searchIcon} onClick={openSearchMobile}>
                 <Search
@@ -74,7 +72,7 @@ export default function Header() {
                 </Link>
               </span>
               <div
-                className="flex relative top-[0.5rem]  md:top-[0.7rem] cursor-pointer"
+                className={classes.cartIcon}
                 onClick={() => {
                   setIsSearching(false);
                   toogleOpenCart();
@@ -95,7 +93,6 @@ export default function Header() {
         <SideNav isVisible={isSearching} openSearch={openSearchMobile} />
       </div>
       <MobileHeader isOpen={isOpen} toggleOpen={toggleOpen} />
-      {/* <Searchbar  /> */}
     </>
   );
 }

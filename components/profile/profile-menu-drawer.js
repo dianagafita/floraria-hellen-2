@@ -32,7 +32,7 @@ export default function ProfileMenuDrawer({ user }) {
   }, [isFormSubmitted, router]);
 
   return (
-    <div className="top-[10.5rem] border-y z-10 border-gray-300 md:w-full">
+    <div className="top-[12.5rem] border-y z-10 border-gray-300 md:w-full">
       <div className="flex md:hidden">
         <button onClick={toggleMenu} className="flex w-full py-2.5 px-5">
           <div className="flex justify-between w-full">
@@ -50,7 +50,7 @@ export default function ProfileMenuDrawer({ user }) {
         </button>
 
         <motion.div
-          className={`absolute text-[14px] top-[12.5rem] md:top-[10.1rem] left-0 w-full bg-white shadow-lg z-[10] font-[100] ${
+          className={`absolute text-[14px] top-[13.5rem] md:top-[10.1rem] left-0 w-full bg-white shadow-lg z-[10] font-[100] ${
             isOpen ? "h-auto" : "h-0"
           } overflow-hidden`}
           initial={{ height: 0 }}

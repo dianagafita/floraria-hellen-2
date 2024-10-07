@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import img from "./a.jpeg";
+import Image from "next/image";
 
 export default function PaymentSuccessPage({ searchParams }) {
   const [orderUpdated, setOrderUpdated] = useState(false);
@@ -42,18 +44,30 @@ export default function PaymentSuccessPage({ searchParams }) {
   };
 
   return (
-    <main className="max-w-6xl text-center p-10 text-white text-center border m-10 rounded-md">
-      <div className="mb-10">
-        <h1 className="text-4xl font-[100] mb-2 text-black">
-          Comanda platita!
-        </h1>
-        <h2>
-          Veti primi un email cu informatiile comenzii! Cand comanda a fost
-          livrata veti primi email de instiintare!
-        </h2>
-        <div className="bg-black p-2 rounded-md mt-5 text-4xl font-bold">
-          ID COMANDA: {orderId}
-        </div>
+    <main
+      style={{ background: `url(${img.src})`, backgroundSize: "cover" }}
+      className="relative h-[100vh]"
+    >
+      <div className="absolute inset-0 flex items-center justify-center text-black text-center bg-black bg-opacity-50">
+        <span className="bg-white py-10  w-[50vw] flex flex-col mx-auto text-2xl h-[350px]">
+          <h1 className="px-20 fontElegant text-4xl font-[100] mb-5 text-black">
+            COMANDA PLATITA!
+          </h1>
+          <span className="px-20 text-[15px]">
+            Veti primi un email cu informatiile comenzii! Cand comanda a fost
+            livrata veti primi email de instiintare!
+          </span>
+          <div className=" w-[200px] mx-auto bg-black p-2 rounded-sm mt-5 text-xl text-white">
+            ID COMANDA: {orderId}
+          </div>
+          <div className=" p-10  flex items-end justify-end text-black text-center ">
+            <span className=" relative h-full ">
+              <span className="absolute text-[rgb(120,6,6)] whitespace-nowrap text-end fontWedding font-[200] top-[-0.3rem] right-0 text-[3rem]">
+                Multumim, <p>echipa Hellen!</p>
+              </span>
+            </span>
+          </div>
+        </span>
       </div>
     </main>
   );
