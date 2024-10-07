@@ -22,7 +22,9 @@ export default async function ComponentPage({ params }) {
         </div>
         <div className="mx-5 my-20 md:my-5 flex flex-col md:ml-10 md:w-1/2 h-[460px]">
           <div className="flex flex-col ">
-            <Title>{componentDetails.name}</Title>
+            <span className="mx-auto text-[20px] lg:text-[25px] fontElegant uppercase">
+              {componentDetails.name}
+            </span>{" "}
             <div className="flex flex-col">
               <span className="my-2 flex flex-col ">
                 Detalii suplimentare:

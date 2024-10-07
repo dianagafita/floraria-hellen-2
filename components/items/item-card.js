@@ -56,7 +56,7 @@ export default function ItemCard({
             </Link>
           </div>
           <div className=" p-2 2xl:p-10 w-full">
-            <p className="font-[300] fontSimple uppercase mb-1 text-xs md:text-[16px] mt-3 whitespace-nowrap text-center">
+            <p className="font-[300] fontSimple uppercase mb-1 text-xs md:text-[16px] mt-3  text-center">
               {img.name}{" "}
             </p>
             <p

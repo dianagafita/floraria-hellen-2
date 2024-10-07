@@ -46,23 +46,23 @@ export default async function ChristeningPage({ params }) {
     <div className="min-h-[100vh]">
       {" "}
       <div className="relative h-[335px] w-full">
-        <div className="absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50 px-5">
-          <span className="tracking-widest  bg-white  py-10 px-5 md:px-20 md:mr-20 flex flex-col  text-sm md:text-2xl">
-            BOTEZ{" "}
-            <span className="text-[10px] text-end font-[100] text-[#A8A8A8]">
-              Flori naturale si proapete
+        <div className="p-20 absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50 px-5 ">
+          <div className=" flex items-center justify-center text-black text-center px-5 ">
+            <span className="relative text-white  pt-10 pb-5 px-5 md:px-6  flex flex-col">
+              <span className="absolute    fontWedding font-[200] top-[-0.8rem] md:top-[-0.3rem] right-0 text-[4rem]">
+                catalog
+              </span>
+              <span className="uppercase fontElegant text-[1.5rem]  md:text-[2rem] text-end">
+                {nestedSubTitle}
+              </span>
             </span>
-            <Link
-              href="/request-offer"
-              className="text-[13px] text-end font-[100] text-[#606060] hover:text-[#404040] underline underline-offset-2"
-            >
-              CERE OFERTA{" "}
-            </Link>
-          </span>{" "}
+          </div>
         </div>
       </div>
       <TitleByPath paths={paths} />
-      <h1 className="text-[2rem] m-[1.5rem] ">GALERIE FOTO</h1>
+      <h1 className="text-[2rem]  mx-[1.5rem] mt-[1.5rem] fontElegant ">
+        GALERIE FOTO
+      </h1>
       <h2 className="text-[1rem] mx-[1.5rem] font-[100] ">
         ALEGETI DIN MODELE DE MAI JOS
       </h2>

@@ -14,26 +14,24 @@ export default function ChristeningPage() {
   const chriteningSubMenuItems =
     SIDENAV_ITEMS.find(
       (menu) => menu.title === "EVENIMENTE"
-    )?.subMenuItems.find((submenu) => submenu.title === "NUNTA")
+    )?.subMenuItems.find((submenu) => submenu.title === "BOTEZ")
       ?.subMenuItemsMenu || [];
 
   return (
     <div>
       <div className="relative h-[335px] w-full">
         <Image src={imgs} alt="" fill className="object-cover" />
-        <div className="absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50">
-          <span className="bg-white py-10 px-20 mr-20 flex flex-col text-2xl">
-            BOTEZ{" "}
-            <span className="text-[10px] font-[100] text-[#A8A8A8]">
-              Flori naturale si proapete
+        <div className="p-20 absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-40 px-5 ">
+          <div className=" flex items-end justify-end text-black text-center px-5 ">
+            <span className="relative text-black  pt-10 pb-5 px-5 md:px-6  flex flex-col">
+              <span className="absolute text-white   fontWedding font-[200] top-[-0.3rem] right-0 text-[4rem]">
+                catalog
+              </span>
+              <span className="uppercase fontElegant text-[25px]  md:text-[3rem] text-end text-white">
+                BOTEZ
+              </span>
             </span>
-            <Link
-              href="/request-offer"
-              className="text-[13px] font-[100] text-[#606060] hover:text-[#404040] underline underline-offset-2"
-            >
-              CERE OFERTA
-            </Link>
-          </span>
+          </div>
         </div>
       </div>
       <TitleByPath paths={paths} />

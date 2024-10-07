@@ -20,11 +20,13 @@ export default async function ComponentPage({ params }) {
             type="event"
           />{" "}
         </div>
-        <div className="mx-5 my-20 md:my-5 flex flex-col md:ml-10 md:w-1/2 h-[460px]">
+        <div className="mx-5 my-20 md:my-5 justify-between flex flex-col md:ml-10 md:w-1/2 h-[460px]">
           <div className="flex flex-col ">
-            <Title>{componentDetails.name}</Title>
-            <div className="flex flex-col">
-              <span className="my-2 flex flex-col ">
+            <span className="mx-auto text-[20px] lg:text-[25px] fontElegant uppercase">
+              {componentDetails.name}
+            </span>
+            <div className="mt-10 flex flex-col">
+              <span className="text-[16px] my-2 flex flex-col ">
                 Detalii suplimentare:
                 <span className="my-1 text-sm font-[100]">
                   La produsele cu flori naturale pot exista usoare variatii de
