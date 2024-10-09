@@ -80,15 +80,26 @@ function MenuItemWithSubMenu({ item, isOpen, toggleOpen, pathname }) {
             onClick={toggleSubMenu}
           >
             <div className=" flex flex-row justify-between w-full items-center ">
-              <Link
-                href={item.path}
-                onClick={toggleOpen}
-                className={` ${
-                  pathname.includes(item.path) ? "font-[400] " : ""
-                }`}
-              >
-                {item.title}
-              </Link>
+              {item.title === "EVENIMENTE" ? (
+                <span
+                  className={`cursor-default ${
+                    pathname.includes(item.path) ? "font-[400]" : ""
+                  }`}
+                >
+                  {item.title}
+                </span>
+              ) : (
+                <Link
+                  href={item.path}
+                  onClick={toggleOpen}
+                  className={` ${
+                    pathname.includes(item.path) ? "font-[400]" : ""
+                  }`}
+                >
+                  {item.title}
+                </Link>
+              )}
+
               <div
                 style={{
                   fontWeight: "100",

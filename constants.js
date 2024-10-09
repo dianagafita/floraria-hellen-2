@@ -180,16 +180,16 @@ export const SIDENAV_ITEMS = [
   },
   {
     title: "FUNERARE & BISERICESTI",
-    path: "/speciale/funerare-bisericesti",
+    path: "/funerare-bisericesti",
     submenu: true,
     subMenuItems: [
       {
         title: "Coroane funerare",
-        path: "/speciale/funerare-bisericesti/coroane",
+        path: "/funerare-bisericesti/coroane",
       },
       {
         title: "Aranjamente icoane",
-        path: "/speciale/funerare-bisericesti/aranjamente-coroane",
+        path: "/funerare-bisericesti/aranjamente-coroane",
       },
     ],
   },

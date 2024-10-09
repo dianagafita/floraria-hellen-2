@@ -38,6 +38,7 @@ const validFlowerTypes = [
   { title: "paste", img: img },
   { title: "martie", img: img },
   { title: "sf-valentin", img: img },
+  { title: "coroane" },
 ];
 
 export default async function RosesBouquetsPage({ params }) {

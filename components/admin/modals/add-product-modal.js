@@ -121,9 +121,7 @@ export default function AddProductModal({ openModal, type }) {
     } else if (value === "plante") {
       setSubTypeOptions([{ value: "plante", label: "plante" }]);
     } else if (value === "funerare-bisericesti") {
-      setSubTypeOptions([
-        { value: "funerare-bisericesti", label: "funerare-bisericesti" },
-      ]);
+      setSubTypeOptions([{ value: "funerare-bisericesti", label: "coroane" }]);
     } else if (value === "flori-criogenate") {
       setSubTypeOptions([
         { value: "flori-criogenate", label: "flori-criogenate" },

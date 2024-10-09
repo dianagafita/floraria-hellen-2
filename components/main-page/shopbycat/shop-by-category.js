@@ -2,9 +2,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import img from "./1.jpeg";
-import img4 from "./2.jpeg";
-import img1 from "./3.jpeg";
+import img from "./aranj2.jpeg";
+import img2 from "./buchet1.jpeg";
+import buchetmireasa1 from "./bm2.jpeg";
+import aranjmasa from "./aranjmasa1.jpeg";
+import img4 from "./aranj1.jpeg";
+import cris from "./cris.jpeg";
+import botez from "./botez1.jpeg";
+import nunta from "./nunta.jpeg";
+import lumanari from "./lum.jpeg";
+import buchetmireasa from "./bucmir.jpeg";
 
 import { ChevronRight } from "lucide-react";
 import EmblaCarousel from "../sec-car";
@@ -15,18 +22,74 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 const categories = {
   FLORI: [
-    { src: img, alt: "Flori Image 1", text: "Buchete", id: 1 },
-    { src: img4, alt: "Flori Image 2", text: "Aranjamente", id: 2 },
-    { src: img1, alt: "Flori Image 3", text: "Plante", id: 3 },
-    { src: img1, alt: "Flori Image 4", text: "Aranjamente", id: 4 },
+    {
+      src: img,
+      alt: "Aranjamente",
+      text: "Aranjamente",
+      id: 1,
+      link: "/aranjamente",
+    },
+    {
+      src: img4,
+      alt: "Aranjamente",
+      text: "Aranjamente",
+      id: 2,
+      link: "/aranjamente",
+    },
+    {
+      src: img2,
+      alt: "Plante",
+      text: "Plante",
+      id: 3,
+      link: "/speciale/plante",
+    },
+    { src: img2, alt: "Buchete", text: "Buchete", id: 4, link: "/buchete" },
   ],
   NUNTI: [
-    { src: img4, alt: "Nunti Image 1", text: "Buchet Mireasa", id: 5 },
-    { src: img4, alt: "Nunti Image 2", text: "Decoratiuni", id: 6 },
+    {
+      src: nunta,
+      alt: "Masa oficiala",
+      text: "Masa oficiala",
+      id: 1,
+      link: "/evenimente/masa-oficiala",
+    },
+    {
+      src: aranjmasa,
+      alt: "Aranajamente",
+      text: "Aranajamente",
+      id: 3,
+      link: "/evenimente/nunta/aranjamente-masa",
+    },
+    {
+      src: buchetmireasa,
+      alt: "Buchete mireasa",
+      text: "Buchete mireasa",
+      id: 2,
+      link: "/evenimente/nunta/buchete-mireasa",
+    },
+    {
+      src: lumanari,
+      alt: "Lumanari",
+      text: "Lumanari",
+      id: 4,
+      link: "/evenimente/lumanari",
+    },
   ],
   BOTEZ: [
-    { src: img1, alt: "Botez Image 1", text: "Lumanari", id: 7 },
-    { src: img4, alt: "Botez Image 2", text: "Decoratiuni", id: 8 },
+    {
+      src: cris,
+      alt: "Aranjamente cristelnita",
+      text: "Aranjamente cristelnita",
+      id: 1,
+      path: "/evenimente/botez/aranjamente-cristelnita",
+    },
+    {
+      src: botez,
+      alt: "Photo corner",
+      text: "Photo corner",
+      id: 3,
+      link: "/evenimente/botez/photo-corner",
+    },
   ],
 };
 const OPTIONS = { dragFree: true, loop: true };
@@ -101,7 +164,7 @@ const ShopByCategory = () => {
                   <span className="absolute top-2 left-2 z-10 text-white px-2 py-1 font-[200]">
                     <span>{image.text}</span>
                     <Link
-                      href={`/${image.text.toLowerCase()}`}
+                      href={`${image.link}`}
                       className="mt-2 text-[12px] font-[100] flex items-center"
                     >
                       CUMPARA{" "}
@@ -116,10 +179,10 @@ const ShopByCategory = () => {
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover rounded-lg transition-opacity duration-300"
+                    className="object-cover rounded-sm transition-opacity duration-300"
                   />
                   <div
-                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100] ${
+                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100] rounded-sm ${
                       hoveredIndex === image.id ? "opacity-0" : "opacity-100"
                     }`}
                   ></div>
@@ -164,10 +227,10 @@ const ShopByCategory = () => {
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover rounded-lg transition-opacity duration-300"
+                    className="object-cover rounded-sm transition-opacity duration-300"
                   />
                   <div
-                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100] ${
+                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100] rounded-sm ${
                       hoveredIndex === image.id ? "opacity-0" : "opacity-100"
                     }`}
                   ></div>

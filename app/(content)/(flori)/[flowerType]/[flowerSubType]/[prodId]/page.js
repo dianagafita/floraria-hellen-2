@@ -84,7 +84,7 @@ export default function ProductPage({ params }) {
   }
 
   const images = flowers.images_url;
-
+  console.log(flowers);
   return (
     <div className="flex flex-col mb-20 ">
       <div className="md:flex md:px-5 w-full md:mt-5">
@@ -158,7 +158,11 @@ export default function ProductPage({ params }) {
               </div>{" "}
               <Input
                 name="deliveryMessage"
-                label="Mesaj felicitare"
+                label={
+                  flowers.product_subtype === "coroane"
+                    ? "Nume si mesaj coroana"
+                    : "Mesaj felicitare"
+                }
                 type="textarea"
                 value={formData.deliveryMessage}
                 onChange={handleChange}

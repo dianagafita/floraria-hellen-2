@@ -14,20 +14,23 @@ export default async function Home() {
         <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       </div>
       <PageInfo />
-      <div className="relative w-full md:h-[120px] h-[220px] my-10 ">
-        <span className=" flex flex-col absolute top-2 mx-4 z-10 text-black  px-2 py-1 ">
-          <span className="text-2xl text-center font-[300] mb-3">
-            FLORARIE CU LIVRARE LA DOMICILIU
+      <div className="flex flex-col w-full md:h-[120px] h-[220px] my-10 justify-center items-center ">
+        <span className="relative top-2 z-10 text-black  py-1 w-full text-center my-10">
+          <span className=" fontElegant text-[35px] text-center font-[300] mb-3">
+            FLORARIE
           </span>
-          <span className=" text-base text-center font-[100] mb-10">
-            Descoperiți universul nostru vibrant al florilor, unde frumusețea
-            naturii întâlnește creativitatea și pasiunea pentru aranjamente
-            florale desăvârșite. LaFloraria Hellen, transformăm fiecare ocazie
-            într-o poveste de neuitat, oferindu-vă buchete și aranjamente
-            florale care să inspire și să emoționeze.
+          <span className="fontWedding absolute top-9 md:top-6 left-[53%] text-[35px]  md:text-[45px]">
+            cu livrare la domiciliu
           </span>
-        </span>{" "}
-      </div>{" "}
+        </span>
+        <span className="text-base text-center font-[100] mb-10 mx-5">
+          Descoperiți universul nostru vibrant al florilor, unde frumusețea
+          naturii întâlnește creativitatea și pasiunea pentru aranjamente
+          florale desăvârșite. LaFloraria Hellen, transformăm fiecare ocazie
+          într-o poveste de neuitat, oferindu-vă buchete și aranjamente florale
+          care să inspire și să emoționeze.
+        </span>
+      </div>
       <ShopByCategory />
       {/* <Recommended /> */}
     </div>

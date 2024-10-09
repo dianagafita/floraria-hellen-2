@@ -1,7 +1,6 @@
 import { getProductsByType } from "@/app/api/store/products";
 import Categories from "@/components/util/categories";
 import FlowerPageLayout from "@/components/util/customFlowersLayout";
-import { TitleByPath } from "@/components/util/getPathTitle";
 import img from "./zz.jpeg";
 import img2 from "./sec.jpeg";
 import Loading from "@/lib/loading";
@@ -14,6 +13,7 @@ const validFlowerTypes = [
   "aranjamente",
   "evenimente",
   "ocazii-speciale",
+  "funerare-bisericesti",
 ];
 
 export default async function FlowerBouquetsPage({ params }) {

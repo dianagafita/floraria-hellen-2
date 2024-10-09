@@ -5,16 +5,24 @@ import { Thumb } from "./butt";
 import Image from "next/image";
 import img from "./10.jpeg";
 import img2 from "./aranjamente.jpeg";
-import img3 from "./11.jpeg";
-import imgSmall1 from "./10.jpeg"; // Add smaller images for mobile view
-import imgSmall2 from "./10.jpeg";
-import imgSmall3 from "./10.jpeg";
+import img3 from "./nunta.jpeg";
+import imgSmall1 from "./prima.jpeg"; // Add smaller images for mobile view
+import imgSmall2 from "./three.jpeg";
+import imgSmall3 from "./nunta.jpeg";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
 
 // Define two sets of images: one for larger screens, one for smaller screens
-const largeImages = [img, img2, img3];
-const smallImages = [imgSmall1, imgSmall2, imgSmall3];
+const largeImages = [
+  { img: img.src, title: "BUCHETE DE FLORI", subtitle: "CUMPARA" },
+  { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
+  { img: img3, title: "DECORATIUNI NUNTI SI EFECTE", subtitle: "CERE OFERTA" },
+];
+const smallImages = [
+  { img: imgSmall1, title: "BUCHETE DE FLORI", subtitle: "CUMPARA" },
+  { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
+  { img: imgSmall3, title: "BUCHETE DE MIREASA", subtitle: "CERE OFERTA" },
+];
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props;
@@ -28,13 +36,10 @@ const EmblaCarousel = (props) => {
     dragFree: true,
   });
 
-  // Detect screen size changes
   useEffect(() => {
     const checkMobileScreen = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust for mobile screen sizes
+      setIsMobile(window.innerWidth < 768);
     };
-
-    // Set initial value and add event listener for window resize
     checkMobileScreen();
     window.addEventListener("resize", checkMobileScreen);
 
@@ -62,30 +67,29 @@ const EmblaCarousel = (props) => {
     emblaMainApi.on("select", onSelect).on("reInit", onSelect);
   }, [emblaMainApi, onSelect]);
 
-  // Choose the appropriate image set based on screen size
   const imagesToUse = isMobile ? smallImages : largeImages;
 
   return (
     <div className="embla">
       <div className="embla__viewport" ref={emblaMainRef}>
         <div className="embla__container">
-          {imagesToUse.map((img, index) => (
+          {imagesToUse.map((imgs, index) => (
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number ">
-                <Image src={img} alt="" layout="fill" objectFit="cover" />
+                <Image src={imgs.img} alt="" layout="fill" objectFit="cover" />
                 <div className="absolute inset-0 flex justify-center text-white text-center bg-black bg-opacity-50 text-5xl font-[100]"></div>
 
-                <div className="flex flex-col absolute md:top-30 right-10 items-end font-[100]">
-                  <span className="tracking-widest bg-white py-10 px-5 md:px-20 md:mr-20 flex flex-col text-sm md:text-2xl">
-                    ARANJAMENTE FLORALE{" "}
-                    <span className="text-[10px] text-end font-[100] text-[#A8A8A8]">
+                <div className="flex flex-col absolute md:top-30 right-3 items-end font-[100] text-white">
+                  <span className="relative fontElegant tracking-widest  py-10 px-5  flex flex-col text-[20px] md:text-3xl ">
+                    {imgs.title}
+                    <span className="absolute top-3  md:top-4 right-0 fontWedding text-[30px]  md:text-[45px] text-end text-white ">
                       Flori naturale si proaspete
                     </span>
                     <Link
                       href="/aranjamente"
-                      className="text-[13px] text-end font-[100] text-[#606060] hover:text-[#404040] underline underline-offset-2"
+                      className="fontSimple text-[13px] text-end font-[100] text-white hover:text-black underline underline-offset-2"
                     >
-                      CUMPARA{" "}
+                      {imgs.subtitle}
                     </Link>
                   </span>{" "}
                 </div>
