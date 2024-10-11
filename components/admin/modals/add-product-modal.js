@@ -160,7 +160,7 @@ export default function AddProductModal({ openModal, type }) {
         { value: "photo-corner", label: "Photo Corner" },
         { value: "fantana-ciocolata", label: "Fantana ciocolata" },
         { value: "masina-fum", label: "Fum" },
-        { value: "decoratiuni-masini", label: "Deco. masini" },
+        { value: "decoratiuni-pahare", label: "Deco. pahare" },
       ]);
     } else if (value === "botez") {
       setSubTypeOptions([

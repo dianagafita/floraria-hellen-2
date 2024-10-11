@@ -21,7 +21,9 @@ const FlowerImage = ({ src, alt, href }) => {
       <Image
         priority
         className={`rounded-sm object-cover overflow-hidden ${
-          isVertical ? "h-[500px] w-[400px]" : "h-[300px] w-[500px]"
+          isVertical
+            ? "h-full w-full min-w-[200px] max-h-[300px]"
+            : "h-[250px] w-full min-w-[450px]"
         }`}
         src={src}
         alt={alt}

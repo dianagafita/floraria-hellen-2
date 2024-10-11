@@ -31,18 +31,13 @@ const ScrollComponent = () => {
       <div ref={sectionRef} className={`${styles.section}`}>
         <div className={`${styles.left}`}>
           <div className={styles.content}>
-            <h2>A glorious nature shot.</h2>
-            <p>
-              Wow. What a wonderful image. And look! There are even more images
-              on the right side. Amazing. If you click below, I bet youll get
-              teleported to a magical land.
+            <h2 className="mb-3 md:mb-10 text-[17px] fontElegant text-black  md:text-[20px]">
+              OKTOBERFEST
+            </h2>
+            <p className="md:mb-10 text-[13px] md:text-md text-black">
+              În cadrul festivalului, am participat cu un car alegoric din flori
+              de toamna impreuna cu o rochie facuta in intregime din crizanteme.
             </p>
-            <button
-              className={styles.btnPrimary}
-              onClick={() => alert("I lied")}
-            >
-              Learn more
-            </button>
           </div>
         </div>
 

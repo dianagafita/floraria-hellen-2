@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import img from "./t.jpeg";
 import { TitleByPath } from "@/components/util/getPathTitle";
-import imgs from "./1.jpeg";
+import imgs from "./fum.jpeg";
 import img2 from "./3.jpeg";
 import img3 from "./4.jpeg";
 import img4 from "./5.jpeg";
@@ -73,7 +73,7 @@ export default async function WeddingPage({ params }) {
     <div className=" min-h-[100vh]">
       {" "}
       <div className="relative h-[335px] w-full">
-        <Image src={img} alt="" fill className="object-cover" />
+        <Image src={imgs} alt="" fill className="object-cover" />
         <div className="p-20 absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50 px-5 ">
           <div className=" flex items-center justify-center text-black text-center px-5 ">
             <span className="relative text-white  pt-10 pb-5 px-5 md:px-6  flex flex-col">

@@ -10,12 +10,16 @@ import img3 from "./3.jpg";
 
 export default function page() {
   return (
-    <section className="text-center md:my-10 flex flex-col w-full g-[#481818] text-white">
-      <div className="flex flex-col md:flex-row bg-white">
-        <Image src={img1} alt="" className="w-full h-[50vw] md:w-1/2" />
+    <section className="text-center my-10 mb-20 flex flex-col w-full px-5 g-[#481818] text-white">
+      <div className="flex flex-col md:flex-row bg-white px-5">
+        <Image
+          src={img1}
+          alt=""
+          className="w-full h-full max-w-[350px] max-h-[400px] md:w-1/2 mx-auto md:mx-0"
+        />
 
-        <div className="md:w-1/2 text-black px-10 font-[100] text-[16px] lg:text-[15px] text-start">
-          <h2 className="mb-10 text-2xl text-center md:mt-0 mt-10">
+        <div className="md:w-1/2 text-black md:pl-10 font-[100] text-[16px] lg:text-[15px] text-center">
+          <h2 className="fontElegant mb-10 text-2xl text-center md:mt-0 mt-10">
             Despre Fondatorul Nostru
           </h2>
           <p>
@@ -30,7 +34,7 @@ export default function page() {
             fiecare zi creării unor opere florale unice, care depășesc
             așteptările.
           </p>
-          <div className="hidden lg:flex lg:flex-col mt-10 text-black font-[100] text-start md:w-full">
+          <div className="hidden lg:flex lg:flex-col mt-10 text-black font-[100] text-start w-full">
             <p>
               <span className="ml-10">Misiunea</span> noastră este simplă: să
               aducem zâmbete pe fețele celor care primesc florile noastre și să
@@ -49,7 +53,7 @@ export default function page() {
       </div>
 
       {/* Second Part of Text - Appears under the image on medium and smaller screens */}
-      <div className="flex flex-col lg:hidden mt-10 text-black px-10 font-[100] text-start md:w-full">
+      <div className="flex flex-col lg:hidden mt-10 text-black px-5 md:px-10 font-[100] text-start md:w-full">
         <p>
           <span className="ml-10">Misiunea</span> noastră este simplă: să aducem
           zâmbete pe fețele celor care primesc florile noastre și să transformăm
@@ -65,10 +69,11 @@ export default function page() {
       </div>
 
       {/* Achievements Section */}
-      <span className="text-3xl font-[300] my-10  text-black">REALIZARI</span>
+      <span className="text-3xl font-[300] my-10 text-black fontElegant">
+        REALIZARI
+      </span>
       <ScrollComponent images={[img, img3]} />
       <ScrollComponentReverse />
-      <ScrollComponent images={[img2, img2]} />
     </section>
   );
 }

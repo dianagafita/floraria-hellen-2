@@ -32,7 +32,6 @@ const ScrollComponentReverse = () => {
   return (
     <>
       <div className={`${styles.section}`}>
-        {/* Image on the left */}
         <div className={styles.left}>
           <Image src={img} alt="Glorious Nature" layout="fill" />
         </div>
@@ -40,15 +39,15 @@ const ScrollComponentReverse = () => {
           <Image src={img2} alt="Glorious Nature" layout="fill" />
         </div>
 
-        {/* Text on the right */}
         <div className={styles.right}>
           <div className={styles.content}>
-            <h2 className="mb-10 text-[20px]">POFTITI DE VA IUBITI</h2>
-            <p className="mb-10 text-sm md:text-md">
-              În cadrul emisiunii Poftiți de vă iubiti, alături de inegalabilul
-              Nea Marin, am avut onoarea de a participa cu flori și aranjamente
-              florale pentru o nuntă de neuitat. Fiecare detaliu a fost creat cu
-              pasiune, astfel încât să reflecte dragostea și bucuria momentului.
+            <h2 className="text-black mb-3 md:mb-10 text-[17px] fontElegant md:text-[20px]">
+              POFTITI DE VA IUBITI
+            </h2>
+            <p className="text-black md:mb-10 text-[13px] md:text-md">
+              În cadrul emisiunii, alături de inegalabilul Nea Marin, am
+              participat cu flori și aranjamente florale pentru o nuntă de
+              neuitat.
             </p>
             <Link
               className="tracking-wider text-[#404040] text-[15px] font-[100] underline underline-offset-[4px] underline decoration-1 underline-[#404040] hover:text-black"

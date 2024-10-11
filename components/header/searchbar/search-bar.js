@@ -5,7 +5,7 @@ import Search from "./search";
 export default function Searchbar({ isVisible, openSearch }) {
   return (
     <motion.div
-      className={`fixed top-[4rem] md:top-[9rem] md:top-[12.6rem] left-0 w-full bg-white shadow-lg z-[40] ${
+      className={`fixed top-[8rem] md:top-[11.7rem] left-0 w-full bg-white shadow-lg z-[40] ${
         isVisible ? "h-auto" : "h-0"
       } overflow-hidden`}
       initial={{ height: 0 }}

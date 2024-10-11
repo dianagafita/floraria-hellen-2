@@ -19,13 +19,12 @@ const ResetPasswordForm = () => {
     <>
       <form
         action={send}
-        className="min-h-[50vh] flex flex-col w-[90%] md:w-[80%] lg:w-[70%] mx-auto my-20"
+        className="min-h-[50vh] flex flex-col w-full my-20 justify-center items-center"
       >
         {!message ? (
           <>
             <Input
               required
-
               type="email"
               name="email"
               label="Introduceti adresa de e-mail pentru care vreti sa resetati parola:"

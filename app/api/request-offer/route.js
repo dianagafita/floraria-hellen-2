@@ -312,7 +312,7 @@ export async function POST(req) {
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
       to: ["gafita.diana12@gmail.com"],
       subject: "Oferta Dvs.",
-      text: "buna",
+      text: "Aceasta este cererea de oferta:",
       attachments: [
         {
           content: Buffer.from(pdfBytes).toString("base64"),

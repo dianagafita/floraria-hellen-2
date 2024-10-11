@@ -46,35 +46,33 @@
     background-image: url("./6.jpeg");
   }
   &:nth-of-type(3n) {
-    background-image: url("./red.jpeg");
+    background-image: url("./buchete.jpeg");
   }
   &:nth-of-type(4n) {
     background-image: url("./red.jpeg");
   }
   &:nth-of-type(5n) {
-    background-image: url("./bis.jpg");
+    background-image: url("./cocarde.jpeg");
   }
   &:nth-of-type(6n) {
     background-image: url("./bis.jpg");
   }
   &:nth-of-type(7n) {
-    background-image: url("./sal.jpeg");
-  }
-  &:nth-of-type(8n) {
-    background-image: url("./mo.jpeg");
-  }
-  &:nth-of-type(9n) {
     background-image: url("./1.jpeg");
   }
-  &:nth-of-type(10n) {
-    background-image: url("./9.jpeg");
-  }
-  &:nth-of-type(11n) {
+  &:nth-of-type(8n) {
     background-image: url("./pc.jpeg");
   }
-  &:nth-of-type(12n) {
-    background-image: url("./ffc.jpeg");
+  &:nth-of-type(9n) {
+    background-image: url("./fc.jpeg");
   }
+  &:nth-of-type(10n) {
+    background-image: url("./fum.jpeg");
+  }
+  &:nth-of-type(11n) {
+    background-image: url("./pahare.jpeg");
+  }
+
   &:after {
     content: "";
     position: absolute;

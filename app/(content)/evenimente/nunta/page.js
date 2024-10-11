@@ -1,5 +1,5 @@
 import classes from "./wedding-menu-styles.module.css";
-import imgs from "./iii.png";
+import imgs from "./fum.jpeg";
 import Image from "next/image";
 import { TitleByPath } from "@/components/util/getPathTitle";
 import Link from "next/link";

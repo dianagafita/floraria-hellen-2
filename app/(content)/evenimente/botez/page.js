@@ -1,6 +1,6 @@
 import { TitleByPath } from "@/components/util/getPathTitle";
 import classes from "./christening-menu-styles.module.css";
-import imgs from "./3.jpeg";
+import imgs from "./botez.jpeg";
 import Image from "next/image";
 import Link from "next/link";
 import { SIDENAV_ITEMS } from "@/constants";
@@ -19,7 +19,7 @@ export default function ChristeningPage() {
 
   return (
     <div>
-      <div className="relative h-[335px] w-full">
+      <div className="relative h-[300px] w-full">
         <Image src={imgs} alt="" fill className="object-cover" />
         <div className="p-20 absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-40 px-5 ">
           <div className=" flex items-end justify-end text-black text-center px-5 ">

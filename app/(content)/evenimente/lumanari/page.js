@@ -1,8 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import img from "./t.jpeg";
+import img from "./lumanari.jpeg";
 import { TitleByPath } from "@/components/util/getPathTitle";
-import Link from "next/link";
 import { getCandles } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 import FlowerImage from "./ims";
@@ -19,7 +18,7 @@ export default async function CandlesPage() {
   return (
     <div className=" min-h-[100vh]">
       {" "}
-      <div className="relative h-[335px] w-full">
+      <div className="relative h-[300px] w-full">
         <Image src={img} alt="" fill className="object-cover" />
         <div className="p-20 absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50 px-5 ">
           <div className=" flex items-center justify-center text-black text-center px-5 ">

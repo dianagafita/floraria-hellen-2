@@ -127,7 +127,7 @@ export const SIDENAV_ITEMS = [
             path: "/evenimente/nunta/aranjamente-masa",
           },
           {
-            title: " mireasa",
+            title: "BUchete mireasa",
             path: "/evenimente/nunta/buchete-mireasa",
           },
 
@@ -144,18 +144,18 @@ export const SIDENAV_ITEMS = [
             path: "/evenimente/nunta/biserica",
           },
 
-          {
-            title: "Cununie civila",
-            path: "/evenimente/nunta/cununie-civila",
-          },
+          // {
+          //   title: "Cununie civila",
+          //   path: "/evenimente/nunta/cununie-civila",
+          // },
           {
             title: "Aranjament masa oficiala",
             path: "/evenimente/nunta/masa-oficiala",
           },
-          {
-            title: "Aranjamente sala",
-            path: "/evenimente/nunta/decoratiuni-sali",
-          },
+          // {
+          //   title: "Aranjamente sala",
+          //   path: "/evenimente/nunta/decoratiuni-sali",
+          // },
 
           { title: "Photo corner", path: "/evenimente/nunta/photo-corner" },
           {
@@ -167,8 +167,8 @@ export const SIDENAV_ITEMS = [
             path: "/evenimente/nunta/masina-fum",
           },
           {
-            title: "Decoratiuni masini",
-            path: "/evenimente/nunta/decoratiuni-masini",
+            title: "Decoratiuni pahare",
+            path: "/evenimente/nunta/decoratiuni-pahare",
           },
         ],
       },

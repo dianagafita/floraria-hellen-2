@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import img from "./aranj2.jpeg";
 import img2 from "./buchet1.jpeg";
-import buchetmireasa1 from "./bm2.jpeg";
+import buchetmireasa1 from "./some.png";
 import aranjmasa from "./aranjmasa1.jpeg";
 import img4 from "./aranj1.jpeg";
 import cris from "./cris.jpeg";
@@ -23,7 +23,7 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const categories = {
   FLORI: [
     {
-      src: img,
+      src: buchetmireasa1,
       alt: "Aranjamente",
       text: "Aranjamente",
       id: 1,
