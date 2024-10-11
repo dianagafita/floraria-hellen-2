@@ -21,7 +21,7 @@ export default function ItemCard({
           key={img.id}
           className={` flex flex-col  bg-white ${
             moreStyle === "searchItem"
-              ? "w-[120px] h-[200px] md:p-1 md:w-[150px] md:h-full"
+              ? "w-[120px] h-[200px] md:p-1 md:w-[150px] md:h-[200px]"
               : "w-[44vw] h-[60vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
           }    mb-5`}
         >
