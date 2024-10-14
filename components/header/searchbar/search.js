@@ -80,7 +80,7 @@ export default function Search({ inputChanges, pChanges, openSearch }) {
       <div>
         {!results && <Loading />}
         {results.length > 0 ? (
-          <div className="text-center my-5 md:my-10">
+          <div className="text-center my-10">
             <ItemCard
               images={results.slice(0, 3)}
               moreStyle="searchItem"

@@ -220,13 +220,13 @@ select {
 
 .embla {
   width: 100vw;
-  --slide-height: 40vh;
+  --slide-height: 400px;
   background-color: black;
 }
 
 @media screen and (max-width: 767px) {
   .embla {
-    --slide-height: 40vh;
+    --slide-height: 300px;
   }
 }
 .embla__viewport {

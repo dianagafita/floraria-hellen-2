@@ -103,7 +103,7 @@ const PersonalDataPage = () => {
             action={formAction}
           >
             <input type="hidden" name="id" value={user?.id} />
-            <div className="flex md:flex-col lg:flex-row w-full">
+            <div className="flex flex-col lg:flex-row w-full">
               <Input
                 name="firstName"
                 label="Prenume"
@@ -151,13 +151,13 @@ const PersonalDataPage = () => {
             action={secondFormAction}
           >
             <input type="hidden" name="id" value={user?.id} />
-            <div className="flex md:flex-col  lg:flex-row w-full">
+            <div className="flex flex-col  lg:flex-row w-full">
               <Input
                 name="currentPassword"
                 label="Parola veche"
                 type="password"
               />
-              <div className="flex md:flex-row  w-full">
+              <div className="flex flex-col md:flex-row  w-full">
                 <Input name="newPassword" label="Parola noua" />
                 <Input name="confirmNewPassword" label="Confirma parola noua" />
               </div>

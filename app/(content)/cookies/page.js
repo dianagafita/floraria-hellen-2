@@ -3,7 +3,7 @@ import React from "react";
 
 export default function page() {
   return (
-    <div className="m-10  text-start text-[#505050]">
+    <div className="m-10  text-start text-[#505050] min-h-[100vh]">
       <Title moreStyle="text-black">POLITICA DE UTILIZARE COOKIES</Title>
       <p className="my-10" />
       Cookie-urile web ajuta site-urile sa iti retina preferintele. Prin

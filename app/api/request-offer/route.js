@@ -175,7 +175,7 @@ async function generatePDF(formData) {
     formData.requestOfferNrInvitati
   );
   drawCell(
-    margin + 2 * columnWidth,
+    margin + columnWidth,
     tableStartY - rowHeight,
     columnWidth,
     rowHeight,
@@ -240,14 +240,14 @@ async function generatePDF(formData) {
     productTableStartY - rowHeight,
     productColumnWidth,
     rowHeight,
-    formData.requestOfferProductID
+    ""
   );
   drawCell(
     margin + productColumnWidth,
     productTableStartY - rowHeight,
     productColumnWidth,
     rowHeight,
-    "" // Product ID or data can be added here
+    formData.requestOfferProductID
   );
 
   // Draw products table border and lines

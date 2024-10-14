@@ -34,7 +34,7 @@ export default function PasswordChangeForm(email, showToast) {
       >
         <input type="hidden" name="id" value={user?.id} />
         <Input name="currentPassword" label="Parola veche" type="password" />
-        <div className="flex md:flex-col lg:flex-row w-full">
+        <div className="flex flex-col md:flex-row  lg:flex-row w-full">
           <Input name="newPassword" label="Parola noua" type="password" />
           <Input
             name="confirmNewPassword"
