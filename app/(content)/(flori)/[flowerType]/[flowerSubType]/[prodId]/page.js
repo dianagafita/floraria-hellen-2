@@ -192,7 +192,7 @@ export default function ProductPage({ params }) {
               </div>
             </div>
             <Button
-              moreStyle="w-[50%] px-5 m-auto !bg-black text-white hover:!bg-white hover:!text-black  active:bg-white active:text-black"
+              moreStyle=" xl:w-[50%] px-5 m-auto !bg-black text-white hover:!bg-white hover:!text-black  active:bg-white active:text-black"
               type="submit"
               onClick={handleAddToCart}
             >
@@ -221,6 +221,12 @@ export default function ProductPage({ params }) {
             <span className="text-sm font-[100]">
               Anumite flori din buchet/aranjament pot fi imbobocite dar se vor
               deschide.
+            </span>
+          </span>
+          <span className="mt-10 flex items-center">
+            ID:
+            <span className=" mx-3 text-sm font-[100]">
+              # {flowers.productId}{" "}
             </span>
           </span>
         </span>
