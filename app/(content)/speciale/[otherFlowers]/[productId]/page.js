@@ -84,7 +84,7 @@ export default function ProductPage({ params }) {
   const images = flowers.images_url;
 
   return (
-    <div className="flex flex-col mb-10">
+    <div className="min-h-[100vh] flex flex-col mb-10">
       <div className="md:flex md:px-5 w-full md:mt-5">
         <div className="md:w-1/2 md:max-w-[700px]  md:min-w-[450px] w-full mb-10">
           <FeaturedImageGallery images={images} />

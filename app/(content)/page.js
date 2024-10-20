@@ -2,6 +2,7 @@ import EmblaCarousel from "@/components/main-page/carousel";
 import PageInfo from "@/components/main-page/page-info";
 import Recommended from "@/components/main-page/recommended/recommended";
 import ShopByCategory from "@/components/main-page/shopbycat/shop-by-category";
+import PaymentSuccessPage from "./payment-success/page";
 
 const OPTIONS = {};
 const SLIDE_COUNT = 3;
@@ -32,6 +33,7 @@ export default async function Home() {
         </span>
       </div>
       <ShopByCategory />
+      <PaymentSuccessPage />
       {/* <Recommended /> */}
     </div>
   );
