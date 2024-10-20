@@ -20,7 +20,7 @@ export default function Categories({ type }) {
           </span>
         </span>{" "}
       </div>{" "}
-      <div className="  max-w-[400px] mx-auto w-full flex flex-wrap items-center justify-between ">
+      <div className="  max-w-[400px] mx-auto w-full flex flex-wrap items-center justify-center ">
         {data.subMenuItems.map((item, idx) => (
           <Link key={idx} href={item.path} className=" px-2 py-1">
             <div className="fontSimple uppercase whitespace-nowrap  font-[500] text-[#404040] text-[11px] hover:text-black">

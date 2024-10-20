@@ -156,7 +156,7 @@ export default function NewOrderReceiptEmail({ order }) {
                         verticalAlign: "middle",
                       }}
                     >
-                      {item.product.name}
+                      {item.product.name} - #{item.product.productId}
                     </td>
 
                     <td

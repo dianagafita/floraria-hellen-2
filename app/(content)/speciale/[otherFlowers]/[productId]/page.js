@@ -94,7 +94,8 @@ export default function ProductPage({ params }) {
             {flowers.name}
           </span>
           <span translate="no" className="text-end text-xl mr-10 mb-5">
-            100<sup translate="no">.00 lei</sup>
+            {flowers.price}
+            <sup translate="no">.00 lei</sup>
           </span>
           <form className="flex flex-col w-full h-full md:max-h-[365px] justify-between md:mb-20 text-[16px]">
             <div className="w-full">

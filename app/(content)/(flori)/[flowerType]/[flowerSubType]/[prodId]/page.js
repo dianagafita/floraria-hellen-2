@@ -86,7 +86,7 @@ export default function ProductPage({ params }) {
   const images = flowers.images_url;
   console.log(flowers);
   return (
-    <div className="flex flex-col mb-20 ">
+    <div className="h-[100vh] flex flex-col mb-20 ">
       <div className="md:flex md:px-5 w-full md:mt-5">
         <div className="md:w-1/2 md:max-w-[700px]  md:min-w-[450px] w-full mb-10">
           <FeaturedImageGallery images={images} />
@@ -96,7 +96,8 @@ export default function ProductPage({ params }) {
             {flowers.name}
           </span>
           <span translate="no" className="text-end text-xl mr-10 mb-5">
-            100<sup translate="no">.00 lei</sup>
+            {flowers.price}
+            <sup translate="no">.00 lei</sup>
           </span>
           <form className="text-[16px] flex flex-col w-full h-full md:max-h-[365px] justify-between md:mb-20">
             <div className="w-full">
