@@ -20,9 +20,9 @@ const FlowerImage = ({ src, alt, href }) => {
     <Link href={href} className="relative group overflow-hidden">
       <Image
         priority
-        className={`rounded-sm object-contain overflow-hidden ${
+        className={`rounded-sm object-cover overflow-hidden ${
           isVertical
-            ? "h-full w-full w-[200px] max-h-[300px]"
+            ? "h-full w-full w-[250px] min-h-[300px] max-h-[350px]"
             : "h-[250px] w-full min-w-[450px]"
         }`}
         src={src}
