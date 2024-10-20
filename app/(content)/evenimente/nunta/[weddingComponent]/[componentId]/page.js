@@ -12,8 +12,8 @@ export default async function ComponentPage({ params }) {
   }
 
   return (
-    <div className="flex flex-col h-[100vh]">
-      <div className="md:flex  w-full ">
+    <div className="flex flex-col h-full min-h-[70vh] mb-20">
+      <div className="md:flex  w-full md:mt-10 ">
         <div className="md:w-1/2 md:p-5 mb-10">
           <FeaturedImageGallery
             images={componentDetails.images_url}

@@ -5,7 +5,8 @@ import { getComponentByType } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 import { getTitleOfPath } from "@/components/path";
 import FlowerImage from "../../nunta/[weddingComponent]/ims";
-
+import imgs from "../botez.jpeg";
+import Image from "next/image";
 const validChristeningComponent = [
   "aranjamente-cristelnita",
   "aranjamente-florale",
@@ -44,8 +45,8 @@ export default async function ChristeningPage({ params }) {
 
   return (
     <div className="min-h-[100vh]">
-      {" "}
       <div className="relative h-[335px] w-full">
+        <Image src={imgs} alt="" fill className="object-cover" />
         <div className="p-20 absolute inset-0 flex items-center justify-end text-black text-center bg-black bg-opacity-50 px-5 ">
           <div className=" flex items-center justify-center text-black text-center px-5 ">
             <span className="relative text-white  pt-10 pb-5 px-5 md:px-6  flex flex-col">
