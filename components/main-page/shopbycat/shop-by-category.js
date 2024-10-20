@@ -23,7 +23,7 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const categories = {
   FLORI: [
     {
-      src: buchetmireasa1,
+      src: img,
       alt: "Aranjamente",
       text: "Aranjamente",
       id: 1,

@@ -248,46 +248,21 @@ export const EXTRA_ITEMS = [
   {
     id: 1,
     name: "Cutie Raffaello",
-    price: 50,
-    description: "A fine bottle of red wine.",
+    price: 20,
+    description:
+      "Specialitati crocante de nuca de cocos, cu migdala intreaga in interior.",
     image:
-      "https://res.cloudinary.com/defo6qykq/image/upload/v1723475366/floraria_hellen/extra/Screenshot_2024-08-10_at_23.54.49_u3thc8.png",
+      "https://res.cloudinary.com/defo6qykq/image/upload/v1729422751/floraria_hellen/68CD4305-461B-403B-AA4D-4F8788400627_qzwm0r.jpg",
     quantity: 1,
   },
+
   {
     id: 2,
-    name: "Candy",
-    price: 30,
-    description: "Delicious assorted candies.",
-    image:
-      "https://res.cloudinary.com/defo6qykq/image/upload/v1723475366/floraria_hellen/extra/Screenshot_2024-08-10_at_23.54.49_u3thc8.png",
-    quantity: 1,
-  },
-  {
-    id: 5,
     name: "Toffifee",
-    price: 30,
-    description: "Delicious assorted candies.",
+    price: 16,
+    description: "Bomboane cu alune si caramel.",
     image:
-      "https://res.cloudinary.com/defo6qykq/image/upload/v1724099042/floraria_hellen/extra/Screenshot_2024-08-19_at_23.23.54_k0oi9o.png",
-    quantity: 1,
-  },
-  {
-    id: 6,
-    name: "Toffifee",
-    price: 30,
-    description: "Delicious assorted candies.",
-    image:
-      "https://res.cloudinary.com/defo6qykq/image/upload/v1724099042/floraria_hellen/extra/Screenshot_2024-08-19_at_23.23.54_k0oi9o.png",
-    quantity: 1,
-  },
-  {
-    id: 7,
-    name: "Toffifee",
-    price: 30,
-    description: "Delicious assorted candies.",
-    image:
-      "https://res.cloudinary.com/defo6qykq/image/upload/v1724099042/floraria_hellen/extra/Screenshot_2024-08-19_at_23.23.54_k0oi9o.png",
+      "https://res.cloudinary.com/defo6qykq/image/upload/v1729422751/floraria_hellen/24F6CE91-7704-4D12-AE97-0C08A2B6A7C9_n4cbwf.jpg",
     quantity: 1,
   },
 ];
