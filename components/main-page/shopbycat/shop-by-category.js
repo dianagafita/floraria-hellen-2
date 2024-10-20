@@ -109,7 +109,7 @@ const ShopByCategory = () => {
 
   return (
     <>
-      <div className=" flex flex-col">
+      <div className=" flex flex-col my-20">
         <div className="items-start m-5">
           <Title>CATEGORII</Title>
         </div>

@@ -4,8 +4,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 5rem;
   align-items: center;
-  justify-content: end;
-  padding: 1rem;
+  justify-content: center;
+  padding: 1.5rem 0.7rem;
   position: sticky;
   top: 2rem;
 }
@@ -49,9 +49,10 @@
 }
 
 .main-header-section a {
-  margin: 2rem auto;
+  margin: 2rem;
   height: 5rem;
   width: 15rem;
+  align-self: center;
 }
 
 .section span {
@@ -90,10 +91,11 @@
 
   .main-header-section a {
     height: 5rem;
+    margin: auto;
   }
   .main-header-section img {
     height: 100%;
-    width: 15rem;
+    width: 100%;
   }
 
   .cartIcon {
