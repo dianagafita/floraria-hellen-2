@@ -108,7 +108,6 @@ async function generatePDF(formData) {
   const tableWidth = A4_WIDTH - 2 * margin;
   const columnWidth = tableWidth / 4;
 
-  // Function to draw a cell with text
   const drawCell = (x, y, width, height, text) => {
     page.drawRectangle({
       x: x,
@@ -119,8 +118,8 @@ async function generatePDF(formData) {
       borderWidth: 1,
     });
     const textWidth = font.widthOfTextAtSize(text, fontSize);
-    const textX = x + (width - textWidth) / 2;
-    const textY = y + (height - fontSize) / 2;
+    const textX = x + (width - textWidth) / 2; // Horizontal centering
+    const textY = y + (height - fontSize) / 2; // Vertical centering
     page.drawText(text, {
       x: textX,
       y: textY,
@@ -129,6 +128,7 @@ async function generatePDF(formData) {
       font: font,
     });
   };
+
   drawCell(margin, tableStartY, columnWidth, rowHeight, "TIP");
   drawCell(
     margin + columnWidth,
@@ -168,14 +168,14 @@ async function generatePDF(formData) {
     formData.requestOfferMaxBuget
   );
   drawCell(
-    margin + columnWidth,
+    margin + 2 * columnWidth,
     tableStartY - rowHeight,
     columnWidth,
     rowHeight,
     formData.requestOfferNrInvitati
   );
   drawCell(
-    margin + columnWidth,
+    margin + 3 * columnWidth,
     tableStartY - rowHeight,
     columnWidth,
     rowHeight,
@@ -312,7 +312,7 @@ export async function POST(req) {
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
       to: ["gafita.diana12@gmail.com"],
       subject: "Oferta Dvs.",
-      text: "Aceasta este cererea de oferta:",
+      text: "Aceasta este cererea de oferta de la client:",
       attachments: [
         {
           content: Buffer.from(pdfBytes).toString("base64"),
