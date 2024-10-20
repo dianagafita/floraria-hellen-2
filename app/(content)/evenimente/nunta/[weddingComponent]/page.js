@@ -1,31 +1,14 @@
 import Image from "next/image";
 import React from "react";
-import img from "./t.jpeg";
 import { TitleByPath } from "@/components/util/getPathTitle";
 import imgs from "./fum.jpeg";
-import img2 from "./3.jpeg";
-import img3 from "./4.jpeg";
-import img4 from "./5.jpeg";
-import img5 from "./6.jpeg";
-import img6 from "./7.jpeg";
-import Link from "next/link";
+
 import { redirect } from "next/navigation";
 import { getComponentByType } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 import { getTitleOfPath } from "@/components/path";
 import FlowerImage from "./ims";
 
-const imga = [
-  {
-    src: img2,
-    href: `/evenimente/wedding/flowers/ARANJAMENT TRANDAFIRI SI BUJORI`,
-  },
-  { src: img3, href: `/evenimente/wedding/flowers/1` },
-  { src: img4, href: `/evenimente/wedding/flowers/1` },
-  { src: img5, href: `/evenimente/wedding/flowers/1` },
-  { src: img6, href: `/evenimente/wedding/flowers/1` },
-  { src: imgs, href: `/evenimente/wedding/flowers/1` },
-];
 const validWeddingComponent = [
   "nunta-completa",
   "buchete-mireasa",
