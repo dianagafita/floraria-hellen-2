@@ -49,10 +49,10 @@
 }
 
 .main-header-section a {
-  margin: 2rem;
+  margin: 2rem auto;
   height: 5rem;
   width: 15rem;
-  align-self: center;
+  justify-self: self-start;
 }
 
 .section span {

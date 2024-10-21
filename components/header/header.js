@@ -80,7 +80,7 @@ export default function Header() {
               >
                 <PiBagThin size={27} className=" " />
                 {cartCount > 0 ? (
-                  <h1 className="absolute right-4 top-[2.5rem] bg-[rgb(116,10,10)] text-white rounded-full px-[5.5px] text-[10px] font-[100]">
+                  <h1 className="absolute right-3 top-[3rem] bg-[rgb(116,10,10)] text-white rounded-full px-[5.5px] text-[10px] font-[100]">
                     {cartCount}
                   </h1>
                 ) : (
