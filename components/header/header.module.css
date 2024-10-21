@@ -71,6 +71,7 @@
 }
 
 .cartIcon {
+  cursor: pointer !important;
   padding-top: 3px;
 }
 .space {
