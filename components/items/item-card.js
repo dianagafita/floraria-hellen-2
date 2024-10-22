@@ -40,7 +40,7 @@ export default function ItemCard({
             >
               <Image
                 className={`${
-                  moreStyle === "searchItem" ? "object-cover" : "object-cover"
+                  moreStyle === "searchItem" ? "object-cover" : "object-contain"
                 } h-full transition-opacity duration-300 opacity-100 hover:opacity-0`}
                 src={img.images_url[0]}
                 alt="Original Image"
@@ -48,7 +48,7 @@ export default function ItemCard({
               />
               <Image
                 className={`${
-                  moreStyle === "searchItem" ? "object-cover" : "object-cover"
+                  moreStyle === "searchItem" ? "object-cover" : "object-contain"
                 }  w-full h-full transition-opacity duration-300 opacity-0 hover:opacity-100`}
                 src={img.images_url[1]}
                 alt="Hover Image"
