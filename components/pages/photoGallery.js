@@ -198,10 +198,10 @@ export function FeaturedImageGallery({ images, type }) {
             width={800}
             height={600}
             alt="Gallery image"
-            className={` ${
+            className={`${
               type === "event"
                 ? "min-h-[350px] max-h-[550px] min-w-[350px] object-cover"
-                : "min-h-[350px] max-h-[400px] object-contain "
+                : "max-h-[350px] md:max-h-[470px] object-contain "
             }`}
           />
         </div>
@@ -228,7 +228,7 @@ export function FeaturedImageGallery({ images, type }) {
                 layout={type === "event" ? "intrinsic" : "responsive"}
                 width={500}
                 height={200}
-                className="cursor-pointer rounded-sm object-cover object-center w-full h-full"
+                className="cursor-pointer rounded-sm object-contain object-center w-full h-full max-h-[100px]"
                 alt="Gallery image"
               />
             </div>
