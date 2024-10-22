@@ -198,10 +198,10 @@ export function FeaturedImageGallery({ images, type }) {
             width={800}
             height={600}
             alt="Gallery image"
-            className={`object-cover ${
+            className={` ${
               type === "event"
-                ? "min-h-[350px] max-h-[550px] min-w-[350px]"
-                : ""
+                ? "min-h-[350px] max-h-[550px] min-w-[350px] object-cover"
+                : "min-h-[350px] max-h-[400px] object-contain "
             }`}
           />
         </div>
