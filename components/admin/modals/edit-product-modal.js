@@ -226,7 +226,7 @@ export default function EditProductModal({ openModal, product, type }) {
           )}
           <div className="flex mx-3 mt-10 justify-between">
             <Button type="submit" moreStyle="px-5" disabled={isSubmitting}>
-              Salveaza
+              {isSubmitting ? "Se salveaza..." : "Salveaza"}{" "}
             </Button>
             <Button type="button" moreStyle="px-5" onClick={openModal}>
               Inchide
