@@ -206,8 +206,12 @@ export default function ProductPage({ params }) {
         <span className="font-bold">
           Buchetul contine:{" "}
           <span className="font-[100] text-sm">
-            lisianthus, miniroze si trandafiri de inalta calitate, alese in
-            functie de disponibilitate si sezon.
+            {flowers.flowers.map((item, index) => (
+              <span key={index}>
+                {item.quantity} x {item.flower}
+                {index === flowers.flowers.length - 1 ? "." : ", "}
+              </span>
+            ))}
           </span>
           <span className="my-2 flex flex-col">
             Detalii suplimentare:
