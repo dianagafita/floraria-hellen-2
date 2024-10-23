@@ -30,7 +30,7 @@ export default async function OtherFlowersPage({ params }) {
   const paths = [{ href: `/${flowerType}`, title, style: "text-black-300/75" }];
 
   return (
-    <div className=" h-[100%]">
+    <div className=" min-h-[100vh]">
       <div className="relative w-full min-h-[220px] h-[10vh] md:h-[30vh]">
         <Image
           src={i}
