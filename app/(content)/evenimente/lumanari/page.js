@@ -7,13 +7,13 @@ import Loading from "@/lib/loading";
 import FlowerImage from "./ims";
 
 export default async function CandlesPage() {
-  const weddingComponentItem = await getCandles();
+  const candleComponentItem = await getCandles();
 
   const paths = [
     { href: "/evenimente", title: "EVENIMENTE", style: "text-black-300/75" },
     { href: "/evenimente/lumanari", title: "LUMANARI", style: "text-black" },
   ];
-  const sortedItems = weddingComponentItem.sort((a, b) => a.id - b.id);
+  const sortedItems = candleComponentItem.sort((a, b) => a.id - b.id);
 
   return (
     <div className=" min-h-[100vh]">
@@ -40,7 +40,7 @@ export default async function CandlesPage() {
       <h2 className="text-[1rem] mx-[1.5rem] font-[100] ">
         ALEGETI DIN MODELE DE MAI JOS
       </h2>
-      {!weddingComponentItem ? (
+      {!candleComponentItem ? (
         <Loading />
       ) : (
         <div className="flex gap-4 mx-5 mt-[4rem] mb-[5rem] flex-wrap justify-center ">
