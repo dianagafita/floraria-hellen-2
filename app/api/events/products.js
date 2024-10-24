@@ -22,7 +22,7 @@ export async function getComponentByType({ type, event }) {
   return products;
 }
 
-export async function getCandles() {
+export async function getAllCandles() {
   const products = await prisma.eventproduct.findMany({
     where: {
       product_type: "lumanari-biserica",

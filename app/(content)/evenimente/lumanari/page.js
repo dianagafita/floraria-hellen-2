@@ -2,15 +2,15 @@ import Image from "next/image";
 import React from "react";
 import img from "./lumanari.jpeg";
 import { TitleByPath } from "@/components/util/getPathTitle";
-import { getCandles } from "@/app/api/events/products";
+import { getAllCandles } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 import FlowerImage from "./ims";
 
 export default async function CandlesPage() {
-  const candleComponentItem = await getCandles();
+  const candleComponentItem = await getAllCandles();
 
   const paths = [
-    { href: "/evenimente", title: "EVENIMENTE", style: "text-black-300/75" },
+    { href: "", title: "EVENIMENTE", style: "text-black-300/75" },
     { href: "/evenimente/lumanari", title: "LUMANARI", style: "text-black" },
   ];
   const sortedItems = candleComponentItem.sort((a, b) => a.id - b.id);
