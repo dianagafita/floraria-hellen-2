@@ -30,7 +30,6 @@ export async function getAllCandles() {
     },
     include: { flowers: true },
   });
-  console.log("ok");
   return products;
 }
 
