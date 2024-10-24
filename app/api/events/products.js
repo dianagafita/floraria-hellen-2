@@ -9,8 +9,8 @@ export async function getComponentByType({ type, event }) {
   console.log(type);
   const products = await prisma.eventproduct.findMany({
     where: {
-      product_type: type,
-      event_type: event,
+      product_type: "lumanari-biserica",
+      event_type: "nunta",
     },
     include: { flowers: true },
   });

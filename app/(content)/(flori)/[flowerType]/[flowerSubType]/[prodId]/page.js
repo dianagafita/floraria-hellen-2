@@ -204,7 +204,7 @@ export default function ProductPage({ params }) {
       </div>{" "}
       <div className="mx-5 m-10  mt-20">
         <span className="font-bold">
-          Buchetul contine:{" "}
+          Contine:{" "}
           <span className="font-[100] text-sm">
             {flowers.flowers.map((item, index) => (
               <span key={index}>
