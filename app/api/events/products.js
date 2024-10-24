@@ -1,7 +1,12 @@
 import prisma from "@/lib/prisma";
 
 export async function getAllEventProducts() {
-  const products = await prisma.eventproduct.findMany();
+  const products = await prisma.eventproduct.findMany({
+    where: {
+      product_type: "lumanari-biserica",
+      event_type: "nunta",
+    },
+  });
   return products;
 }
 
@@ -9,8 +14,8 @@ export async function getComponentByType({ type, event }) {
   console.log(type);
   const products = await prisma.eventproduct.findMany({
     where: {
-      product_type: "lumanari-biserica",
-      event_type: "nunta",
+      product_type: type,
+      event_type: event,
     },
     include: { flowers: true },
   });
