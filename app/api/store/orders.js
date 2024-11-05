@@ -53,7 +53,11 @@ export async function createOrder(
         async ({ productId, quantity, productDeliveryInfo, extras }) => {
           const product = await prisma.product.findUnique({
             where: { id: productId },
+            include: {
+              flowers: true,
+            },
           });
+          console.log(product);
           if (!product) {
             console.error(`Product with ID ${productId} not found`);
             throw new Error(`Product with ID ${productId} not found`);
@@ -83,8 +87,17 @@ export async function createOrder(
               })
             );
           }
+          const serializedFlowers = JSON.stringify(
+            product.flowers.map((flower) => ({
+              flower: flower.flower,
+              quantity: flower.quantity,
+            }))
+          );
           return {
-            product: { connect: { id: productId } },
+            product_name: product.name,
+            product_price: product.price,
+            product_flowers: serializedFlowers,
+            images_url: product.images_url,
             quantity,
             productDeliveryInfo,
             extras:
@@ -110,7 +123,7 @@ export async function createOrder(
         order_state: orderState,
       },
     });
-
+    console.log(newOrder);
     return newOrder;
   } catch (error) {
     console.error("Error creating order:", error.message);
