@@ -156,7 +156,7 @@ export default function NewOrderReceiptEmail({ order }) {
                         verticalAlign: "middle",
                       }}
                     >
-                      {item.product.name} - #{item.product.productId}
+                      {item.product_name} - #{item.productId}
                     </td>
 
                     <td
@@ -178,7 +178,7 @@ export default function NewOrderReceiptEmail({ order }) {
                         textAlign: "center",
                       }}
                     >
-                      {item.product.price} RON
+                      {item.product_price} RON
                     </td>
                     <td
                       style={{
@@ -222,7 +222,7 @@ export default function NewOrderReceiptEmail({ order }) {
                       }}
                     >
                       <img
-                        src={item.product.images_url[0]}
+                        src={item.images_url[0]}
                         style={{
                           height: "6rem",
                           width: "4rem",
@@ -240,9 +240,9 @@ export default function NewOrderReceiptEmail({ order }) {
                         fontSize: "15px",
                       }}
                     >
-                      {item.product.flowers.map((item) => (
-                        <p key={item.flower}>
-                          x{item.quantity} {item.flower}
+                      {JSON.parse(item.product_flowers).map((flower) => (
+                        <p key={flower.flower}>
+                          x{flower.quantity} {flower.flower}
                         </p>
                       ))}
                     </td>

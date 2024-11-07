@@ -89,6 +89,7 @@ model OrderItem {
   id                  Int         @id @default(autoincrement())
   order               Order       @relation(fields: [order_id], references: [id])
   order_id            Int
+  productId            String
   product_flowers         String
   product_price           Float
   product_name        String

@@ -94,6 +94,7 @@ export async function createOrder(
             }))
           );
           return {
+            productId: product.productId,
             product_name: product.name,
             product_price: product.price,
             product_flowers: serializedFlowers,

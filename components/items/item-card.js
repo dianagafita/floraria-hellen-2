@@ -22,7 +22,7 @@ export default function ItemCard({
           className={` flex flex-col  bg-white ${
             moreStyle === "searchItem"
               ? "w-[120px] h-[200px] p-1 md:w-[180px] md:h-[300px]"
-              : "w-[44vw] h-[60vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
+              : "w-[44vw] h-[60vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[450px]"
           }    mb-5`}
         >
           <div className="relative h-2/3 w-full">

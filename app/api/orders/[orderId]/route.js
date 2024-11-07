@@ -61,11 +61,6 @@ export async function PUT(req, { params }) {
       include: {
         order_items: {
           include: {
-            product: {
-              include: {
-                flowers: true,
-              },
-            },
             extras: true, // Include extras for each order item
           },
         },

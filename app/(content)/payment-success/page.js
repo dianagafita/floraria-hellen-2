@@ -15,7 +15,7 @@ export default function PaymentSuccessPage({ searchParams }) {
         setOrderUpdated(true);
         setTimeout(() => {
           router.push("/");
-        }, 2000);
+        }, 100000);
       });
     }
   }, [orderId, orderUpdated]);
@@ -48,7 +48,7 @@ export default function PaymentSuccessPage({ searchParams }) {
       className="relative min-h-[100vh]"
     >
       <div className="absolute inset-0 flex items-center justify-center text-black text-center bg-black bg-opacity-50">
-        <span className="bg-white py-10 w-[90vw] md:w-[50vw] flex flex-col mx-auto text-2xl h-[450px] md:h-[350px]">
+        <span className="bg-white py-10 w-[90vw] lg:w-[50vw] flex flex-col mx-auto text-2xl h-auto md:max-h-[50vh] md:h-[350px]">
           <h1 className="px-20 fontElegant text-4xl font-[100] mb-5 text-black">
             COMANDA PLATITA!
           </h1>
