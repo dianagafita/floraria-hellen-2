@@ -13,7 +13,7 @@ export default function ItemCard({
       className={`${
         moreStyle === "searchItem"
           ? " h-[200px] md:h-[250px] mx-10 md:mx-20 lg:mx-40 flex"
-          : " grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-2"
+          : " grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-2"
       }   m-5  justify-center ${type === "search" ? "" : ""}`}
     >
       {images.map((img) => (
