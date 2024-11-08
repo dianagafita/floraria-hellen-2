@@ -13,7 +13,7 @@ export default function ItemCard({
       className={`${
         moreStyle === "searchItem"
           ? " h-[200px] md:h-[250px] mx-10 md:mx-20 lg:mx-40 flex"
-          : " grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-2"
+          : " grid grid-cols-2 md:grid-cols-4 justify-items-center gap-2"
       }   m-5  justify-center ${type === "search" ? "" : ""}`}
     >
       {images.map((img) => (
@@ -22,7 +22,7 @@ export default function ItemCard({
           className={` flex flex-col  bg-white ${
             moreStyle === "searchItem"
               ? "w-[120px] h-[200px] p-1 md:w-[180px] md:h-[300px]"
-              : "w-[50vw] h-[80vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[450px]"
+              : "w-[50vw] h-[90vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
           }    mb-5`}
         >
           <div className="relative h-2/3 w-full">
