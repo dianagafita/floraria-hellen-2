@@ -35,6 +35,7 @@ export default function OrderDetailsPage({ params }) {
       </div>
     );
   }
+  console.log("a", order);
 
   return (
     <div className="min-h-[100vh]">
@@ -52,8 +53,8 @@ export default function OrderDetailsPage({ params }) {
                     <Link href="#" class="h-14 w-14 shrink-0">
                       <Image
                         className="h-full w-full"
-                        src={item.product.images_url[0]}
-                        alt={item.product.name}
+                        src={item.images_url[0]}
+                        alt={item.product_name}
                         width={100}
                         height={100}
                         layout="responsive"
@@ -64,7 +65,8 @@ export default function OrderDetailsPage({ params }) {
                       href="#"
                       class="min-w-0 flex-1 font-medium  hover:underline "
                     >
-                      {item.product.name} ({item.product.flowers?.join(", ")})
+                      {item.product_name.toUpperCase()} #{item.productId} (
+                      {item.flowers?.join(", ")})
                     </Link>
                   </div>
                   <div className="flex items-center justify-end gap-4">
@@ -77,7 +79,7 @@ export default function OrderDetailsPage({ params }) {
                         translate="no"
                         className="text-xl font-[400] leading-tight text-gray-900"
                       >
-                        {item.product.price} lei
+                        {item.prodtct_price} lei
                       </p>
                     </div>
                   </div>
@@ -154,7 +156,7 @@ export default function OrderDetailsPage({ params }) {
                             <BsHouse strokeWidth={0.05} size={13} />
                           </span>
                           <h4 className="mb-0.5 text-base font-semibold text-gray-900">
-                            Trimis spre livrare
+                            Livrata
                           </h4>
                           <p className="text-sm font-normal text-gray-500">
                             {new Date(order.updated_at).toLocaleDateString()},{" "}

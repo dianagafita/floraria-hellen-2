@@ -18,7 +18,6 @@ export async function GET(req, { params }) {
       include: {
         order_items: {
           include: {
-            product: true,
             extras: true,
           },
         },

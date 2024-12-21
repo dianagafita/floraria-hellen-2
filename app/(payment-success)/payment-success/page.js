@@ -15,7 +15,7 @@ export default function PaymentSuccessPage({ searchParams }) {
         setOrderUpdated(true);
         setTimeout(() => {
           router.push("/");
-        }, 100000);
+        }, 3000);
       });
     }
   }, [orderId, orderUpdated]);

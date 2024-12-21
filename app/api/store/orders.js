@@ -6,7 +6,7 @@ export async function getAllOrders(userId) {
     include: {
       order_items: {
         include: {
-          product: true,
+          // product: true,
           extras: true,
         },
       },
@@ -19,7 +19,7 @@ export async function getAllOrdersComplete() {
     include: {
       order_items: {
         include: {
-          product: true,
+          // product: true,
           extras: true,
         },
       },
