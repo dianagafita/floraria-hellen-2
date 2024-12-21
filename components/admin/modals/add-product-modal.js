@@ -104,6 +104,7 @@ export default function AddProductModal({ openModal, type }) {
       ]);
     } else if (value === "aranjamente") {
       setSubTypeOptions([
+        { value: "aranjamente-craciun", label: "Craciun" },
         { value: "aranjamente-flori-uscate", label: "Flori uscate" },
         { value: "aranjamente-trandafiri", label: "Trandafiri" },
         { value: "aranjamente-flori-primavara", label: "Primavara" },

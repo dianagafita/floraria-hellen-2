@@ -27,7 +27,7 @@ const validFlowerTypes = [
   },
   { title: "buchete-flori-vara", img: img1 },
   { title: "buchete-flori-toamna", img: img2 },
-  { title: "aranjamente-diverse", img: img1 },
+  { title: "aranjamente-craciun", img: img1 },
   { title: "aranjamente-nou-nascut", img: img3 },
   { title: "aranjamente-flori-uscate", img: img2 },
   { title: "aranjamente-trandafiri", img: img },

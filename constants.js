@@ -35,18 +35,18 @@ export const SIDENAV_ITEMS = [
       //   path: "/aranjamente/aranjamente-nou-nascut",
       // },
       {
-        title: "Diverse",
-        path: "/aranjamente/aranjamente-diverse",
+        title: "Craciun",
+        path: "/aranjamente/aranjamente-craciun",
       },
       // {
       //   title: "Flori uscate",
       //   path: "/aranjamente/aranjamente-flori-uscate",
       // },
 
-      {
-        title: "Trandafiri",
-        path: "/aranjamente/aranjamente-trandafiri",
-      },
+      // {
+      //   title: "Trandafiri",
+      //   path: "/aranjamente/aranjamente-trandafiri",
+      // },
       // {
       //   title: "Flori de primavara",
       //   path: "/aranjamente/aranjamente-flori-primavara",
@@ -178,21 +178,21 @@ export const SIDENAV_ITEMS = [
       },
     ],
   },
-  {
-    title: "FUNERARE & BISERICESTI",
-    path: "/funerare-bisericesti",
-    submenu: true,
-    subMenuItems: [
-      {
-        title: "Coroane funerare",
-        path: "/funerare-bisericesti/coroane",
-      },
-      {
-        title: "Aranjamente icoane",
-        path: "/funerare-bisericesti/aranjamente-coroane",
-      },
-    ],
-  },
+  // {
+  //   title: "FUNERARE & BISERICESTI",
+  //   path: "/funerare-bisericesti",
+  //   submenu: true,
+  //   subMenuItems: [
+  //     {
+  //       title: "Coroane funerare",
+  //       path: "/funerare-bisericesti/coroane",
+  //     },
+  //     {
+  //       title: "Aranjamente icoane",
+  //       path: "/funerare-bisericesti/aranjamente-coroane",
+  //     },
+  //   ],
+  // },
 ];
 
 export const languagesLong = [
