@@ -2,7 +2,7 @@ import { getProductsByType } from "@/app/api/store/products";
 import Categories from "@/components/util/categories";
 import FlowerPageLayout from "@/components/util/customFlowersLayout";
 import img from "./zz.jpeg";
-import img2 from "./sec.jpeg";
+import img2 from "./acraciun.jpg";
 import Loading from "@/lib/loading";
 import { redirect } from "next/navigation";
 import SortableFlowerList from "@/components/sort";

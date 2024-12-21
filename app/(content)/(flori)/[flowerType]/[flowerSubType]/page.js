@@ -10,7 +10,7 @@ import { TitleByPath } from "@/components/util/getPathTitle";
 import Loading from "@/lib/loading";
 import { redirect } from "next/navigation";
 import img from "./2.jpeg";
-import img1 from "./3.jpeg";
+import img1 from "./acraciun.jpg";
 import img2 from "./5.jpeg";
 import img3 from "./5.jpeg";
 import primavara from "./primavara.jpeg";

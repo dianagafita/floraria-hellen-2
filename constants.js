@@ -4,27 +4,27 @@ export const SIDENAV_ITEMS = [
     path: "/speciale/plante",
   },
 
-  {
-    title: "BUCHETE FLORI",
-    path: "/buchete",
-    submenu: true,
-    subMenuItems: [
-      {
-        title: "Flori uscate",
-        path: "/buchete/buchete-flori-uscate",
-      },
-      { title: "Trandafiri", path: "/buchete/buchete-trandafiri" },
-      {
-        title: "Flori de primavara",
-        path: "/buchete/buchete-flori-primavara",
-      },
-      { title: "Flori de vara", path: "/buchete/buchete-flori-vara" },
-      {
-        title: "Flori de toamna",
-        path: "/buchete/buchete-flori-toamna",
-      },
-    ],
-  },
+  // {
+  //   title: "BUCHETE FLORI",
+  //   path: "/buchete",
+  //   submenu: true,
+  //   subMenuItems: [
+  //     {
+  //       title: "Flori uscate",
+  //       path: "/buchete/buchete-flori-uscate",
+  //     },
+  //     { title: "Trandafiri", path: "/buchete/buchete-trandafiri" },
+  //     {
+  //       title: "Flori de primavara",
+  //       path: "/buchete/buchete-flori-primavara",
+  //     },
+  //     { title: "Flori de vara", path: "/buchete/buchete-flori-vara" },
+  //     {
+  //       title: "Flori de toamna",
+  //       path: "/buchete/buchete-flori-toamna",
+  //     },
+  //   ],
+  // },
   {
     title: "ARANJAMENTE FLORALE",
     path: "/aranjamente",

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default async function FlowerPageLayout({ mainImage, title, type }) {
   return (
     <div className="relative w-full h-full">
-      <div className="relative  w-full min-h-[220px] h-[10vh] md:h-[30vh]">
+      <div className="relative  w-full min-h-[220px] h-[10vh] md:h-[40vh]">
         <Image
           src={mainImage}
           required
@@ -19,7 +19,7 @@ export default async function FlowerPageLayout({ mainImage, title, type }) {
                 <span className="absolute text-white   fontWedding font-[200] top-[-0.3rem] right-0 text-[3rem]">
                   catalog
                 </span>
-                <span className="uppercase fontElegant text-[25px]  md:text-[30px] text-end">
+                <span className="uppercase fontElegant text-[25px] text-white  md:text-[30px] text-end">
                   {title}{" "}
                 </span>
               </span>

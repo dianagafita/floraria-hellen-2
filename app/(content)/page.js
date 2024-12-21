@@ -4,7 +4,7 @@ import Recommended from "@/components/main-page/recommended/recommended";
 import ShopByCategory from "@/components/main-page/shopbycat/shop-by-category";
 
 const OPTIONS = {};
-const SLIDE_COUNT = 3;
+const SLIDE_COUNT = 2;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 export default async function Home() {

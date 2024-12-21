@@ -2,11 +2,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import img from "./aranj2.jpeg";
-import img2 from "./buchet1.jpeg";
+import img from "./craciuna.jpeg";
+import img1 from "./craciunb.jpeg";
+import img2 from "./craciunp.jpeg";
 import buchetmireasa1 from "./some.png";
 import aranjmasa from "./aranjmasa1.jpeg";
-import img4 from "./aranj1.jpeg";
+import img4 from "./craciunc.jpeg";
 import cris from "./cris.jpeg";
 import botez from "./botez1.jpeg";
 import nunta from "./nunta.jpeg";
@@ -32,7 +33,7 @@ const categories = {
     {
       src: img4,
       alt: "Aranjamente",
-      text: "Aranjamente",
+      text: "Coronite",
       id: 2,
       link: "/aranjamente",
     },
@@ -43,7 +44,7 @@ const categories = {
       id: 3,
       link: "/speciale/plante",
     },
-    { src: img2, alt: "Buchete", text: "Buchete", id: 4, link: "/buchete" },
+    { src: img1, alt: "Buchete", text: "Buchete", id: 4, link: "/buchete" },
   ],
   NUNTI: [
     {
@@ -182,7 +183,7 @@ const ShopByCategory = () => {
                     className="object-cover rounded-sm transition-opacity duration-300"
                   />
                   <div
-                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100] rounded-sm ${
+                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-25 text-5xl font-[100] rounded-sm ${
                       hoveredIndex === image.id ? "opacity-0" : "opacity-100"
                     }`}
                   ></div>
