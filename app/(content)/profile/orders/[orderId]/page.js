@@ -50,7 +50,10 @@ export default function OrderDetailsPage({ params }) {
               {order?.order_items.map((item, index) => (
                 <div class="space-y-4 p-6" key={index}>
                   <div class="flex items-center gap-6">
-                    <Link href="#" class="h-14 w-14 shrink-0">
+                    <Link
+                      href={`/products/${item.productId}`}
+                      className="h-14 w-14 shrink-0"
+                    >
                       <Image
                         className="h-full w-full"
                         src={item.images_url[0]}
