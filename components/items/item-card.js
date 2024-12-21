@@ -22,10 +22,10 @@ export default function ItemCard({
           className={` flex flex-col  bg-white ${
             moreStyle === "searchItem"
               ? "w-[120px] h-[200px] p-1 md:w-[180px] md:h-[300px]"
-              : "w-[50vw] h-[90vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
-          }    mb-5`}
+              : "w-[48vw]  h-[75vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
+          }    md:mb-5 `}
         >
-          <div className="relative h-2/3 w-full">
+          <div className="relative h-2/3 w-full ">
             {" "}
             <Link
               href={
@@ -56,8 +56,8 @@ export default function ItemCard({
               />
             </Link>
           </div>
-          <div className="p-2 2xl:p-10 w-full h-1/3">
-            <p className="font-[300] fontSimple  mb-1 text-xs md:text-[16px] mt-3  text-center">
+          <div className="px-2 2xl:p-10 w-full h-1/3">
+            <p className="font-[300] fontSimple  mb-1 text-s md:text-[16px] mt-  text-center">
               {img.name}{" "}
             </p>
             {img.price > 0 && (
