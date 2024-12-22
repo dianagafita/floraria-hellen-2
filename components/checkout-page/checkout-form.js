@@ -76,7 +76,7 @@ export default function CheckoutForm({
   });
 
   useEffect(() => {
-    if (shippingFee > 5) {
+    if (shippingFee > 0) {
       setIsDeliveryCalculated(true);
     }
   }, [shippingFee]);
