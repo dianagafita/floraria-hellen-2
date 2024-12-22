@@ -4,6 +4,7 @@ import { DotButton, useDotButton } from "./arr";
 import "./a.css";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 const TWEEN_FACTOR_BASE = 0.2;
 
 const EmblaCarousel = (props) => {
@@ -93,14 +94,17 @@ const EmblaCarousel = (props) => {
                 <div className="embla2__parallax__layer">
                   <span className="absolute bottom-2 text-center z-10 text-white px-2 py-1 font-[200]">
                     <span>{image.text}</span>
-                    <span className="mt-2 text-[12px] font-[100] flex items-center">
+                    <Link
+                      href={`${image.link}`}
+                      className="mt-2 text-[12px] font-[100] flex items-center"
+                    >
                       CUMPARA{" "}
                       <ChevronRight
                         size={16}
                         strokeWidth={1.5}
                         className="ml-1"
                       />
-                    </span>
+                    </Link>
                   </span>
                   <Image
                     className=" embla2__slide__img embla2__parallax__img object-contain"

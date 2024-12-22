@@ -37,14 +37,6 @@ const categories = {
       id: 2,
       link: "/aranjamente",
     },
-    {
-      src: img2,
-      alt: "Plante",
-      text: "Plante",
-      id: 3,
-      link: "/speciale/plante",
-    },
-    { src: img1, alt: "Buchete", text: "Buchete", id: 4, link: "/buchete" },
   ],
   NUNTI: [
     {
