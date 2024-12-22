@@ -23,21 +23,21 @@ export async function POST(req) {
 
     // Step 1: Create the customer if it doesn't exist
     const customer = await stripe.customers.create({
-      email: email, // Email passed from the frontend
+      email: email,
     });
 
     // Step 2: Create the payment intent for the customer
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amountInMinorUnits,
       currency: "ron",
-      customer: customer.id, // Use the newly created customer ID
+      customer: customer.id,
       receipt_email: email,
       automatic_payment_methods: { enabled: true },
     });
 
     // Step 3: Create an invoice item
-    const invoiceItem = await stripe.invoiceItems.create({
-      customer: customer.id, // Use the customer ID here
+    await stripe.invoiceItems.create({
+      customer: customer.id,
       amount: amountInMinorUnits,
       currency: "ron",
       description: "Payment for your order",
@@ -52,12 +52,8 @@ export async function POST(req) {
     // Step 5: Finalize the invoice
     const finalizedInvoice = await stripe.invoices.finalizeInvoice(invoice.id);
 
-    // Step 6: Check invoice status to ensure it's sent
-    if (finalizedInvoice.status === "paid") {
-      console.log("Invoice has been paid and email sent");
-    } else {
-      console.log("Invoice was not paid or email was not sent");
-    }
+    // Step 6: Send the invoice email
+    await stripe.invoices.sendInvoice(invoice.id);
 
     return NextResponse.json(
       { clientSecret: paymentIntent.client_secret },
