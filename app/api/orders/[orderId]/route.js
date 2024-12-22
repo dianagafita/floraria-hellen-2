@@ -78,7 +78,7 @@ export async function PUT(req, { params }) {
 
     const storeEmailResponse = await resendClient.emails.send({
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
-      to: ["gafita.diana12@gmail.com"],
+      to: ["proparty10@gmail.com"],
       subject: `COMANDA ${orderId} `,
       react: NewOrderReceiptEmail({ order: orderReceipt, firstName: "ana" }),
     });
