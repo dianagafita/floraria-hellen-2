@@ -22,7 +22,7 @@ export default function ItemCard({
           className={` flex flex-col  bg-white ${
             moreStyle === "searchItem"
               ? "w-[120px] h-[200px] p-1 md:w-[180px] md:h-[300px]"
-              : "w-[48vw]  h-[75vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
+              : "w-[45vw]  h-[75vw] min-h-[230px]  md:w-[23vw] md:h-[40vw] md:max-h-[400px] lg:w-full lg:h-[50vw] md:max-h-[400px]"
           }    md:mb-5 `}
         >
           <div className="relative h-2/3 w-full ">
@@ -40,7 +40,7 @@ export default function ItemCard({
             >
               <Image
                 className={`bg-white ${
-                  moreStyle === "searchItem" ? "object-cover" : "object-contain"
+                  moreStyle === "searchItem" ? "object-cover" : "object-cover"
                 } h-full transition-opacity duration-300 opacity-100 hover:opacity-0`}
                 src={img.images_url[0]}
                 alt="Original Image"
@@ -48,7 +48,7 @@ export default function ItemCard({
               />
               <Image
                 className={`bg-white ${
-                  moreStyle === "searchItem" ? "object-cover" : "object-contain"
+                  moreStyle === "searchItem" ? "object-cover" : "object-cover"
                 }  w-full h-full transition-opacity duration-300 opacity-0 hover:opacity-100`}
                 src={img.images_url[1]}
                 alt="Hover Image"
