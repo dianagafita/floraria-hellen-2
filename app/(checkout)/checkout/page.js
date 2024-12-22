@@ -48,7 +48,7 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     if (distance !== null) {
-      const fee = Math.round((distance / 1000) * 3);
+      const fee = Math.round((distance / 1000) * 3 + 10);
       setShippingFee(fee);
     }
   }, [distance]);
