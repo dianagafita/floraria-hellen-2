@@ -24,22 +24,18 @@ export default function PaymentForm({
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
   const [orderId, setOrderId] = useState(null);
-  const [orderData, setOrderData] = useState(null);
+
   useEffect(() => {
     fetch("/api/payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        amount,
-        email: senderInfo.personSendingEmail,
-        products: orderData?.products || [], // Ensure products are available
-      }),
+      body: JSON.stringify({ amount, email: senderInfo.personSendingEmail }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, [amount, orderData]);
+  }, [amount]);
 
   const createOrder = async () => {
     const products = cartItems.map((item) => ({
@@ -65,7 +61,7 @@ export default function PaymentForm({
       totalPrice: parseFloat(amount),
       orderState: "placed",
     };
-    setOrderData(orderData);
+
     const response = await fetch("/api/orders", {
       method: "POST",
       headers: {
