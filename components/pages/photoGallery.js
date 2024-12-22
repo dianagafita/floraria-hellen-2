@@ -228,7 +228,7 @@ export function FeaturedImageGallery({ images, type }) {
                 layout={type === "event" ? "intrinsic" : "responsive"}
                 width={500}
                 height={200}
-                className="cursor-pointer rounded-sm object-contain object-center w-full h-full h-full"
+                className="cursor-pointer rounded-sm object-cover object-center w-full h-full max-h-[150px]"
                 alt="Gallery image"
               />
             </div>
