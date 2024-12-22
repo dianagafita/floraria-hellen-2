@@ -201,7 +201,7 @@ export function FeaturedImageGallery({ images, type }) {
             className={`${
               type === "event"
                 ? "min-h-[350px] max-h-[550px] min-w-[350px] object-cover"
-                : "max-h-[350px] md:max-h-[470px] object-contain "
+                : "max-h-[250px] md:max-h-[470px] object-contain "
             }`}
           />
         </div>
@@ -209,7 +209,7 @@ export function FeaturedImageGallery({ images, type }) {
           className={`w-full md:min-w-[350px] ${
             type === "event"
               ? "flex overflow-x-auto "
-              : "grid grid-cols-1 md:grid-cols-5 gap-1"
+              : "flex flex-col gap-1 max-h-[180px]"
           }`}
         >
           {images.map((imgelink, index) => (
@@ -218,7 +218,7 @@ export function FeaturedImageGallery({ images, type }) {
               className={`${
                 type === "event"
                   ? "h-24 flex-shrink-0 overflow-hidden w-40 mr-1"
-                  : "h-1/2"
+                  : "h-[30%]"
               } md:h-24`}
             >
               <Image
@@ -228,7 +228,7 @@ export function FeaturedImageGallery({ images, type }) {
                 layout={type === "event" ? "intrinsic" : "responsive"}
                 width={500}
                 height={200}
-                className="cursor-pointer rounded-sm object-cover object-center w-full h-full max-h-[150px] md:!h-[100px]"
+                className="cursor-pointer rounded-sm object-cover object-center w-full !h-full md:!h-[100px]"
                 alt="Gallery image"
               />
             </div>
