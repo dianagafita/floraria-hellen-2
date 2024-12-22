@@ -64,7 +64,11 @@ export default function AuthForm({ mode }) {
             </div>
           )}
           <Button type="submit" moreStyle="w-[200px] my-3 ">
-            {mode === "login" ? "Intra in cont" : "Creaza cont"}
+            {mode === "login"
+              ? formState.status === "pending"
+                ? "Conectare..."
+                : "Intra in cont"
+              : "Creaza cont"}
           </Button>
           <p className="text-[13px] font-[100] underline underline-offset-2 text-[#707070] hover:text-[#404040]">
             {mode === "login" ? (
