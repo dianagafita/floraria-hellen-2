@@ -31,7 +31,7 @@ export default function PaymentForm({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount }),
+      body: JSON.stringify({ amount, email: senderInfo.personSendingEmail }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));

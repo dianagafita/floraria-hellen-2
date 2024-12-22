@@ -9,7 +9,7 @@ export function convertToSubcurrency(amount, factor) {
 
 export async function POST(req) {
   try {
-    const { amount } = await req.json();
+    const { amount, email } = await req.json();
 
     if (!amount || isNaN(amount)) {
       throw new Error("Valoarea nu e corecta.");
@@ -24,6 +24,7 @@ export async function POST(req) {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amountInMinorUnits,
       currency: "ron",
+      receipt_email: email,
       automatic_payment_methods: { enabled: true },
     });
 

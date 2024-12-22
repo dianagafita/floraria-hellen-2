@@ -16,7 +16,7 @@ export default function AuthForm({ mode }) {
   useEffect(() => {
     if (formState.status === "success" && !isFormSubmitted) {
       setIsFormSubmitted(true);
-      window.location.href = "/profile";
+      window.location.reload();
     }
   }, [formState.status, isFormSubmitted, router]);
 
@@ -60,7 +60,6 @@ export default function AuthForm({ mode }) {
                   type="tel"
                   pattern="[0-9]{10}"
                 />
-      
               </div>
             </div>
           )}
