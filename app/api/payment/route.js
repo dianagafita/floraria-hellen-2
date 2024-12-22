@@ -1,69 +1,3 @@
-// import Stripe from "stripe";
-// import { NextResponse } from "next/server";
-
-// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-// export function convertToSubcurrency(amount, factor) {
-//   return Math.round(amount * factor);
-// }
-
-// export async function POST(req) {
-//   try {
-//     const { amount, email } = await req.json();
-
-//     if (!amount || isNaN(amount)) {
-//       throw new Error("Valoarea nu e corecta.");
-//     }
-
-//     const amountInMinorUnits = convertToSubcurrency(parseFloat(amount), 100);
-
-//     if (amountInMinorUnits < 200) {
-//       throw new Error("Valoarea minima este de 2.00 RON.");
-//     }
-
-//     // Step 1: Create the customer if it doesn't exist
-//     const customer = await stripe.customers.create({
-//       email: email,
-//     });
-
-//     // Step 2: Create the payment intent for the customer
-//     const paymentIntent = await stripe.paymentIntents.create({
-//       amount: amountInMinorUnits,
-//       currency: "ron",
-//       customer: customer.id,
-//       receipt_email: email,
-//       automatic_payment_methods: { enabled: true },
-//     });
-
-//     // Step 3: Create an invoice item
-//     await stripe.invoiceItems.create({
-//       customer: customer.id,
-//       amount: amountInMinorUnits,
-//       currency: "ron",
-//       description: "Payment for your order",
-//     });
-
-//     // Step 4: Create the invoice
-//     const invoice = await stripe.invoices.create({
-//       customer: customer.id,
-//       auto_advance: true, // Automatically finalize the invoice
-//     });
-
-//     // Step 5: Finalize the invoice
-//     const finalizedInvoice = await stripe.invoices.finalizeInvoice(invoice.id);
-
-//     // Step 6: Send the invoice email
-//     await stripe.invoices.sendInvoice(invoice.id);
-
-//     return NextResponse.json(
-//       { clientSecret: paymentIntent.client_secret },
-//       { status: 200 }
-//     );
-//   } catch (error) {
-//     console.error("Error creating payment intent:", error.message);
-//     return NextResponse.json({ error: error.message }, { status: 500 });
-//   }
-// }
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 
@@ -75,7 +9,7 @@ export function convertToSubcurrency(amount, factor) {
 
 export async function POST(req) {
   try {
-    const { amount, email } = await req.json();
+    const { amount, email, products } = await req.json();
 
     if (!amount || isNaN(amount)) {
       throw new Error("Valoarea nu e corecta.");
@@ -87,42 +21,47 @@ export async function POST(req) {
       throw new Error("Valoarea minima este de 2.00 RON.");
     }
 
-    // Step 1: Create the customer (or fetch if already exists)
+    // Step 1: Create the customer if it doesn't exist
     const customer = await stripe.customers.create({
-      email: email,
+      email: email, // Email passed from the frontend
     });
 
-    // Step 2: Create the payment intent
+    // Step 2: Create the payment intent for the customer
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amountInMinorUnits,
       currency: "ron",
-      customer: customer.id,
+      customer: customer.id, // Use the newly created customer ID
       receipt_email: email,
       automatic_payment_methods: { enabled: true },
     });
 
-    // Step 3: Listen for payment success
-    // This part is just for server-side setup; ensure the client-side handles this too.
-    if (paymentIntent.status === "succeeded") {
-      // Step 4: Create an invoice item for the payment
-      await stripe.invoiceItems.create({
-        customer: customer.id,
-        amount: amountInMinorUnits,
-        currency: "ron",
-        description: "Payment for your order",
-      });
-
-      // Step 5: Create and send the invoice
-      const invoice = await stripe.invoices.create({
-        customer: customer.id,
-        auto_advance: true, // Automatically finalize the invoice
-      });
-
-      console.log("Invoice sent:", invoice.id);
+    // Step 3: Add invoice items based on the products from the order
+    if (products && Array.isArray(products)) {
+      for (const product of products) {
+        await stripe.invoiceItems.create({
+          customer: customer.id,
+          amount: convertToSubcurrency(product.price, 100),
+          currency: "ron",
+          description: `${product.productId} - ${product.quantity} x ${product.price} RON`,
+        });
+      }
     }
 
+    // Step 4: Create the invoice
+    const invoice = await stripe.invoices.create({
+      customer: customer.id,
+      auto_advance: true, // Automatically finalize the invoice
+    });
+
+    // Step 5: Finalize the invoice
+    const finalizedInvoice = await stripe.invoices.finalizeInvoice(invoice.id);
+
+    // Step 6: Return the payment intent client secret
     return NextResponse.json(
-      { clientSecret: paymentIntent.client_secret },
+      {
+        clientSecret: paymentIntent.client_secret,
+        invoiceId: finalizedInvoice.id,
+      },
       { status: 200 }
     );
   } catch (error) {
