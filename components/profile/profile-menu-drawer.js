@@ -50,7 +50,7 @@ export default function ProfileMenuDrawer({ user }) {
         </button>
 
         <motion.div
-          className={`absolute text-[14px] top-[13.5rem] md:top-[10.1rem] left-0 w-full bg-white shadow-lg z-[10] font-[100] ${
+          className={`absolute text-[14px] top-[2.9rem] md:top-[10.1rem] left-0 w-full bg-white shadow-lg z-[10] font-[100] ${
             isOpen ? "h-auto" : "h-0"
           } overflow-hidden`}
           initial={{ height: 0 }}
