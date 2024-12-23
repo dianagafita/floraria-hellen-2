@@ -209,7 +209,7 @@ export function FeaturedImageGallery({ images, type }) {
           className={`w-full md:min-w-[350px] ${
             type === "event"
               ? "flex overflow-x-auto "
-              : "flex flex-col gap-1 max-h-[180px]"
+              : "flex flex-col md:flex-row gap-1 max-h-[180px]"
           }`}
         >
           {images.map((imgelink, index) => (

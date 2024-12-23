@@ -346,7 +346,7 @@ export default function NewOrderReceiptEmail({ order }) {
             style={{ marginTop: "2rem", textAlign: "center", color: "black" }}
           >
             <a
-              href={`https://www.helenproparty.ro/deliveredOrder?orderId=${orderId}`}
+              href={`https://www.hellenproparty.ro/deliveredOrder?orderId=${orderId}`}
               style={{
                 display: "inline-block",
                 padding: "10px 20px",
