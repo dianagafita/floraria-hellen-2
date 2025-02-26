@@ -12,8 +12,10 @@ import { redirect } from "next/navigation";
 import img from "./2.jpeg";
 import img1 from "./acraciun.jpg";
 import img2 from "./5.jpeg";
+import martie from "./martie.jpeg";
 import img3 from "./5.jpeg";
-import primavara from "./primavara.jpeg";
+import drag from "./pr.jpeg";
+import primavara from "./pr.jpeg";
 
 const validFlowerTypes = [
   { title: "buchete-flori-uscate", img: img },
@@ -28,6 +30,7 @@ const validFlowerTypes = [
   { title: "buchete-flori-vara", img: img1 },
   { title: "buchete-flori-toamna", img: img2 },
   { title: "aranjamente-craciun", img: img1 },
+  { title: "aranjamente-dragobete", img: drag },
   { title: "aranjamente-nou-nascut", img: img3 },
   { title: "aranjamente-flori-uscate", img: img2 },
   { title: "aranjamente-trandafiri", img: img },
@@ -36,7 +39,7 @@ const validFlowerTypes = [
   { title: "aranjamente-flori-toamna", img: img2 },
   { title: "craciun", img: img },
   { title: "paste", img: img },
-  { title: "martie", img: img },
+  { title: "martie", img: martie },
   { title: "sf-valentin", img: img },
   { title: "coroane" },
 ];

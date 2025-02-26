@@ -3,6 +3,7 @@ import Categories from "@/components/util/categories";
 import FlowerPageLayout from "@/components/util/customFlowersLayout";
 import img from "./zz.jpeg";
 import img2 from "./acraciun.jpg";
+import drag from "./pr.jpeg";
 import Loading from "@/lib/loading";
 import { redirect } from "next/navigation";
 import SortableFlowerList from "@/components/sort";
@@ -37,7 +38,7 @@ export default async function FlowerBouquetsPage({ params }) {
 
   return (
     <div className="flex flex-col h-[100%]">
-      <FlowerPageLayout mainImage={flowerType === "buchete" ? img : img2} />
+      <FlowerPageLayout mainImage={drag} />
       {/* <TitleByPath paths={paths} /> */}
       <Categories type={flowerType} />
       {!flowerBouquets ? (

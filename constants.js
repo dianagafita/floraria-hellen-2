@@ -4,27 +4,27 @@ export const SIDENAV_ITEMS = [
     path: "/speciale/plante",
   },
 
-  // {
-  //   title: "BUCHETE FLORI",
-  //   path: "/buchete",
-  //   submenu: true,
-  //   subMenuItems: [
-  //     {
-  //       title: "Flori uscate",
-  //       path: "/buchete/buchete-flori-uscate",
-  //     },
-  //     { title: "Trandafiri", path: "/buchete/buchete-trandafiri" },
-  //     {
-  //       title: "Flori de primavara",
-  //       path: "/buchete/buchete-flori-primavara",
-  //     },
-  //     { title: "Flori de vara", path: "/buchete/buchete-flori-vara" },
-  //     {
-  //       title: "Flori de toamna",
-  //       path: "/buchete/buchete-flori-toamna",
-  //     },
-  //   ],
-  // },
+  {
+    title: "BUCHETE FLORI",
+    path: "/buchete",
+    submenu: true,
+    subMenuItems: [
+      // {
+      //   title: "Flori uscate",
+      //   path: "/buchete/buchete-flori-uscate",
+      // },
+      { title: "Trandafiri", path: "/buchete/buchete-trandafiri" },
+      {
+        title: "Flori de primavara",
+        path: "/buchete/buchete-flori-primavara",
+      },
+      // { title: "Flori de vara", path: "/buchete/buchete-flori-vara" },
+      // {
+      //   title: "Flori de toamna",
+      //   path: "/buchete/buchete-flori-toamna",
+      // },
+    ],
+  },
   {
     title: "ARANJAMENTE FLORALE",
     path: "/aranjamente",
@@ -39,6 +39,10 @@ export const SIDENAV_ITEMS = [
         path: "/aranjamente/aranjamente-craciun",
       },
       // {
+      //   title: "Dragobete",
+      //   path: "/aranjamente/aranjamente-dragobete",
+      // },
+      // {
       //   title: "Flori uscate",
       //   path: "/aranjamente/aranjamente-flori-uscate",
       // },
@@ -47,10 +51,10 @@ export const SIDENAV_ITEMS = [
       //   title: "Trandafiri",
       //   path: "/aranjamente/aranjamente-trandafiri",
       // },
-      // {
-      //   title: "Flori de primavara",
-      //   path: "/aranjamente/aranjamente-flori-primavara",
-      // },
+      {
+        title: "Flori de primavara",
+        path: "/aranjamente/aranjamente-flori-primavara",
+      },
       // {
       //   title: "Flori de vara",
       //   path: "/aranjamente/aranjamente-flori-vara",
@@ -65,20 +69,20 @@ export const SIDENAV_ITEMS = [
   //   title: "FLORI CRIOGENATE",
   //   path: "/speciale/flori-criogenate",
   // },
-  // {
-  //   title: "OCAZII SPECIALE",
-  //   path: "/ocazii-speciale",
-  //   submenu: true,
-  //   subMenuItems: [
-  //     { title: "Flori de Craciun", path: "/ocazii-speciale/craciun" },
-  //     {
-  //       title: "Flori de Sf. Valentin",
-  //       path: "/ocazii-speciale/sf-valentin",
-  //     },
-  //     { title: "Flori de 1 si 8 Martie", path: "/ocazii-speciale/martie" },
-  //     { title: "Flori de Paste", path: "/ocazii-speciale/paste" },
-  //   ],
-  // },
+  {
+    title: "OCAZII SPECIALE",
+    path: "/ocazii-speciale",
+    submenu: true,
+    subMenuItems: [
+      // { title: "Flori de Craciun", path: "/ocazii-speciale/craciun" },
+      // {
+      //   title: "Flori de Sf. Valentin",
+      //   path: "/ocazii-speciale/sf-valentin",
+      // },
+      { title: "Flori de 8 Martie", path: "/ocazii-speciale/martie" },
+      // { title: "Flori de Paste", path: "/ocazii-speciale/paste" },
+    ],
+  },
 
   {
     title: "EVENIMENTE",

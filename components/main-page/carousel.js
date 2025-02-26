@@ -4,6 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { Thumb } from "./butt";
 import Image from "next/image";
 import img from "./cr.jpeg";
+import vday from "./8m.jpeg";
 import img2 from "./aranjamente.jpeg";
 import img3 from "./nunta.jpeg";
 import imgSmall1 from "./cr.jpeg"; // Add smaller images for mobile view
@@ -15,9 +16,9 @@ import Link from "next/link";
 // Define two sets of images: one for larger screens, one for smaller screens
 const largeImages = [
   {
-    img: img.src,
-    title: "FLORI DE CRACIUN",
-    upperTitle: "Pentru sarbatori magice!",
+    img: vday.src,
+    title: "FLORI DE 8 MARTIE",
+    upperTitle: "Pentru clipe de iubire!",
     subtitle: "CUMPARA",
   },
   // { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
@@ -30,9 +31,9 @@ const largeImages = [
 ];
 const smallImages = [
   {
-    img: imgSmall1,
-    title: "FLORI DE CRACIUN",
-    upperTitle: "Pentru sarbatori magice!",
+    img: vday,
+    title: "FLORI DE 8 MARTIE",
+    upperTitle: "Pentru clipe de iubire!",
     subtitle: "CUMPARA",
   },
   // { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
@@ -92,16 +93,22 @@ const EmblaCarousel = (props) => {
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number ">
                 <Image src={imgs.img} alt="" layout="fill" objectFit="cover" />
-                <div className="absolute inset-0 flex justify-center text-white text-center bg-black bg-opacity-50 text-5xl font-[100]"></div>
+                <div className="absolute inset-0 flex justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100]"></div>
 
                 <div className="relative flex flex-col  md:top-30 right-3 items-end font-[100] text-white w-full">
-                  <span className="absolute top-[-60px] md:top-[-70px]  tracking-wide  right-0 fontWedding text-[50px]  md:text-[70px] text-end text-white w-full pb-0 mb-0 ">
+                  <span className="absolute top-[-50px] md:top-[-70px]  tracking-wide  right-0 fontWedding text-[50px]  md:text-[70px] text-end text-white w-full pb-0 mb-0 ">
                     {imgs.upperTitle}
                   </span>
                   <span className="absolute fontElegant tracking-widest  pb-10 px-5  flex flex-col text-2xl md:text-3xl">
-                    {imgs.title}
+                    <span>
+                      FLORI DE{" "}
+                      <span className="text-5xl text-[rgb(125,0,0,0.9)]">
+                        8
+                      </span>{" "}
+                      MARTIE{" "}
+                    </span>
                     <Link
-                      href="/aranjamente"
+                      href="/ocazii-speciale/martie"
                       className="fontSimple text-[13px] text-end font-[100] text-white hover:text-[rgba(255,255,255,0.7)] underline underline-offset-2"
                     >
                       {imgs.subtitle}

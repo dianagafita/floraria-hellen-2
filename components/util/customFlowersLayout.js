@@ -12,7 +12,7 @@ export default async function FlowerPageLayout({ mainImage, title, type }) {
           layout="fill"
         />
 
-        <div className="p-20 absolute inset-0 flex items-center justify-center text-black text-center bg-black bg-opacity-40 px-5 ">
+        <div className="p-20 absolute inset-0 flex items-center justify-center text-black text-center bg-black bg-opacity-20 px-5 ">
           {type && (
             <div className=" flex items-center justify-center text-black text-center px-5 ">
               <span className="relative text-black  pt-10 pb-5 px-5 md:px-6  flex flex-col">
