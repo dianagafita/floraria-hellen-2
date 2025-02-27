@@ -9,10 +9,10 @@ export const SIDENAV_ITEMS = [
     path: "/buchete",
     submenu: true,
     subMenuItems: [
-      // {
-      //   title: "Flori diverse",
-      //   path: "/buchete/buchete-flori-diverse",
-      // },
+      {
+        title: "Flori diverse",
+        path: "/buchete/buchete-flori-diverse",
+      },
       { title: "Trandafiri", path: "/buchete/buchete-trandafiri" },
       {
         title: "Flori de primavara",
