@@ -52,6 +52,9 @@ export async function getProductsByType({ type }) {
       product_type: type,
     },
     include: { flowers: true },
+    orderBy: {
+      id: "desc", // Sorting by ID in descending order as an alternative
+    },
   });
   return products;
 }
@@ -63,6 +66,9 @@ export async function getProductsBySubType({ type, subtype }) {
       product_subtype: subtype,
     },
     include: { flowers: true },
+    orderBy: {
+      id: "desc", // Sorting by ID in descending order as an alternative
+    },
   });
   return products;
 }

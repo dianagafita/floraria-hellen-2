@@ -35,7 +35,7 @@ export default async function FlowerBouquetsPage({ params }) {
       style: "text-black-300/75",
     },
   ];
-
+  console.log(flowerBouquets);
   return (
     <div className="flex flex-col h-[100%]">
       <FlowerPageLayout mainImage={drag} />
