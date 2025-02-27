@@ -10,8 +10,8 @@ export const SIDENAV_ITEMS = [
     submenu: true,
     subMenuItems: [
       // {
-      //   title: "Flori uscate",
-      //   path: "/buchete/buchete-flori-uscate",
+      //   title: "Flori diverse",
+      //   path: "/buchete/buchete-flori-diverse",
       // },
       { title: "Trandafiri", path: "/buchete/buchete-trandafiri" },
       {

@@ -18,7 +18,7 @@ import drag from "./pr.jpeg";
 import primavara from "./pr.jpeg";
 
 const validFlowerTypes = [
-  { title: "buchete-flori-uscate", img: img },
+  { title: "buchete-flori-diverse", img: img },
   {
     title: "buchete-trandafiri",
     img: img,

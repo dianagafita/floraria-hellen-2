@@ -96,7 +96,7 @@ export default function AddProductModal({ openModal, type }) {
     setSelectedType(value);
     if (value === "buchete") {
       setSubTypeOptions([
-        { value: "buchete-flori-uscate", label: "Flori uscate" },
+        { value: "buchete-flori-diverse", label: "Flori uscate" },
         { value: "buchete-trandafiri", label: "Trandafiri" },
         { value: "buchete-flori-primavara", label: "Primavara" },
         { value: "buchete-flori-vara", label: "Vara" },
