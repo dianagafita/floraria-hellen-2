@@ -32,7 +32,7 @@ const validFlowerTypes = [
   { title: "aranjamente-craciun", img: img1 },
   { title: "aranjamente-dragobete", img: drag },
   { title: "aranjamente-nou-nascut", img: img3 },
-  { title: "aranjamente-flori-uscate", img: img2 },
+  { title: "aranjamente-flori-diverse", img: img2 },
   { title: "aranjamente-trandafiri", img: img },
   { title: "aranjamente-flori-primavara", img: primavara },
   { title: "aranjamente-flori-vara", img: img2 },

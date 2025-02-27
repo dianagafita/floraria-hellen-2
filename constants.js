@@ -42,10 +42,10 @@ export const SIDENAV_ITEMS = [
       //   title: "Dragobete",
       //   path: "/aranjamente/aranjamente-dragobete",
       // },
-      // {
-      //   title: "Flori uscate",
-      //   path: "/aranjamente/aranjamente-flori-uscate",
-      // },
+      {
+        title: "Flori diverse",
+        path: "/aranjamente/aranjamente-flori-diverse",
+      },
 
       // {
       //   title: "Trandafiri",
