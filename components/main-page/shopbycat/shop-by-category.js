@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import img from "./craciuna.jpeg";
+import img from "./martie3.jpeg";
 import img1 from "./craciunb.jpeg";
 import img2 from "./craciunp.jpeg";
 import buchetmireasa1 from "./some.png";
 import aranjmasa from "./aranjmasa1.jpeg";
-import img4 from "./craciunc.jpeg";
+import img4 from "./martie4.jpeg";
 import cris from "./cris.jpeg";
 import botez from "./botez1.jpeg";
 import nunta from "./nunta.jpeg";
@@ -25,15 +25,15 @@ const categories = {
   FLORI: [
     {
       src: img,
-      alt: "Aranjamente",
-      text: "Aranjamente",
+      alt: "Buchete",
+      text: "Buchete",
       id: 1,
-      link: "/aranjamente",
+      link: "/buchete",
     },
     {
       src: img4,
       alt: "Aranjamente",
-      text: "Coronite",
+      text: "Aranjamente",
       id: 2,
       link: "/aranjamente",
     },
