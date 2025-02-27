@@ -47,10 +47,10 @@ export const SIDENAV_ITEMS = [
         path: "/aranjamente/aranjamente-flori-diverse",
       },
 
-      // {
-      //   title: "Trandafiri",
-      //   path: "/aranjamente/aranjamente-trandafiri",
-      // },
+      {
+        title: "Trandafiri",
+        path: "/aranjamente/aranjamente-trandafiri",
+      },
       {
         title: "Flori de primavara",
         path: "/aranjamente/aranjamente-flori-primavara",
