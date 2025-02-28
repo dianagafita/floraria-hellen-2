@@ -13,6 +13,8 @@ import botez from "./botez1.jpeg";
 import nunta from "./nunta.jpeg";
 import lumanari from "./lum.jpeg";
 import buchetmireasa from "./bucmir.jpeg";
+import martisor from "./mr3.jpeg";
+import martisor2 from "./mr2.jpeg";
 
 import { ChevronRight } from "lucide-react";
 import EmblaCarousel from "../sec-car";
@@ -34,8 +36,22 @@ const categories = {
       src: img4,
       alt: "Aranjamente",
       text: "Aranjamente",
-      id: 2,
+      id: 3,
       link: "/aranjamente",
+    },
+    {
+      src: martisor,
+      alt: "Aranjamente",
+      text: "Martisoare",
+      id: 2,
+      link: "/ocazii-speciale/martie",
+    },
+    {
+      src: martisor2,
+      alt: "Buchete",
+      text: "Buchete de primavara",
+      id: 4,
+      link: "/buchete/buchete-flori-primavara",
     },
   ],
   NUNTI: [
@@ -175,7 +191,7 @@ const ShopByCategory = () => {
                     className="object-cover rounded-sm transition-opacity duration-300"
                   />
                   <div
-                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-25 text-5xl font-[100] rounded-sm ${
+                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-10 text-5xl font-[100] rounded-sm ${
                       hoveredIndex === image.id ? "opacity-0" : "opacity-100"
                     }`}
                   ></div>
@@ -223,7 +239,7 @@ const ShopByCategory = () => {
                     className="object-cover rounded-sm transition-opacity duration-300"
                   />
                   <div
-                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100] rounded-sm ${
+                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-10 text-5xl font-[100] rounded-sm ${
                       hoveredIndex === image.id ? "opacity-0" : "opacity-100"
                     }`}
                   ></div>
