@@ -136,7 +136,7 @@ export default function OrderDetailsModal({ openModal, order, type }) {
                           }}
                         >
                           <p style={{ marginLeft: "5px", display: "inline" }}>
-                            {item.product.name}
+                            {item.name}
                           </p>
                         </div>
                       </td>
@@ -159,7 +159,7 @@ export default function OrderDetailsModal({ openModal, order, type }) {
                           textAlign: "center",
                         }}
                       >
-                        {item.product.price} RON
+                        {item.price} RON
                       </td>
                       <td
                         style={{
