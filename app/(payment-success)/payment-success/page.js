@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import img from "./cr.jpg";
+import img from "./martie.jpeg";
 
 export default function PaymentSuccessPage({ searchParams }) {
   const [orderUpdated, setOrderUpdated] = useState(false);
@@ -44,7 +44,7 @@ export default function PaymentSuccessPage({ searchParams }) {
 
   return (
     <main
-      style={{ background: `url(${img.src})`, backgroundSize: "contain" }}
+      style={{ background: `url(${img.src})`, backgroundSize: "cover" }}
       className="relative h-[100vh]"
     >
       <div className="absolute inset-0 flex items-center justify-center text-black text-center bg-black bg-opacity-50">
