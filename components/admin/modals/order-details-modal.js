@@ -120,7 +120,7 @@ export default function OrderDetailsModal({ openModal, order, type }) {
                           }}
                         >
                           <img
-                            src={item.product.images_url[0]}
+                            src={item.images_url[0]}
                             style={{
                               height: "6rem",
                               width: "4rem",
