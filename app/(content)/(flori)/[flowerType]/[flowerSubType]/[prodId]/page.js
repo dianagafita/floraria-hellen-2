@@ -227,6 +227,10 @@ export default function ProductPage({ params }) {
               Anumite flori din buchet/aranjament pot fi imbobocite dar se vor
               deschide.
             </span>
+            <span className="text-sm font-[100]">
+              Anumite culori sau modele la ambalaje, suporti sau cutii pot fi
+              diferite fata de cele din imagine in functie de stocul disponibil.
+            </span>
           </span>
           <span className="mt-10 flex items-center">
             ID:
