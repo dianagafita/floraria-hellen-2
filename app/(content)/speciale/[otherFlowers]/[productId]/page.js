@@ -116,6 +116,9 @@ export default function ProductPage({ params }) {
                     { value: "Capu Campului", label: "Capu Campului" },
                     { value: "Capu Codrului", label: "Capu Codrului" },
                     { value: "Vama", label: "Vama" },
+                    { value: "Cacica", label: "Cacica" },
+                    { value: "Partesti de Jos", label: "Partest de Jos" },
+                    { value: "Partesti de Sus", label: "Partesti de Sus" },
                   ]}
                   value={formData.deliveryCity}
                   onChange={handleChange}
