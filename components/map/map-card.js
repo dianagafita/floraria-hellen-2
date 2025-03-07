@@ -26,7 +26,7 @@ export default function MapCard() {
               Interval orar:<span className="font-[200]"> 08:00-20:00</span>{" "}
             </span>
             <span className="font-[400] mb-2">
-              Telefon:<span className="font-[200]"> 064 - 638 - 990</span>{" "}
+              Telefon:<span className="font-[200]"> 0744 - 873 - 462</span>{" "}
             </span>
             <span className="font-[400]">
               Email:
