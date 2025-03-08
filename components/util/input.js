@@ -122,11 +122,7 @@ export default function Input({
   const { today, time } = getCurrentDate();
   const offerDate = getDateForOffer();
   const nextDay = getNextDay();
-  const minDate = dateType === "order" ? nextDay : offerDate;
-
-  // Restrict date selection if it's March 8 and past 3 PM
-
-  let defaultSelectedValue = "";
+  const minDate = dateType === "order" && time >= "19:00" ? nextDay : today;
 
   if (type === "select") {
     const filteredOptions = options.filter((option) =>
