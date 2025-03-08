@@ -122,7 +122,7 @@ export default function Input({
   const { today, time } = getCurrentDate();
   const offerDate = getDateForOffer();
   const nextDay = getNextDay();
-  const minDate = dateType === "order" && time >= "15:00" ? nextDay : today;
+  const minDate = dateType === "order" ? today : offerDate;
 
   // Restrict date selection if it's March 8 and past 3 PM
 
@@ -197,7 +197,7 @@ export default function Input({
         <input
           {...props}
           type={type}
-          min={minDate} // Disable past 3PM on March 8
+          min={minDate}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
