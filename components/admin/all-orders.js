@@ -94,8 +94,12 @@ export default function AllOrders({ orders }) {
                     <td className="px-4 py-4">{order.total_price}</td>
                     <td className="px-4 py-4 ">
                       {order.order_state === "paid" ? (
-                        <span className=" text-white bg-[#006600] py-2 px-6 rounded-md">
-                          PLATITA{" "}
+                        <span className="text-white bg-[#006600] py-2 px-6 rounded-md">
+                          PLATITA
+                        </span>
+                      ) : order.order_state === "delivered" ? (
+                        <span className="text-white bg-[#006600] py-2 px-6 rounded-md">
+                          LIVRATA
                         </span>
                       ) : (
                         <span className="text-white bg-[#5A0707] py-2 px-5 rounded-md">
