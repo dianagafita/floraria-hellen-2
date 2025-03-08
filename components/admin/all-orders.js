@@ -98,7 +98,7 @@ export default function AllOrders({ orders }) {
                           PLATITA
                         </span>
                       ) : order.order_state === "delivered" ? (
-                        <span className="text-white bg-[#006600] py-2 px-6 rounded-md">
+                        <span className="text-white bg-[#1E90FF] py-2 px-6 rounded-md">
                           LIVRATA
                         </span>
                       ) : (
