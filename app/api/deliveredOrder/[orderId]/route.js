@@ -33,6 +33,7 @@ export async function PUT(req, { params }) {
         },
       },
     });
+    console.log(orderReceipt);
     const resendClient = new Resend(process.env.RESEND_API_KEY);
     console.log("Livrata...");
     const userEmailResponse = await resendClient.emails.send({
