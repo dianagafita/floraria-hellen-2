@@ -127,7 +127,7 @@ export default function OrderDeliveredEmail({ order }) {
                         }}
                       >
                         <img
-                          src={item.product.images_url[0]}
+                          src={item.images_url[0]}
                           style={{
                             height: "6rem",
                             width: "4rem",
@@ -143,7 +143,7 @@ export default function OrderDeliveredEmail({ order }) {
                         }}
                       >
                         <p style={{ marginLeft: "5px", display: "inline" }}>
-                          {item.product.name}
+                          {item.name}
                         </p>
                       </div>
                     </td>
@@ -166,7 +166,7 @@ export default function OrderDeliveredEmail({ order }) {
                         textAlign: "center",
                       }}
                     >
-                      {item.product.price} RON
+                      {item.price} RON
                     </td>
                     <td
                       style={{
