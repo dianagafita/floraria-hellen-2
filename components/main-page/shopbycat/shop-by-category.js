@@ -15,6 +15,7 @@ import lumanari from "./lum.jpeg";
 import buchetmireasa from "./bucmir.jpeg";
 import martisor from "./mr3.jpeg";
 import martisor2 from "./mr2.jpeg";
+import paste from "./paste.jpeg";
 
 import { ChevronRight } from "lucide-react";
 import EmblaCarousel from "../sec-car";
@@ -40,11 +41,11 @@ const categories = {
       link: "/aranjamente",
     },
     {
-      src: martisor,
+      src: paste,
       alt: "Aranjamente",
-      text: "Martisoare",
+      text: "Aranjamente Paste",
       id: 2,
-      link: "/ocazii-speciale/martie",
+      link: "/ocazii-speciale/paste",
     },
     {
       src: martisor2,

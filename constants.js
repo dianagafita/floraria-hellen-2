@@ -80,7 +80,7 @@ export const SIDENAV_ITEMS = [
       //   path: "/ocazii-speciale/sf-valentin",
       // },
       { title: "Flori de 8 Martie", path: "/ocazii-speciale/martie" },
-      // { title: "Flori de Paste", path: "/ocazii-speciale/paste" },
+      { title: "Flori de Paste", path: "/ocazii-speciale/paste" },
     ],
   },
 

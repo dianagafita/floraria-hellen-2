@@ -12,13 +12,13 @@ import imgSmall2 from "./three.jpeg";
 import imgSmall3 from "./nunta.jpeg";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
-
+import paste from "./paste.jpeg";
 // Define two sets of images: one for larger screens, one for smaller screens
 const largeImages = [
   {
-    img: vday.src,
-    title: "FLORI DE 8 MARTIE",
-    upperTitle: "Pentru clipe de iubire!",
+    img: paste.src,
+    title: "FLORI DE PASTE",
+    upperTitle: "Pentru o primavara de poveste!",
     subtitle: "CUMPARA",
   },
   // { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
@@ -31,9 +31,9 @@ const largeImages = [
 ];
 const smallImages = [
   {
-    img: vday,
-    title: "FLORI DE 8 MARTIE",
-    upperTitle: "Pentru clipe de iubire!",
+    img: paste,
+    title: "FLORI DE PASTE",
+    upperTitle: "Pentru o primavara de poveste!",
     subtitle: "CUMPARA",
   },
   // { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
@@ -100,13 +100,7 @@ const EmblaCarousel = (props) => {
                     {imgs.upperTitle}
                   </span>
                   <span className="absolute fontElegant tracking-widest  pb-10 px-5  flex flex-col text-2xl md:text-3xl">
-                    <span>
-                      FLORI DE{" "}
-                      <span className="text-5xl text-[rgb(125,0,0,0.9)]">
-                        8
-                      </span>{" "}
-                      MARTIE{" "}
-                    </span>
+                    {imgs.title}
                     <Link
                       href="/ocazii-speciale/martie"
                       className="fontSimple text-[13px] text-end font-[100] text-white hover:text-[rgba(255,255,255,0.7)] underline underline-offset-2"

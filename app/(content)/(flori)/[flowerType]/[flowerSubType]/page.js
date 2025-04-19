@@ -16,6 +16,7 @@ import martie from "./martie.jpeg";
 import img3 from "./5.jpeg";
 import drag from "./pr.jpeg";
 import primavara from "./pr.jpeg";
+import paste from "./paste.jpeg";
 
 const validFlowerTypes = [
   { title: "buchete-flori-diverse", img: img },
@@ -38,7 +39,7 @@ const validFlowerTypes = [
   { title: "aranjamente-flori-vara", img: img2 },
   { title: "aranjamente-flori-toamna", img: img2 },
   { title: "craciun", img: img },
-  { title: "paste", img: img },
+  { title: "paste", img: paste },
   { title: "martie", img: martie },
   { title: "sf-valentin", img: img },
   { title: "coroane" },
