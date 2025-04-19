@@ -33,7 +33,7 @@ const smallImages = [
   {
     img: paste,
     title: "FLORI DE PASTE",
-    upperTitle: "Pentru o primavara de poveste!",
+    upperTitle: "Pentru clipe de poveste!",
     subtitle: "CUMPARA",
   },
   // { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
