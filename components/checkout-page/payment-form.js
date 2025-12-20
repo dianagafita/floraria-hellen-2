@@ -5,9 +5,8 @@ import {
   useStripe,
   PaymentElement,
 } from "@stripe/react-stripe-js";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../util/button";
-import Loading from "@/lib/loading";
 
 export default function PaymentForm({
   amount,
@@ -21,21 +20,7 @@ export default function PaymentForm({
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState("");
-  const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
-  const [orderId, setOrderId] = useState(null);
-
-  useEffect(() => {
-    fetch("/api/payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ amount, email: senderInfo.personSendingEmail }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, [amount]);
 
   const createOrder = async () => {
     const products = cartItems.map((item) => ({
@@ -48,7 +33,7 @@ export default function PaymentForm({
         item.product.formData.deliveryMessage,
         String(item.product.formData.deliveryType),
       ],
-      extras: item.product.extras || [], // Ensure extras is always defined
+      extras: item.product.extras || [],
     }));
 
     const orderData = {
@@ -73,23 +58,24 @@ export default function PaymentForm({
     const data = await response.json();
     if (data.error) {
       console.error("Error creating order:", data.error);
+      return null;
     } else {
-      setOrderId(data.id);
       localStorage.removeItem("cart");
-
-      return data.id; // Return the orderId
+      return data.id;
     }
   };
 
   async function handleSubmit(event) {
     event.preventDefault();
     setLoading(true);
+    setErrorMessage("");
+
     if (!stripe || !elements) {
+      setLoading(false);
       return;
     }
 
-    const newOrderId = await createOrder(); // Await the order creation and get the orderId
-
+    // Validate the payment form first
     const { error: submitError } = await elements.submit();
     if (submitError) {
       setErrorMessage(submitError.message);
@@ -97,9 +83,17 @@ export default function PaymentForm({
       return;
     }
 
+    // Create the order
+    const newOrderId = await createOrder();
+    if (!newOrderId) {
+      setErrorMessage("Eroare la crearea comenzii. Încercați din nou.");
+      setLoading(false);
+      return;
+    }
+
+    // Confirm the payment
     const { error } = await stripe.confirmPayment({
       elements,
-      clientSecret,
       confirmParams: {
         return_url: `https://www.hellenproparty.ro/payment-success?orderId=${newOrderId}`,
       },
@@ -111,24 +105,19 @@ export default function PaymentForm({
     }
   }
 
-  if (!clientSecret || !stripe || !elements) {
-    return <Loading />;
-  }
-
   return (
     <form onSubmit={handleSubmit} className="text-center">
-      {clientSecret && <PaymentElement />}
-      {errorMessage && <div>{errorMessage}</div>}
-      {!stripe && loading ? (
-        <Loading />
-      ) : (
-        <Button
-          moreStyle="w-[75vw] md:w-[35vw] mt-10 mb-2 whitespace-nowrap py-[0.4rem] text-[15px]"
-          type="submit"
-        >
-          {!loading ? `Plateste ${amount} lei` : "Procesare..."}
-        </Button>
+      <PaymentElement />
+      {errorMessage && (
+        <div className="text-red-600 text-sm mt-2">{errorMessage}</div>
       )}
+      <Button
+        moreStyle="w-[75vw] md:w-[35vw] mt-10 mb-2 whitespace-nowrap py-[0.4rem] text-[15px]"
+        type="submit"
+        disabled={!stripe || loading}
+      >
+        {!loading ? `Plateste ${amount} lei` : "Procesare..."}
+      </Button>
     </form>
   );
 }

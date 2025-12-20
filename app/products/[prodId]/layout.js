@@ -3,7 +3,6 @@ import MobileHeader from "@/components/header/header-mobile";
 import CartModal from "@/components/cart/cart-modal";
 import "@/app/globals.css";
 import MainFooter from "@/components/footer/main-footer";
-import { CartProvider } from "@/context/cart-context";
 
 export const metadata = {
   title: "Floraria Hellen",
@@ -13,22 +12,16 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function ProductLayout({ children }) {
   return (
-    <html lang="auto">
-      <head>
-        <link rel="icon" href="/icon.png" sizes="any" />
-      </head>
-      <body className="relative">
-        <div className="flex flex-col">
-          <CartProvider>
-            <CartModal />
-            <Header /> <main className="relative z-1 ">{children}</main>
-          </CartProvider>
-          <MainFooter />
-        </div>
-        <MobileHeader />
-      </body>
-    </html>
+    <>
+      <div className="flex flex-col">
+        <CartModal />
+        <Header />
+        <main className="relative z-1">{children}</main>
+        <MainFooter />
+      </div>
+      <MobileHeader />
+    </>
   );
 }

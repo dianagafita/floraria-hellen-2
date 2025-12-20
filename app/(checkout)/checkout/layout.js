@@ -4,14 +4,14 @@ import { verifyAuth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Floraria Hellen",
+  title: "Checkout - Floraria Hellen",
   description: "Florarie online cu livrare la domiciliu",
   icons: {
     icon: "icon.png",
   },
 };
 
-export default async function RootLayout({ children }) {
+export default async function CheckoutLayout({ children }) {
   const { user } = await verifyAuth();
 
   if (!user) {
@@ -19,14 +19,9 @@ export default async function RootLayout({ children }) {
   }
 
   return (
-    <html lang="auto">
-      <head>
-        <link rel="icon" href="/icon.png" sizes="any" />
-      </head>
-      <body>
-        <main>{children}</main>
-        <MainFooter />
-      </body>
-    </html>
+    <>
+      <main>{children}</main>
+      <MainFooter />
+    </>
   );
 }
