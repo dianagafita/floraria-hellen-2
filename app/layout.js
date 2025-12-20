@@ -50,11 +50,79 @@ const cormorantLocal = localFont({
 });
 
 export const metadata = {
-  title: "Floraria Hellen",
+  metadataBase: new URL("https://www.hellenproparty.ro"),
+  title: {
+    default: "Floraria Hellen | Buchete si Aranjamente Florale Gura Humorului",
+    template: "%s | Floraria Hellen",
+  },
   description:
-    "Florarie online - buchete, aranjamente florale si decoratiuni pentru evenimente",
+    "Florarie online cu livrare la domiciliu in Gura Humorului si imprejurimi. Buchete de flori, aranjamente florale, decoratiuni pentru nunti, botezuri si evenimente speciale.",
+  keywords: [
+    "florarie",
+    "florarie online",
+    "buchete flori",
+    "aranjamente florale",
+    "livrare flori",
+    "Gura Humorului",
+    "flori nunta",
+    "flori botez",
+    "decoratiuni evenimente",
+    "trandafiri",
+    "flori Suceava",
+    "florarie Bucovina",
+  ],
+  authors: [{ name: "Floraria Hellen" }],
+  creator: "Floraria Hellen",
+  publisher: "Floraria Hellen",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: "/icon.png",
+    apple: "/icon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ro_RO",
+    url: "https://www.hellenproparty.ro",
+    siteName: "Floraria Hellen",
+    title: "Floraria Hellen | Buchete si Aranjamente Florale",
+    description:
+      "Florarie online cu livrare la domiciliu. Buchete de flori, aranjamente florale si decoratiuni pentru evenimente speciale.",
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "Floraria Hellen Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Floraria Hellen | Buchete si Aranjamente Florale",
+    description:
+      "Florarie online cu livrare la domiciliu. Buchete de flori, aranjamente florale si decoratiuni pentru evenimente speciale.",
+    images: ["/icon.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "GTM-KGVW7QXH",
+  },
+  alternates: {
+    canonical: "https://www.hellenproparty.ro",
   },
 };
 
