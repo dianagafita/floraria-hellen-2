@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import img from "./christmas.jpg";
+import Loading from "@/lib/loading";
 
-export default function PaymentSuccessPage() {
+function PaymentSuccessContent() {
   const [orderUpdated, setOrderUpdated] = useState(false);
   const searchParams = useSearchParams();
   const orderId = searchParams.get("orderId");
@@ -68,5 +69,13 @@ export default function PaymentSuccessPage() {
         </span>
       </div>
     </main>
+  );
+}
+
+export default function PaymentSuccessPage() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <PaymentSuccessContent />
+    </Suspense>
   );
 }
