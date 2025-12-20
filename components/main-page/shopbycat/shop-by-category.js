@@ -3,11 +3,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import img from "./martie3.jpeg";
-import img1 from "./craciunb.jpeg";
+import img1 from "./craciuna.jpeg";
 import img2 from "./craciunp.jpeg";
 import buchetmireasa1 from "./some.png";
 import aranjmasa from "./aranjmasa1.jpeg";
-import img4 from "./martie4.jpeg";
+import img4 from "./craciun.jpeg";
 import cris from "./cris.jpeg";
 import botez from "./botez1.jpeg";
 import nunta from "./nunta.jpeg";
@@ -16,7 +16,7 @@ import buchetmireasa from "./bucmir.jpeg";
 import martisor from "./mr3.jpeg";
 import martisor2 from "./mr2.jpeg";
 import paste from "./paste.jpeg";
-
+import coroane from "./craciunc.jpeg";
 import { ChevronRight } from "lucide-react";
 import EmblaCarousel from "../sec-car";
 import Title from "@/components/util/title";
@@ -27,32 +27,39 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const categories = {
   FLORI: [
     {
-      src: img,
-      alt: "Buchete",
-      text: "Buchete",
+      src: img1,
+      alt: "Aranjamente",
+      text: "Aranjamente",
       id: 1,
-      link: "/buchete",
+      link: "/aranjamente/aranjamente-craciun",
     },
     {
-      src: img4,
+      src: img2,
       alt: "Aranjamente",
       text: "Aranjamente",
       id: 3,
-      link: "/aranjamente",
+      link: "/aranjamente/aranjamente-craciun",
     },
     {
-      src: paste,
-      alt: "Aranjamente",
-      text: "Aranjamente Paste",
+      src: img4,
+      alt: "Craciun",
+      text: "Aranjamente Craciun",
       id: 2,
-      link: "/ocazii-speciale/paste",
+      link: "/aranjamente/aranjamente-craciun",
     },
     {
-      src: martisor2,
-      alt: "Buchete",
-      text: "Buchete de primavara",
+      src: coroane,
+      alt: "Coronite",
+      text: "Coronite de craciun",
       id: 4,
-      link: "/buchete/buchete-flori-primavara",
+      link: "/aranjamente/aranjamente-craciun",
+    },
+    {
+      src: coroane,
+      alt: "Coronite",
+      text: "Coronite de craciun",
+      id: 4,
+      link: "/aranjamente/aranjamente-craciun",
     },
   ],
   NUNTI: [
