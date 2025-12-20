@@ -12,13 +12,14 @@ import imgSmall2 from "./three.jpeg";
 import imgSmall3 from "./nunta.jpeg";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
-import paste from "./paste.jpeg";
+import craciun from "./craciun3.jpeg";
+import larges from "./craciunmain.jpeg";
 // Define two sets of images: one for larger screens, one for smaller screens
 const largeImages = [
   {
-    img: paste.src,
-    title: "FLORI DE PASTE",
-    upperTitle: "Pentru o primavara de poveste!",
+    img: larges.src,
+    title: "FLORI DE CRACIUN",
+    upperTitle: "Pentru sarbatori de poveste!",
     subtitle: "CUMPARA",
   },
   // { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
@@ -31,8 +32,8 @@ const largeImages = [
 ];
 const smallImages = [
   {
-    img: paste,
-    title: "FLORI DE PASTE",
+    img: larges,
+    title: "FLORI DE CRACIUN",
     upperTitle: "Pentru clipe de poveste!",
     subtitle: "CUMPARA",
   },
@@ -95,8 +96,8 @@ const EmblaCarousel = (props) => {
                 <Image src={imgs.img} alt="" layout="fill" objectFit="cover" />
                 <div className="absolute inset-0 flex justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100]"></div>
 
-                <div className="relative flex flex-col  md:top-30 right-3 items-end font-[100] text-white w-full">
-                  <span className="absolute top-[-50px] md:top-[-70px]  tracking-wide  right-0 fontWedding text-[50px]  md:text-[70px] text-end text-white w-full pb-0 mb-0 ">
+                <div className="relative flex flex-col  md:top-30 md:right-40 right-10 items-end font-[100] text-white w-full">
+                  <span className="absolute top-[-50px] md:top-[-70px]  tracking-wide  left-0 fontWedding text-[50px]  md:text-[70px] text-end text-white w-full pb-0 mb-0 ">
                     {imgs.upperTitle}
                   </span>
                   <span className="absolute fontElegant tracking-widest  pb-10 px-5  flex flex-col text-2xl md:text-3xl">
