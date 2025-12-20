@@ -2,8 +2,9 @@ import { NextResponse } from "next/server";
 import { getProductById } from "../../store/products";
 
 export async function GET(req, { params }) {
+  const { prodId } = await params;
   try {
-    const user = await getProductById(parseInt(params.prodId));
+    const user = await getProductById(parseInt(prodId));
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }

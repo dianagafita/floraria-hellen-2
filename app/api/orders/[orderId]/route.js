@@ -8,7 +8,7 @@ import { Resend } from "resend";
 export const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function GET(req, { params }) {
-  const { orderId } = params;
+  const { orderId } = await params;
 
   try {
     const order = await prisma.order.findUnique({
@@ -39,7 +39,7 @@ export async function GET(req, { params }) {
 }
 
 export async function PUT(req, { params }) {
-  const { orderId } = params;
+  const { orderId } = await params;
 
   try {
     const order = await prisma.order.update({

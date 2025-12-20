@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createOrder, getAllOrders } from "@/app/api/store/orders";
 
 export async function GET(req, { params }) {
-  const { userId } = params;
+  const { userId } = await params;
   if (!userId) {
     return NextResponse.json({ error: "No ID provided" }, { status: 400 });
   }

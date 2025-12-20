@@ -1,19 +1,20 @@
 import prisma from "@/lib/prisma";
 
 export async function GET(req, { params }) {
+  const { query } = await params;
   try {
     const products = await prisma.product.findMany({
       where: {
         OR: [
           {
             name: {
-              contains: params.query,
+              contains: query,
               mode: "insensitive",
             },
           },
           {
             productId: {
-              contains: params.query,
+              contains: query,
               mode: "insensitive",
             },
           },
@@ -26,13 +27,13 @@ export async function GET(req, { params }) {
         OR: [
           {
             name: {
-              contains: params.query,
+              contains: query,
               mode: "insensitive",
             },
           },
           {
             productId: {
-              contains: params.query,
+              contains: query,
               mode: "insensitive",
             },
           },

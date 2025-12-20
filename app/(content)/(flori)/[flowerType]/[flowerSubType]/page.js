@@ -46,7 +46,7 @@ const validFlowerTypes = [
 ];
 
 export default async function RosesBouquetsPage({ params }) {
-  const { flowerSubType, flowerType } = params;
+  const { flowerSubType, flowerType } = await params;
 
   const { title, subTitle } = getTitleOfPath(
     `/${flowerType}`,

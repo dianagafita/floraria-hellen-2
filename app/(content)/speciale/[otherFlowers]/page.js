@@ -16,7 +16,8 @@ const titles = [
 ];
 
 export default async function OtherFlowersPage({ params }) {
-  const flowerType = params.otherFlowers || "";
+  const { otherFlowers } = await params;
+  const flowerType = otherFlowers || "";
 
   if (!validFlowerTypes.includes(flowerType)) {
     redirect("/");

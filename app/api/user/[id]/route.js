@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getUserById, updateUserData } from "../../store/user";
 
 export async function GET(req, { params }) {
-  const { id } = params;
+  const { id } = await params;
   if (!id) {
     return NextResponse.json({ error: "No ID provided" }, { status: 400 });
   }

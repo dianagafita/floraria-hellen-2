@@ -17,7 +17,7 @@ const validChristeningComponent = [
 ];
 
 export default async function ChristeningPage({ params }) {
-  const { christeningComponent } = params;
+  const { christeningComponent } = await params;
   if (!validChristeningComponent.includes(christeningComponent)) {
     redirect("/");
   }

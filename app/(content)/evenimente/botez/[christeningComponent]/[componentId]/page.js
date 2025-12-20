@@ -5,8 +5,9 @@ import { getComponentById } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 
 export default async function ComponentPage({ params }) {
-  const title = decodeURIComponent(params.componentId);
-  const componentDetails = await getComponentById(params.componentId);
+  const { componentId } = await params;
+  const title = decodeURIComponent(componentId);
+  const componentDetails = await getComponentById(componentId);
 
   const paths = [
     { href: "/evenimente", title: "EVENIMENTE", style: "text-black-300/75" },
@@ -17,7 +18,7 @@ export default async function ComponentPage({ params }) {
       style: "text-black",
     },
     {
-      href: `/evenimente/nunta/aranjamente-masa/${params.componentId}`,
+      href: `/evenimente/nunta/aranjamente-masa/${componentId}`,
       title: title,
       style: "text-black",
     },

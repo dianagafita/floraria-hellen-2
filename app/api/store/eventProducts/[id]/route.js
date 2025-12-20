@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function DELETE(req, { params }) {
-  const { id } = params;
+  const { id } = await params;
 
   try {
     await prisma.eventproduct.delete({

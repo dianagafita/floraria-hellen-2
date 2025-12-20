@@ -18,7 +18,7 @@ const validFlowerTypes = [
 ];
 
 export default async function FlowerBouquetsPage({ params }) {
-  const { flowerType } = params;
+  const { flowerType } = await params;
   if (!validFlowerTypes.includes(flowerType)) {
     redirect("/");
   }

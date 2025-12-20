@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import { PiBagThin } from "react-icons/pi";
 import { CiCreditCard1 } from "react-icons/ci";
@@ -8,7 +9,8 @@ import { FaCheck } from "react-icons/fa6";
 import Image from "next/image";
 import Loading from "@/lib/loading";
 
-export default function OrderDetailsPage({ params }) {
+export default function OrderDetailsPage() {
+  const params = useParams();
   const orderId = params.orderId;
   const [order, setOrder] = useState(null);
 

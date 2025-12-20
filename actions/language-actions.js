@@ -1,6 +1,7 @@
 "use server";
 import { cookies } from "next/headers";
 
-export const getPrefLangCookie = () => {
-  return cookies().get("googtrans")?.value ?? "ro";
+export const getPrefLangCookie = async () => {
+  const cookieStore = await cookies();
+  return cookieStore.get("googtrans")?.value ?? "ro";
 };

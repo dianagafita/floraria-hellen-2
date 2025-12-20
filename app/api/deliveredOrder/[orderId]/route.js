@@ -6,7 +6,7 @@ import { delay } from "../../orders/[orderId]/route";
 import StoreDeliveredEmail from "@/components/emailTemplates/store-delivered-email";
 
 export async function PUT(req, { params }) {
-  const { orderId } = params;
+  const { orderId } = await params;
   console.log("AAA");
   console.log(orderId);
   try {

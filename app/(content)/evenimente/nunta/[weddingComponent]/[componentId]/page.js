@@ -5,7 +5,8 @@ import { getComponentById } from "@/app/api/events/products";
 import Loading from "@/lib/loading";
 
 export default async function ComponentPage({ params }) {
-  const componentDetails = await getComponentById(params.componentId);
+  const { componentId } = await params;
+  const componentDetails = await getComponentById(componentId);
 
   if (!componentDetails) {
     return <Loading />;

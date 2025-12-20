@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import Input from "@/components/util/input";
 import { FeaturedImageGallery } from "@/components/pages/photoGallery";
 import { useCart } from "@/context/cart-context";
@@ -8,7 +9,8 @@ import Loading from "@/lib/loading";
 import ExtraItemModal from "@/app/(content)/(flori)/[flowerType]/[flowerSubType]/[prodId]/extra-item-modal";
 import { EXTRA_ITEMS } from "@/constants";
 
-export default function ProductPage({ params }) {
+export default function ProductPage() {
+  const params = useParams();
   const { addToCart } = useCart();
   const [flowers, setFlowers] = useState(null);
   const [formData, setFormData] = useState({

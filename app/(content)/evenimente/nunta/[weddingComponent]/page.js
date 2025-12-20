@@ -26,7 +26,7 @@ const validWeddingComponent = [
 ];
 
 export default async function WeddingPage({ params }) {
-  const { weddingComponent } = params;
+  const { weddingComponent } = await params;
   if (!validWeddingComponent.includes(weddingComponent)) {
     redirect("/");
   }
