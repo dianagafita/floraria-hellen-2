@@ -51,7 +51,11 @@ const cormorantLocal = localFont({
 
 export const metadata = {
   title: "Floraria Hellen",
-  description: "Florarie online - buchete, aranjamente florale si decoratiuni pentru evenimente",
+  description:
+    "Florarie online - buchete, aranjamente florale si decoratiuni pentru evenimente",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -61,11 +65,9 @@ export default function RootLayout({ children }) {
       className={`${cormorantGaramond.variable} ${roboto.variable} ${alegreyaSans.variable} ${caravan.variable} ${cormorantLocal.variable}`}
     >
       <head>
-        {/* Preload critical images */}
         <link
-          rel="preload"
-          as="image"
-          href="/_next/static/media/craciunmain.22d0caf2.jpeg"
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
       </head>
       <body className={roboto.className}>

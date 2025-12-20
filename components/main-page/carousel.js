@@ -93,7 +93,13 @@ const EmblaCarousel = (props) => {
           {imagesToUse.map((imgs, index) => (
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number ">
-                <Image src={imgs.img} alt="" layout="fill" objectFit="cover" />
+                <Image
+                  src={imgs.img}
+                  alt=""
+                  fill
+                  style={{ objectFit: "cover" }}
+                  priority={index === 0}
+                />
                 <div className="absolute inset-0 flex justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100]"></div>
 
                 <div className="relative flex flex-col  md:top-30 md:right-40 right-10 items-end font-[100] text-white w-full">

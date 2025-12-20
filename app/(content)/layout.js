@@ -14,29 +14,15 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function ContentLayout({ children }) {
   return (
-    <html lang="auto">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,900"
-        />
-
-        <link rel="icon" href="/icon.png" sizes="any" />
-      </head>
-      <body className="relative">
-        <CartModal />
-        <Header />
-        <ToastContainer />
-        <main className="relative z-1 "> {children}</main>
-        <MainFooter />
-        <MobileHeader />
-      </body>
-    </html>
+    <>
+      <CartModal />
+      <Header />
+      <ToastContainer />
+      <main className="relative z-1">{children}</main>
+      <MainFooter />
+      <MobileHeader />
+    </>
   );
 }
