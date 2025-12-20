@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import img from "./martie.jpeg";
+import img from "./christmas.jpg";
 
 export default function PaymentSuccessPage() {
   const [orderUpdated, setOrderUpdated] = useState(false);
