@@ -45,6 +45,7 @@ export default function PaymentForm({
       recipientInfo,
       totalPrice: parseFloat(amount),
       orderState: "placed",
+      guestEmail: senderInfo.personSendingEmail,
     };
 
     const response = await fetch("/api/orders", {

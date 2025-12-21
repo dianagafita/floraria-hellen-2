@@ -36,16 +36,22 @@ export async function createOrder(
   senderInfo,
   recipientInfo,
   totalPrice,
-  orderState
+  orderState,
+  guestEmail
 ) {
   console.log("PROD", products);
   try {
-    const user = await prisma.user.findUnique({
-      where: { id: userId },
-    });
-    if (!user) {
-      console.error(`User with ID ${userId} not found`);
-      return { error: `User with ID ${userId} not found` };
+    const parsedUserId = userId ? parseInt(userId, 10) : null;
+    let user = null;
+
+    if (parsedUserId) {
+      user = await prisma.user.findUnique({
+        where: { id: parsedUserId },
+      });
+      if (!user) {
+        console.error(`User with ID ${parsedUserId} not found`);
+        return { error: `User with ID ${parsedUserId} not found` };
+      }
     }
 
     const orderItemsData = await Promise.all(
@@ -110,19 +116,25 @@ export async function createOrder(
       )
     );
 
-    const newOrder = await prisma.order.create({
-      data: {
-        user: { connect: { id: userId } },
-        order_items: {
-          create: orderItemsData,
-        },
-        shipping_fee: shippingFee,
-        cart_total: cartTotal,
-        sender_info: senderInfo,
-        recipient_info: recipientInfo,
-        total_price: totalPrice,
-        order_state: orderState,
+    const orderData = {
+      order_items: {
+        create: orderItemsData,
       },
+      shipping_fee: shippingFee,
+      cart_total: cartTotal,
+      sender_info: senderInfo,
+      recipient_info: recipientInfo,
+      total_price: totalPrice,
+      order_state: orderState,
+      guest_email: guestEmail || senderInfo?.personSendingEmail || null,
+    };
+
+    if (user) {
+      orderData.user = { connect: { id: user.id } };
+    }
+
+    const newOrder = await prisma.order.create({
+      data: orderData,
     });
     console.log(newOrder);
     return newOrder;
