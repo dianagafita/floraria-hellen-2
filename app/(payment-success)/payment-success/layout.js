@@ -1,7 +1,10 @@
-export default function RootLayout({ children }) {
-  return (
-    <html lang="auto">
-      <body>{children}</body>
-    </html>
-  );
+import "@/app/globals.css";
+
+export const metadata = {
+  title: "Plată finalizată - Floraria Hellen",
+  description: "Mulțumim pentru comandă!",
+};
+
+export default function PaymentSuccessLayout({ children }) {
+  return <>{children}</>;
 }

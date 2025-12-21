@@ -65,22 +65,27 @@ export async function PUT(req, { params }) {
         },
       },
     });
+    const senderName =
+      orderReceipt?.sender_info?.personSendingFirstName?.trim() || "client";
     const resendClient = new Resend(process.env.RESEND_API_KEY);
     console.log("Sending user confirmation email...");
     const userEmailResponse = await resendClient.emails.send({
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
       to: [orderReceipt.sender_info.personSendingEmail],
       subject: "Comanda plasata cu succes",
-      react: OrderReceiptEmail({ order: orderReceipt, firstName: "Jhon" }),
+      react: OrderReceiptEmail({ order: orderReceipt, firstName: senderName }),
     });
     console.log("User email response:", userEmailResponse);
-    await delay(2000); // Delay for 1 second
+    await delay(2000);
 
     const storeEmailResponse = await resendClient.emails.send({
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
       to: ["proparty10@gmail.com"],
       subject: `COMANDA ${orderId} `,
-      react: NewOrderReceiptEmail({ order: orderReceipt, firstName: "ana" }),
+      react: NewOrderReceiptEmail({
+        order: orderReceipt,
+        firstName: senderName,
+      }),
     });
     console.log("Store email response:", storeEmailResponse);
 

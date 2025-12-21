@@ -38,22 +38,26 @@ export default function ItemCard({
                   : `/${flowerType}/${img.name}/${img.id}`
               }
             >
-              <Image
-                className={`bg-white ${
-                  moreStyle === "searchItem" ? "object-cover" : "object-cover"
-                } h-full transition-opacity duration-300 opacity-100 hover:opacity-0`}
-                src={img.images_url[0]}
-                alt="Original Image"
-                fill
-              />
-              <Image
-                className={`bg-white ${
-                  moreStyle === "searchItem" ? "object-cover" : "object-cover"
-                }  w-full h-full transition-opacity duration-300 opacity-0 hover:opacity-100`}
-                src={img.images_url[1]}
-                alt="Hover Image"
-                fill
-              />
+              {img.images_url?.[0] && (
+                <Image
+                  className={`bg-white ${
+                    moreStyle === "searchItem" ? "object-cover" : "object-cover"
+                  } h-full transition-opacity duration-300 opacity-100 hover:opacity-0`}
+                  src={img.images_url[0]}
+                  alt="Original Image"
+                  fill
+                />
+              )}
+              {img.images_url?.[1] && (
+                <Image
+                  className={`bg-white ${
+                    moreStyle === "searchItem" ? "object-cover" : "object-cover"
+                  }  w-full h-full transition-opacity duration-300 opacity-0 hover:opacity-100`}
+                  src={img.images_url[1]}
+                  alt="Hover Image"
+                  fill
+                />
+              )}
             </Link>
           </div>
           <div className="px-2 2xl:p-10 w-full h-1/3">

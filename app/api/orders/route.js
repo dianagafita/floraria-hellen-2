@@ -32,6 +32,7 @@ export async function POST(req) {
     recipientInfo,
     totalPrice,
     orderState,
+    guestEmail,
   } = await req.json();
 
   try {
@@ -43,11 +44,19 @@ export async function POST(req) {
       senderInfo,
       recipientInfo,
       totalPrice,
-      orderState
+      orderState,
+      guestEmail
     );
 
+    if (order?.error) {
+      return NextResponse.json({ error: order.error }, { status: 400 });
+    }
+
     if (!order) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
+      return NextResponse.json(
+        { error: "Order could not be created" },
+        { status: 404 }
+      );
     }
     return NextResponse.json(order, { status: 200 });
   } catch (error) {

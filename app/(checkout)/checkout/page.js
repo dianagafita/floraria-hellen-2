@@ -12,9 +12,6 @@ import { useValidUser } from "@/context/auth-context";
 
 export default function CheckoutPage() {
   const { user } = useValidUser();
-  if (!user) {
-    redirect("/authentification");
-  }
 
   const { cartItems, cartTotal } = useCart();
   if (cartItems.length === 0) {
@@ -65,7 +62,7 @@ export default function CheckoutPage() {
           cartTotal={cartTotal}
         />
         <CheckoutForm
-          userId={user}
+          userId={user || null}
           address={address}
           cartTotal={cartTotal}
           cartItems={cartItems}

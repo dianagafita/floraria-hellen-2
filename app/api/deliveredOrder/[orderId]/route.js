@@ -28,11 +28,13 @@ export async function PUT(req, { params }) {
       include: {
         order_items: {
           include: {
-            extras: true, // Include extras for each order item
+            extras: true,
           },
         },
       },
     });
+    const senderName =
+      orderReceipt?.sender_info?.personSendingFirstName?.trim() || "client";
     console.log(orderReceipt);
     const resendClient = new Resend(process.env.RESEND_API_KEY);
     console.log("Livrata...");
@@ -40,16 +42,22 @@ export async function PUT(req, { params }) {
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
       to: [orderReceipt.sender_info.personSendingEmail],
       subject: `Comanda ${orderId} livrata`,
-      react: OrderDeliveredEmail({ order: orderReceipt, firstName: "Jhon" }),
+      react: OrderDeliveredEmail({
+        order: orderReceipt,
+        firstName: senderName,
+      }),
     });
     console.log("Livrata email response:", userEmailResponse);
-    await delay(2000); // Delay for 1 second
+    await delay(2000);
 
     const storeEmailResponse = await resendClient.emails.send({
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
       to: ["proparty10@gmail.com"],
       subject: `COMANDA ${orderId} `,
-      react: StoreDeliveredEmail({ order: orderReceipt, firstName: "ana" }),
+      react: StoreDeliveredEmail({
+        order: orderReceipt,
+        firstName: senderName,
+      }),
     });
     console.log("Store email response:", storeEmailResponse);
 

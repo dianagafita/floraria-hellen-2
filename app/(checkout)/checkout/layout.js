@@ -1,7 +1,5 @@
 import "@/app/globals.css";
 import MainFooter from "@/components/footer/main-footer";
-import { verifyAuth } from "@/lib/auth";
-import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "Checkout - Floraria Hellen",
@@ -11,13 +9,7 @@ export const metadata = {
   },
 };
 
-export default async function CheckoutLayout({ children }) {
-  const { user } = await verifyAuth();
-
-  if (!user) {
-    redirect("/authentification");
-  }
-
+export default function CheckoutLayout({ children }) {
   return (
     <>
       <main>{children}</main>
