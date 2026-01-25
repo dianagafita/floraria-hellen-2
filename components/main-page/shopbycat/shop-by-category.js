@@ -3,11 +3,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import img from "./martie3.jpeg";
-import img1 from "./craciuna.jpeg";
-import img2 from "./craciunp.jpeg";
+import img1 from "./buctr.webp";
+import img2 from "./buchetr.webp";
 import buchetmireasa1 from "./some.png";
 import aranjmasa from "./aranjmasa1.jpeg";
-import img4 from "./craciun.jpeg";
+import img4 from "./aranjtr.webp";
 import cris from "./cris.jpeg";
 import botez from "./botez1.jpeg";
 import nunta from "./nunta.jpeg";
@@ -16,11 +16,12 @@ import buchetmireasa from "./bucmir.jpeg";
 import martisor from "./mr3.jpeg";
 import martisor2 from "./mr2.jpeg";
 import paste from "./paste.jpeg";
-import coroane from "./craciunc.jpeg";
+import coroane from "./aranjtr2.webp";
 import { ChevronRight } from "lucide-react";
 import EmblaCarousel from "../sec-car";
 import Title from "@/components/util/title";
 import Link from "next/link";
+
 const SLIDE_COUNT = 5;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
@@ -28,38 +29,31 @@ const categories = {
   FLORI: [
     {
       src: img1,
-      alt: "Aranjamente",
-      text: "Aranjamente",
+      alt: "Buchete trandafiri",
+      text: "Buchete trandafiri",
       id: 1,
-      link: "/aranjamente/aranjamente-craciun",
+      link: "/buchete/buchete-trandafiri",
     },
     {
       src: img2,
-      alt: "Aranjamente",
-      text: "Aranjamente",
+      alt: "Buchete trandafiri",
+      text: "Buchete trandafiri",
       id: 3,
-      link: "/aranjamente/aranjamente-craciun",
+      link: "/buchete/buchete-trandafiri",
     },
     {
       src: img4,
       alt: "Craciun",
-      text: "Aranjamente Craciun",
+      text: "Aranjamente trandafiri",
       id: 2,
-      link: "/aranjamente/aranjamente-craciun",
+      link: "/aranjamente/aranjamente-trandafiri",
     },
     {
       src: coroane,
       alt: "Coronite",
-      text: "Coronite de craciun",
+      text: "Aranjamente trandafiri",
       id: 4,
-      link: "/aranjamente/aranjamente-craciun",
-    },
-    {
-      src: coroane,
-      alt: "Coronite",
-      text: "Coronite de craciun",
-      id: 4,
-      link: "/aranjamente/aranjamente-craciun",
+      link: "/aranjamente/aranjamente-trandafiri",
     },
   ],
   NUNTI: [
@@ -148,40 +142,28 @@ const ShopByCategory = () => {
           ))}
         </div>
 
-        <div className="md:hidden m-5">
-          <EmblaCarousel
-            images={displayedImages}
-            slides={displayedImages}
-            options={OPTIONS}
-            handleMouseEnter={handleMouseEnter}
-            handleMouseLeave={handleMouseLeave}
-            hoveredIndex={hoveredIndex}
-          />
-        </div>
-
-        <div className="hidden md:grid grid-cols-1 gap-4 w-screen p-5">
+        {/* Responsive grid layout - sm: 2, md: 3, lg: 4 per row */}
+        <div className="p-5">
           <AnimatePresence>
             <motion.div
               key={selectedCategory}
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="relative grid grid-cols-3 gap-4 font-[200]"
+              className="flex flex-wrap gap-4 font-[200]"
             >
-              {displayedImages.slice(0, 2).map((image) => (
+              {displayedImages.map((image) => (
                 <div
                   key={image.id}
                   onMouseEnter={() => handleMouseEnter(image.id)}
                   onMouseLeave={handleMouseLeave}
-                  className={`relative w-full h-96 ${
-                    image.id === 1 ? "col-span-2" : "col-span-1"
-                  }`}
+                  className="relative w-full md:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)] aspect-[2/3]"
                 >
-                  <span className="absolute top-2 left-2 z-10 text-white px-2 py-1 font-[200]">
+                  <span className="absolute top-4 left-4 z-10 text-white px-2 py-1 font-[200]">
                     <span>{image.text}</span>
                     <Link
-                      href={`${image.link}`}
+                      href={`${image.link || "#"}`}
                       className="mt-2 text-[12px] font-[100] flex items-center"
                     >
                       CUMPARA{" "}
@@ -199,55 +181,7 @@ const ShopByCategory = () => {
                     className="object-cover rounded-sm transition-opacity duration-300"
                   />
                   <div
-                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-10 text-5xl font-[100] rounded-sm ${
-                      hoveredIndex === image.id ? "opacity-0" : "opacity-100"
-                    }`}
-                  ></div>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              key={`${selectedCategory}-2`}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-2 gap-4 w-full h-full font-[200]"
-            >
-              {displayedImages.slice(2, 4).map((image) => (
-                <div
-                  key={image.id}
-                  onMouseEnter={() => handleMouseEnter(image.id)}
-                  onMouseLeave={handleMouseLeave}
-                  className="relative w-full h-96"
-                >
-                  <span className="absolute top-2 left-2 z-10 text-white px-2 py-1 font-[200]">
-                    <span>{image.text}</span>
-                    <Link
-                      href={`/${
-                        image.text.toLowerCase() === "plante"
-                          ? "speciale/plante"
-                          : image.text.toLowerCase()
-                      }`}
-                      className="mt-2 text-[12px] font-[100] flex items-center"
-                    >
-                      CUMPARA{" "}
-                      <ChevronRight
-                        size={16}
-                        strokeWidth={1.5}
-                        className="ml-1"
-                      />
-                    </Link>
-                  </span>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover rounded-sm transition-opacity duration-300"
-                  />
-                  <div
-                    className={`absolute inset-0 flex items-center justify-center text-white text-center bg-black bg-opacity-10 text-5xl font-[100] rounded-sm ${
+                    className={`absolute inset-0 bg-black bg-opacity-10 rounded-sm transition-opacity duration-300 ${
                       hoveredIndex === image.id ? "opacity-0" : "opacity-100"
                     }`}
                   ></div>

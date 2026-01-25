@@ -14,12 +14,13 @@ import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
 import craciun from "./craciun3.jpeg";
 import larges from "./craciunmain.jpeg";
+import larges2 from "./v-day2.jpeg";
 // Define two sets of images: one for larger screens, one for smaller screens
 const largeImages = [
   {
-    img: larges.src,
-    title: "FLORI DE CRACIUN",
-    upperTitle: "Pentru sarbatori de poveste!",
+    img: larges2.src,
+    title: "FLORI DE DRAGOBETE",
+    upperTitle: "Pentru sarbatori de iubire!",
     subtitle: "CUMPARA",
   },
   // { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
@@ -32,9 +33,9 @@ const largeImages = [
 ];
 const smallImages = [
   {
-    img: larges,
-    title: "FLORI DE CRACIUN",
-    upperTitle: "Pentru clipe de poveste!",
+    img: larges2,
+    title: "FLORI DE DRAGOBETE",
+    upperTitle: "Pentru clipe de iubire!",
     subtitle: "CUMPARA",
   },
   // { img: imgSmall2, title: "ARANJAMENTE FLORALE", subtitle: "CUMPARA" },
@@ -102,15 +103,15 @@ const EmblaCarousel = (props) => {
                 />
                 <div className="absolute inset-0 flex justify-center text-white text-center bg-black bg-opacity-30 text-5xl font-[100]"></div>
 
-                <div className="relative flex flex-col  md:top-30 md:right-40 right-10 items-end font-[100] text-white w-full">
-                  <span className="absolute top-[-50px] md:top-[-70px]  tracking-wide  left-0 fontWedding text-[50px]  md:text-[70px] text-end text-white w-full pb-0 mb-0 ">
+                <div className="absolute top-10 right-10 md:top-16 md:right-10 flex flex-col items-end font-[100] text-white">
+                  <span className="fontWedding text-[40px] md:text-[60px] text-end text-white leading-none">
                     {imgs.upperTitle}
                   </span>
-                  <span className="absolute fontElegant tracking-widest  pb-10 px-5  flex flex-col text-2xl md:text-3xl">
+                  <span className="fontElegant tracking-widest flex flex-col text-xl md:text-3xl text-end -mt-1">
                     {imgs.title}
                     <Link
-                      href="/ocazii-speciale/martie"
-                      className="fontSimple text-[13px] text-end font-[100] text-white hover:text-[rgba(255,255,255,0.7)] underline underline-offset-2"
+                      href="/buchete/buchete-trandafiri"
+                      className="fontSimple text-[13px] text-end font-[100] text-white hover:text-[rgba(255,255,255,0.7)] underline underline-offset-2 mt-2"
                     >
                       {imgs.subtitle}
                     </Link>
