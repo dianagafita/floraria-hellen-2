@@ -96,7 +96,7 @@ export default function PaymentForm({
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `https://www.hellenproparty.ro/payment-success?orderId=${newOrderId}`,
+        return_url: `${window.location.origin}/payment-success?orderId=${newOrderId}`,
       },
     });
 

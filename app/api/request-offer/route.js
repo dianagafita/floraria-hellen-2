@@ -310,7 +310,7 @@ export async function POST(req) {
 
     await resend.emails.send({
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
-      to: ["proparty10@gmail.com"],
+      to: [process.env.STORE_EMAIL || "proparty10@gmail.com"],
       subject: "Oferta Dvs.",
       text: "Aceasta este cererea de oferta de la client:",
       attachments: [

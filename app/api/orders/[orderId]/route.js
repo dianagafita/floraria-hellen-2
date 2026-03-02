@@ -33,7 +33,7 @@ export async function GET(req, { params }) {
     console.error("Error fetching order:", error);
     return NextResponse.json(
       { error: "Failed to fetch order" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -80,7 +80,7 @@ export async function PUT(req, { params }) {
 
     const storeEmailResponse = await resendClient.emails.send({
       from: "Floraria Hellen  <florariahellen@hellenproparty.ro>",
-      to: ["proparty10@gmail.com"],
+      to: [process.env.STORE_EMAIL || "proparty10@gmail.com"],
       subject: `COMANDA ${orderId} `,
       react: NewOrderReceiptEmail({
         order: orderReceipt,
@@ -96,7 +96,7 @@ export async function PUT(req, { params }) {
     console.error("Error updating order or sending email:", error);
     return NextResponse.json(
       { error: "Failed to update order or send email" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
