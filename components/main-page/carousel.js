@@ -14,12 +14,12 @@ import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
 import craciun from "./craciun3.jpeg";
 import larges from "./craciunmain.jpeg";
-import larges2 from "./v-day2.jpeg";
+import larges2 from "./8m.jpeg";
 // Define two sets of images: one for larger screens, one for smaller screens
 const largeImages = [
   {
     img: larges2.src,
-    title: "FLORI DE DRAGOBETE",
+    title: "FLORI DE 1 si 8 MARTIE",
     upperTitle: "Pentru sarbatori de iubire!",
     subtitle: "CUMPARA",
   },
@@ -34,7 +34,7 @@ const largeImages = [
 const smallImages = [
   {
     img: larges2,
-    title: "FLORI DE DRAGOBETE",
+    title: "FLORI DE 1 si 8 MARTIE",
     upperTitle: "Pentru clipe de iubire!",
     subtitle: "CUMPARA",
   },
@@ -69,7 +69,7 @@ const EmblaCarousel = (props) => {
       if (!emblaMainApi || !emblaThumbsApi) return;
       emblaMainApi.scrollTo(index);
     },
-    [emblaMainApi, emblaThumbsApi]
+    [emblaMainApi, emblaThumbsApi],
   );
 
   const onSelect = useCallback(() => {
