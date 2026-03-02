@@ -20,7 +20,7 @@ export default function ContentLayout({ children }) {
       <CartModal />
       <Header />
       <ToastContainer />
-      <main className="relative z-1">{children}</main>
+      <main className="relative z-1 pt-[4.5rem] md:pt-[6.5rem]">{children}</main>
       <MainFooter />
       <MobileHeader />
     </>

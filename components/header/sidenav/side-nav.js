@@ -225,7 +225,7 @@ import { SIDENAV_ITEMS } from "@/constants";
 import { motion } from "framer-motion";
 import Searchbar from "../searchbar/search-bar";
 
-export default function SideNav({ isSearching, isVisible, openSearch }) {
+export default function SideNav({ isSearching, isVisible, openSearch, transparent = false }) {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [isSideNavHovered, setIsSideNavHovered] = useState(false);
   const [isSubMenuHovered, setIsSubMenuHovered] = useState(false);
@@ -260,20 +260,21 @@ export default function SideNav({ isSearching, isVisible, openSearch }) {
   return (
     <>
       <div
-        className="w-full bg-transparent flex pb-3 borde-b md:flex hidden flex-col"
+        className="w-full bg-transparent flex pb-2 md:flex hidden flex-col"
         onMouseEnter={() => setIsSideNavHovered(true)}
         onMouseLeave={() => setIsSideNavHovered(false)}
       >
-        <div className="flex items-between justify-center w-full">
+        <div className="flex items-center justify-center w-full">
           <div className="flex flex-row items-center">
             {SIDENAV_ITEMS.map((item, idx) => (
-              <div key={idx} className="lg:mx-3 md:mx-2">
+              <div key={idx} className="lg:mx-4 md:mx-3">
                 <MenuItem
                   item={item}
                   onClose={() => setActiveSubMenu(null)}
                   setActiveSubMenu={setActiveSubMenu}
                   activeSubMenu={activeSubMenu}
                   updateSubmenuPosition={updateSubmenuPosition}
+                  transparent={transparent}
                 />
               </div>
             ))}
@@ -303,7 +304,7 @@ export default function SideNav({ isSearching, isVisible, openSearch }) {
   );
 }
 
-function MenuItem({ item, setActiveSubMenu, onClose, updateSubmenuPosition }) {
+function MenuItem({ item, setActiveSubMenu, onClose, updateSubmenuPosition, transparent }) {
   const itemRef = useRef(null);
   const pathname = usePathname();
 
@@ -319,48 +320,40 @@ function MenuItem({ item, setActiveSubMenu, onClose, updateSubmenuPosition }) {
     }
   };
 
+  const baseText = transparent
+    ? "text-white/80 hover:text-white"
+    : "text-neutral-600 hover:text-neutral-900";
+
+  const activeText = transparent
+    ? "text-white underline decoration-white/60 underline-offset-4 decoration-[1px]"
+    : "text-neutral-900 underline decoration-[rgb(130,6,6)] underline-offset-4 decoration-[1.5px]";
+
   return (
     <div
       ref={itemRef}
-      className="relative font-[200] md:text-[11.2px] lg:text-[12px] 2xl:text-[18px] my-2"
+      className={`relative text-[11px] tracking-[0.12em] uppercase font-[300] my-1 transition-colors ${baseText}`}
       onMouseEnter={handleMouseEnter}
     >
       {item.submenu ? (
         <div
-          className={`relative link-underline flex flex-row items-center w-full justify-between whitespace-nowrap ${
-            pathname === item.path
-              ? "underline decoration-[rgb(130,6,6)] underline-offset-4 decoration-[1.5px]"
-              : " link-underline-black"
+          className={`flex flex-row items-center whitespace-nowrap ${
+            pathname === item.path ? activeText : ""
           }`}
-          style={{ overflow: "hidden" }}
         >
-          <div className="flex flex-row space-x-4 items-center">
-            {item.icon}
-            {item.title === "EVENIMENTE" ? (
-              <span className="cursor-default text-l flex relative text-transform: uppercase">
-                {item.title}
-              </span>
-            ) : (
-              <Link
-                href={item.path}
-                className="text-l flex relative text-transform: uppercase"
-              >
-                {item.title}
-              </Link>
-            )}
-          </div>
+          {item.title === "EVENIMENTE" ? (
+            <span className="cursor-default">{item.title}</span>
+          ) : (
+            <Link href={item.path}>{item.title}</Link>
+          )}
         </div>
       ) : (
         <Link
           href={item.path}
-          className={`whitespace-nowrap flex flex-row space-x-1 items-center text-transform: uppercase ${
-            item.path === pathname
-              ? "font-800 underline decoration-[rgb(130,6,6)] underline-offset-4 decoration-[1.5px]"
-              : "link-underline link-underline-black"
+          className={`whitespace-nowrap flex items-center gap-1 ${
+            item.path === pathname ? activeText : ""
           }`}
         >
-          {item.icon}
-          <span className="flex">{item.title}</span>
+          {item.title}
         </Link>
       )}
     </div>
