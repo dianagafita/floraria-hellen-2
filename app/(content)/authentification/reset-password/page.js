@@ -4,17 +4,18 @@ import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
 const ResetPasswordPage = async ({ searchParams }) => {
-  if (searchParams.token) {
+  const params = await searchParams;
+  if (params.token) {
     const user = await prisma.user.findUnique({
       where: {
-        resetPasswordToken: searchParams.token,
+        resetPasswordToken: params.token,
       },
     });
     if (!user) {
       redirect("/authentification/reset-password");
     }
 
-    return <ChangePasswordForm resetPasswordToken={searchParams.token} />;
+    return <ChangePasswordForm resetPasswordToken={params.token} />;
   } else {
     return <ResetPasswordForm />;
   }
