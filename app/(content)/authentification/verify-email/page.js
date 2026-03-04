@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function VerifyEmailPage({ searchParams }) {
-  const { token } = searchParams;
+export default function VerifyEmailPage() {
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
   const router = useRouter();
   const [error, setError] = useState(null);
 

@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function ConfirmDeliveryPage({ searchParams }) {
+export default function ConfirmDeliveryPage() {
+  const searchParams = useSearchParams();
   const [orderUpdated, setOrderUpdated] = useState(false);
-  const { orderId } = searchParams;
+  const orderId = searchParams.get("orderId");
   const router = useRouter();
 
   useEffect(() => {
