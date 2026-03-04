@@ -153,14 +153,24 @@
 //   );
 // }
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ImageModal } from "./imageModal";
 
 export function FeaturedImageGallery({ images, type }) {
-  const [active, setActive] = useState(images[0]);
+  const [active, setActive] = useState(images?.[0] ?? null);
+  const [mainImageLoaded, setMainImageLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImageIndex, setModalImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (images?.[0]) setActive(images[0]);
+    setMainImageLoaded(false);
+  }, [images]);
+
+  useEffect(() => {
+    setMainImageLoaded(false);
+  }, [active]);
 
   const handleImageClick = (index) => {
     setModalImageIndex(index);
@@ -183,6 +193,10 @@ export function FeaturedImageGallery({ images, type }) {
     );
   };
 
+  if (!images?.length) return null;
+
+  const isFirstImageActive = active === images[0];
+
   return (
     <>
       <div
@@ -190,19 +204,23 @@ export function FeaturedImageGallery({ images, type }) {
           type === "event" ? "grid-cols-1" : "grid-cols-3"
         } grid  md:grid-cols-1 gap-1 md:gap-4 w-full`}
       >
-        <div className="col-span-2 md:col-span-1">
+        <div className="col-span-2 md:col-span-1 relative aspect-[4/3] min-h-[250px] md:min-h-[350px] bg-neutral-100">
+          {!mainImageLoaded && (
+            <div
+              className="absolute inset-0 animate-pulse bg-neutral-200"
+              aria-hidden
+            />
+          )}
           <Image
-            priority
+            priority={isFirstImageActive}
             src={active}
-            layout="responsive"
-            width={800}
-            height={600}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             alt="Gallery image"
-            className={`${
-              type === "event"
-                ? "min-h-[350px] max-h-[550px] min-w-[350px] object-cover"
-                : "max-h-[250px] md:max-h-[470px] object-contain "
-            }`}
+            className={`object-cover transition-opacity duration-200 ${
+              mainImageLoaded ? "opacity-100" : "opacity-0"
+            } ${type === "event" ? "" : "object-contain"}`}
+            onLoad={() => setMainImageLoaded(true)}
           />
         </div>
         <div
@@ -222,10 +240,8 @@ export function FeaturedImageGallery({ images, type }) {
               } md:h-24`}
             >
               <Image
-                priority
                 onClick={() => handleImageClick(index)}
                 src={imgelink}
-                layout={type === "event" ? "intrinsic" : "responsive"}
                 width={500}
                 height={200}
                 className="cursor-pointer rounded-sm object-cover object-center w-full !h-full md:!h-[100px]"

@@ -6,6 +6,7 @@ import { FeaturedImageGallery } from "@/components/pages/photoGallery";
 import { useCart } from "@/context/cart-context";
 import Button from "@/components/util/button";
 import Loading from "@/lib/loading";
+import { preloadProductImages } from "@/lib/preload-images";
 import ExtraItemModal from "@/app/(content)/(flori)/[flowerType]/[flowerSubType]/[prodId]/extra-item-modal";
 import { EXTRA_ITEMS } from "@/constants";
 
@@ -38,6 +39,10 @@ export default function ProductPage() {
 
     fetchProduct();
   }, [params.prodId]);
+
+  useEffect(() => {
+    if (flowers?.images_url?.length) preloadProductImages(flowers.images_url);
+  }, [flowers]);
 
   useEffect(() => {
     const isFormValid =
