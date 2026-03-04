@@ -1,4 +1,9 @@
 import prisma from "@/lib/prisma";
+import { hasValidImages } from "@/lib/product-images";
+
+function filterWithValidImages(products) {
+  return Array.isArray(products) ? products.filter(hasValidImages) : [];
+}
 
 export async function getAllEventProducts() {
   const products = await prisma.eventproduct.findMany({
@@ -19,7 +24,7 @@ export async function getComponentByType({ type, event }) {
     },
     include: { flowers: true },
   });
-  return products;
+  return filterWithValidImages(products);
 }
 
 export async function getAllCandles() {
@@ -30,18 +35,18 @@ export async function getAllCandles() {
     },
     include: { flowers: true },
   });
-  return products;
+  return filterWithValidImages(products);
 }
 
 export async function getComponentById(id) {
-  const products = await prisma.eventproduct.findUnique({
+  const component = await prisma.eventproduct.findUnique({
     where: {
       id: parseInt(id),
     },
     include: { flowers: true },
   });
-  console.log(products);
-  return products;
+  if (!component || !hasValidImages(component)) return null;
+  return component;
 }
 
 export async function getSearchedComponent(searchParam) {

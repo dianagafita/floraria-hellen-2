@@ -2,15 +2,13 @@ import Title from "@/components/util/title";
 import { FeaturedImageGallery } from "@/components/pages/photoGallery";
 import Link from "next/link";
 import { getComponentById } from "@/app/api/events/products";
-import Loading from "@/lib/loading";
+import { notFound } from "next/navigation";
 
 export default async function ComponentPage({ params }) {
   const { componentId } = await params;
   const componentDetails = await getComponentById(componentId);
 
-  if (!componentDetails) {
-    return <Loading />;
-  }
+  if (!componentDetails) notFound();
 
   return (
     <div className="flex flex-col h-full min-h-[70vh] mb-20">

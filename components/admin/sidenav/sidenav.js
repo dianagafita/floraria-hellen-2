@@ -1,7 +1,7 @@
 import { BsHouse } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { GiCardboardBoxClosed } from "react-icons/gi";
-import { TbUsers } from "react-icons/tb";
+import { TbUsers, TbPhotoOff } from "react-icons/tb";
 import Link from "next/link";
 import { TbBuildingChurch } from "react-icons/tb";
 
@@ -28,6 +28,13 @@ export default function SidenavAdmin() {
         className="text-[1.4rem] my-4 text-[#505050] hover:text-black"
       >
         <GiCardboardBoxClosed />
+      </Link>
+      <Link
+        href="/admin/dashboard/products-without-images"
+        className="text-[1.4rem] my-4 text-[#505050] hover:text-black"
+        title="Produse fără imagini valide"
+      >
+        <TbPhotoOff />
       </Link>
       <Link
         href="/admin/dashboard/users"

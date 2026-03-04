@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import Input from "@/components/util/input";
 import { FeaturedImageGallery } from "@/components/pages/photoGallery";
 import { useCart } from "@/context/cart-context";
@@ -25,15 +26,23 @@ export default function ProductPage() {
   const [temporaryExtras, setTemporaryExtras] = useState([]);
   const [extraItems] = useState(EXTRA_ITEMS);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [productNotFound, setProductNotFound] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
+        setProductNotFound(false);
         const res = await fetch(`/api/product/${params.prodId}`);
         const data = await res.json();
+        if (!res.ok) {
+          setFlowers(null);
+          setProductNotFound(true);
+          return;
+        }
         setFlowers(data);
       } catch (error) {
         console.error("Error fetching product:", error);
+        setProductNotFound(true);
       }
     };
 
@@ -84,6 +93,17 @@ export default function ProductPage() {
     setTemporaryExtras((prev) => [...prev, item]);
     setSelectedItem(null);
   };
+
+  if (productNotFound) {
+    return (
+      <div className="min-h-[50vh] flex flex-col items-center justify-center px-6 py-12 text-center">
+        <p className="text-lg text-neutral-600 mb-4">Produsul nu a fost găsit.</p>
+        <Link href="/" className="text-sm underline text-neutral-700 hover:text-neutral-900">
+          Înapoi la prima pagină
+        </Link>
+      </div>
+    );
+  }
 
   if (!flowers) {
     return <Loading />;

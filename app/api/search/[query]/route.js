@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { hasValidImages } from "@/lib/product-images";
 
 export async function GET(req, { params }) {
   const { query } = await params;
@@ -41,7 +42,9 @@ export async function GET(req, { params }) {
       },
     });
 
-    const combinedResults = [...products, ...eventproducts];
+    const combinedResults = [...products, ...eventproducts].filter(
+      (item) => hasValidImages(item)
+    );
     return new Response(JSON.stringify(combinedResults), {
       status: 200,
       headers: { "Content-Type": "application/json" },

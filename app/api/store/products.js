@@ -1,4 +1,9 @@
 import prisma from "@/lib/prisma";
+import { hasValidImages } from "@/lib/product-images";
+
+function filterProductsWithImages(products) {
+  return Array.isArray(products) ? products.filter(hasValidImages) : [];
+}
 
 export async function getAllProducts() {
   const products = await prisma.product.findMany({
@@ -53,10 +58,10 @@ export async function getProductsByType({ type }) {
     },
     include: { flowers: true },
     orderBy: {
-      id: "desc", // Sorting by ID in descending order as an alternative
+      id: "desc",
     },
   });
-  return products;
+  return filterProductsWithImages(products);
 }
 
 export async function getProductsBySubType({ type, subtype }) {
@@ -67,10 +72,10 @@ export async function getProductsBySubType({ type, subtype }) {
     },
     include: { flowers: true },
     orderBy: {
-      id: "desc", // Sorting by ID in descending order as an alternative
+      id: "desc",
     },
   });
-  return products;
+  return filterProductsWithImages(products);
 }
 
 export async function getProductById(id) {
