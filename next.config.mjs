@@ -1,6 +1,9 @@
 const nextConfig = {
   images: {
-    domains: ["res.cloudinary.com", "orchidrepublic.com"],
+    remotePatterns: [
+      { protocol: "https", hostname: "res.cloudinary.com", pathname: "/**" },
+      { protocol: "https", hostname: "orchidrepublic.com", pathname: "/**" },
+    ],
   },
   api: {
     bodyParser: {

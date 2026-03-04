@@ -8,18 +8,29 @@ export default function ProductsWithoutImagesPage() {
   const [products, setProducts] = useState([]);
   const [eventProducts, setEventProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setError(null);
         const res = await fetch("/api/admin/products-without-images");
-        if (res.ok) {
-          const data = await res.json();
-          setProducts(data.products ?? []);
-          setEventProducts(data.eventProducts ?? []);
+        const data = await res.json();
+        if (!res.ok) {
+          setError(data.error || "Eroare la încărcare");
+          return;
         }
+        console.log("[products-without-images] API response:", {
+          productsCount: (data.products ?? []).length,
+          eventProductsCount: (data.eventProducts ?? []).length,
+          products: data.products,
+          eventProducts: data.eventProducts,
+        });
+        setProducts(data.products ?? []);
+        setEventProducts(data.eventProducts ?? []);
       } catch (e) {
         console.error(e);
+        setError("Eroare la încărcarea datelor");
       } finally {
         setLoading(false);
       }
@@ -35,14 +46,23 @@ export default function ProductsWithoutImagesPage() {
     );
   }
 
+  if (error) {
+    return (
+      <div className="p-6">
+        <Title>Produse fără imagini valide</Title>
+        <p className="text-red-600 mt-2">{error}</p>
+      </div>
+    );
+  }
+
   const total = products.length + eventProducts.length;
 
   return (
     <div className="p-6">
       <Title moreStyle="mb-6">Produse fără imagini valide</Title>
       <p className="text-sm text-neutral-600 mb-6">
-        Aceste produse nu sunt afișate în magazin (lipsă imagine sau link invalid).
-        Total: <strong>{total}</strong>.
+        Produse fără niciun link de imagine valid (lipsă, gol sau fără http/https).
+        Nu sunt afișate în magazin. Total: <strong>{total}</strong>.
       </p>
 
       {products.length > 0 && (
