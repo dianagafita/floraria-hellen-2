@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function ConfirmDeliveryPage() {
+function ConfirmDeliveryContent() {
   const searchParams = useSearchParams();
   const [orderUpdated, setOrderUpdated] = useState(false);
   const orderId = searchParams.get("orderId");
@@ -39,6 +39,7 @@ export default function ConfirmDeliveryPage() {
       }, 2000);
     }
   }, [orderId]);
+
   return (
     <main className="min-h-[50vh] flex flex-col justify-center items-center max-w-6xl text-center p-10 text-white  m-10 rounded-md">
       <div className="mb-10">
@@ -50,5 +51,13 @@ export default function ConfirmDeliveryPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function ConfirmDeliveryPage() {
+  return (
+    <Suspense fallback={<main className="min-h-[50vh] flex items-center justify-center"><p className="text-black">Se încarcă...</p></main>}>
+      <ConfirmDeliveryContent />
+    </Suspense>
   );
 }
