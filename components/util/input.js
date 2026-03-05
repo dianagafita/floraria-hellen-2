@@ -1,4 +1,10 @@
-import { getCurrentDate, getDateForOffer, getNextDay } from "./currDate";
+import {
+  getCurrentDate,
+  getDateForOffer,
+  getNextDay,
+  LATEST_SAME_DAY_ORDER,
+  getMinIntervalStartForSameDay,
+} from "./currDate";
 
 export default function Input({
   more,
@@ -14,15 +20,22 @@ export default function Input({
 }) {
   const { today, time } = getCurrentDate();
   const offerDate = getDateForOffer();
-  const nextDay = getNextDay();
-  const minDate = dateType === "order" ? nextDay : offerDate;
+  const isPastSameDayCutoff = time >= LATEST_SAME_DAY_ORDER;
+  const minSameDayInterval = dateType === "order" ? getMinIntervalStartForSameDay(time) : null;
+  const sameDayUnavailable =
+    dateType === "order" && (isPastSameDayCutoff || minSameDayInterval === null);
+  const minDate =
+    dateType === "order" ? (sameDayUnavailable ? getNextDay() : today) : offerDate;
 
   let defaultSelectedValue = "";
 
   if (type === "select") {
-    const filteredOptions = options.filter((option) =>
-      time >= "20:00" ? option.value >= "12:00" : true
-    );
+    const filteredOptions = options.filter((option) => {
+      if (dateType !== "order") return true;
+      if (sameDayUnavailable) return option.value >= "12:00";
+      const optionStart = (option.value || "").split("-")[0]?.trim() || "";
+      return optionStart >= minSameDayInterval;
+    });
 
     defaultSelectedValue =
       filteredOptions.length > 0 ? filteredOptions[0].value : "";
@@ -53,9 +66,12 @@ export default function Input({
           className="focus:outline-none whitespace-nowrap focus:border-[#490606] focus:ring-1 focus:ring-[rgb(164,21,21)] font-thin border border-black p-2 rounded-sm h-[2.5rem] text-[#555555]"
         >
           {options
-            .filter((option) =>
-              time >= "20:00" ? option.value >= "12:00" : true
-            )
+            .filter((option) => {
+              if (dateType !== "order") return true;
+              if (sameDayUnavailable) return option.value >= "12:00";
+              const optionStart = (option.value || "").split("-")[0]?.trim() || "";
+              return optionStart >= minSameDayInterval;
+            })
             .map((option, index) => (
               <option key={index} value={option.value}>
                 {option.label}
