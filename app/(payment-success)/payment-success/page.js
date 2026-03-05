@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import img from "./martie.jpg";
+import img from "./martie.jpeg";
 import Loading from "@/lib/loading";
 
 function PaymentSuccessContent() {
