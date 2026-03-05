@@ -168,6 +168,7 @@ export default function ProductPage() {
                   name="deliveryInterval"
                   label="Interval orar livrare:"
                   type="select"
+                  dateType="order"
                   options={[
                     { value: "08:00-10:00", label: "08:00 - 10:00" },
                     { value: "10:00-12:00", label: "10:00 - 12:00" },
